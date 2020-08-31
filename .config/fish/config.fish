@@ -1,3 +1,10 @@
-alias doom  '/home/miguel/.emacs.d/bin/'
-alias gitconfig '/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
-
+alias doom='/home/miguel/.emacs.d/bin/doom'
+alias gitconfig='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
+alias vim='nvim'
+alias lsa='ls -A'
+alias mv='mv -i'
+alias rm='rm -i'
+alias cp='cp -i'
+alias df='df -h'
+alias ..='cd ..'
+alias ...='cd ../..'
