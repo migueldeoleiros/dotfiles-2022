@@ -2,7 +2,7 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
-set $mod Mod4
+set $mod Mod1
 
 # set default desktop layout (default is tiling)
 # workspace_layout tabbed <stacking|tabbed>
@@ -34,7 +34,7 @@ bindsym $mod+Shift+q kill
 
 # start program launcher
 #bindsym $mod+d exec --no-startup-id dmenu_recency
-#bindsym $mod+d exec  rofi -show drun -theme blue.rasi
+bindsym $mod+F1 exec  rofi -show drun
 
 # launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
@@ -60,6 +60,7 @@ bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness 
 bindsym $mod+F2 exec qutebrowser
 bindsym $mod+F3 exec dolphin
 bindsym $mod+m exec emacs
+bindsym $mod+F9 exec passmenu
 bindsym $mod+F12 exec setxkbmap us intl
 bindsym $mod+F11 exec setxkbmap us
 # bindsym $mod+F3 exec ranger
@@ -288,7 +289,7 @@ exec_always --no-startup-id picom --backend glx --experimental-backends -bc
 exec --no-startup-id tlp start
 
 #set background
-exec_always feh --bg-scale ~/Pictures/Wallpapers/applelike_invert_wallpaper4.png
+exec_always feh --bg-scale ~/Pictures/Wallpapers/applelike_invert_wallpaper5.png
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:

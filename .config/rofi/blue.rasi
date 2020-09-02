@@ -12,7 +12,7 @@ configuration {
 }
 
 * {
-	background:            rgba (0, 34, 51, 90 %);
+	background:            rgba (0, 34, 51, 70 %);
 	transparent-background:      rgba ( 0, 0, 0, 0 % );
 	text-color:                  #d3d7cf;
 	selbg:                       #ffffff;
