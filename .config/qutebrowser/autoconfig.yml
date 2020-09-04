@@ -19,4 +19,4 @@ settings:
         <Ctrl+8>: tab-focus 8
         <Ctrl+9>: tab-focus 9
   colors.webpage.darkmode.enabled:
-    global: true
+    global: false
