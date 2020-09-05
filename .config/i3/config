@@ -57,12 +57,13 @@ bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness 
 
 # Start Applications
 #bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
-bindsym $mod+F2 exec qutebrowser
-bindsym $mod+F3 exec dolphin
-bindsym $mod+m exec emacs
-bindsym $mod+F9 exec passmenu
-bindsym $mod+F12 exec setxkbmap us intl
-bindsym $mod+F11 exec setxkbmap us
+bindsym mod4+1 exec qutebrowser
+bindsym mod4+2 exec dolphin
+bindsym mod4+3 exec telegram-desktop
+bindsym mod4+m exec emacs
+bindsym mod4+p exec passmenu
+bindsym mod4+F12 exec setxkbmap us intl
+bindsym mod4+F11 exec setxkbmap us
 # bindsym $mod+F3 exec ranger
 #bindsym $mod+F5 exec terminal -e 'mocp'
 #bindsym $mod+t exec --no-startup-id pkill compton
