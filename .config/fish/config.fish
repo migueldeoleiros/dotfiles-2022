@@ -1,5 +1,5 @@
 alias doom='/home/miguel/.emacs.d/bin/doom'
-alias gitconfig='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
+alias gitc='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 alias vim='nvim'
 alias lsa='ls -A'
 alias mv='mv -i'
