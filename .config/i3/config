@@ -58,13 +58,12 @@ bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness 
 # Start Applications
 #bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
 bindsym mod4+q exec qutebrowser
-bindsym mod4+d exec dolphin
+bindsym mod4+f exec alacritty -e ranger
 bindsym mod4+t exec telegram-desktop
 bindsym mod4+m exec emacs
 bindsym mod4+shift+p exec passmenu
 bindsym mod4+F12 exec setxkbmap us intl
 bindsym mod4+F11 exec setxkbmap us
-# bindsym $mod+F3 exec ranger
 #bindsym $mod+F5 exec terminal -e 'mocp'
 #bindsym $mod+t exec --no-startup-id pkill compton
 #bindsym $mod+Ctrl+t exec --no-startup-id compton -b
@@ -74,7 +73,6 @@ bindsym mod4+F11 exec setxkbmap us
 #bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
 #bindsym $mod+Shift+/ exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
 #bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
-#bindsym $mod+mod1+1 exec qutebrowser
 
 # focus_follows_mouse no
 
