@@ -1,0 +1,18 @@
+#+TITLE:Dotfiles
+
+#+CAPTION: Desktop Screenshot
+#+ATTR_HTML: :alt Desktop Screenshot :title Desktop Screenshot :align left
+https://gitlab.com/migueldeoleiros/dotfiles/-/raw/master/.screenshots/Screenshot_20200906_130334.png
+
+This repository was made for me to more easily manage my dotfiles and configuration for my linux system, but you are more than welcome to take them as a reference or use them yourself. This are not all the dotfiles on my machine, only the ones that I personaly modified.
+
+* My Program Configs
+- [[https://gitlab.com/dwt1/dotfiles/-/tree/master/.config/fish][fish shell]]
+- [[https://gitlab.com/migueldeoleiros/dotfiles/-/tree/master/.config/i3][i3 window manager]]
+- [[https://gitlab.com/migueldeoleiros/dotfiles/-/tree/master/.config/omf][Oh My Fish]]
+- [[https://gitlab.com/migueldeoleiros/dotfiles/-/tree/master/.config/polybar][polybar]]
+- [[https://gitlab.com/migueldeoleiros/dotfiles/-/tree/master/.config/qutebrowser][qutebrowser]]
+- [[https://gitlab.com/migueldeoleiros/dotfiles/-/tree/master/.config/ranger][ranger file-manager]]
+- [[https://gitlab.com/migueldeoleiros/dotfiles/-/tree/master/.config/rofi][rofi]]
+- [[https://gitlab.com/migueldeoleiros/dotfiles/-/tree/master/.config/picom.conf][picom]]
+- [[https://gitlab.com/migueldeoleiros/dotfiles/-/tree/master/.doom.d][Doom Emacs]]
