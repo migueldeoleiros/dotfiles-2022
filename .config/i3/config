@@ -65,6 +65,7 @@ bindsym mod4+shift+p exec passmenu
 bindsym mod4+F12 exec setxkbmap us intl
 bindsym mod4+F11 exec setxkbmap us
 bindsym mod4+w exec . ~/Wallpapers/.i3_wallpapers.sh
+bindsym $mod+F11 exec deepin-screenshot
 #bindsym $mod+F5 exec terminal -e 'mocp'
 #bindsym $mod+t exec --no-startup-id pkill compton
 #bindsym $mod+Ctrl+t exec --no-startup-id compton -b
