@@ -6,9 +6,13 @@
 alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
 
+alias sudo='sudo '
+
 alias doom='/home/miguel/.emacs.d/bin/doom'
 alias gitc='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 alias vim='nvim'
+alias lsl='ls -l'
+alias lsla='ls -la'
 alias lsa='ls -A'
 alias mv='mv -i'
 alias rm='rm -i'
@@ -21,3 +25,4 @@ alias ...='cd ../..'
 alias xi='xbps-install'
 alias xr='xbps-remove'
 alias xq='xbps-query'
+
