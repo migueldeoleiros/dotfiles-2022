@@ -1,3 +1,3 @@
 configuration {
 }
-@import "/home/miguel/.local/share/rofi/themes/sideblur.rasi"
+@import "/home/miguel/.local/share/rofi/themes/extended-top.rasi"
