@@ -36,5 +36,5 @@ alias xr='xbps-remove'
 alias xq='xbps-query'
 
 #change wallpaper on i3 config
-alias wallpaper='. /Wallpaper/.i3_wallpapers.sh'
+alias wallpaper='. ~/Wallpapers/.i3_wallpapers.sh &'
 
