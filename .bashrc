@@ -3,7 +3,10 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-PS1='\u@\h \W:\$ '
+PS1="\[\033[38;5;34m\]\w\[$(tput sgr0)\] \[$(tput sgr0)\]\[\033[38;5;201m\]>\[$(tput sgr0)\]\[\033[38;5;226m\]>\[$(tput sgr0)\] "
+
+#basic setup
+shopt -s autocd
 
 #basic aliases
 alias sudo='sudo '
