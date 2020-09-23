@@ -57,6 +57,9 @@ bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness 
 
 # Start Applications
 #bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
+
+bindsym $mod+F2 exec ~/.scripts/fileLauncher.sh
+
 bindsym mod4+q exec qutebrowser
 bindsym mod4+f exec alacritty -e ranger
 bindsym mod4+t exec telegram-desktop
@@ -64,7 +67,7 @@ bindsym mod4+m exec emacs
 bindsym mod4+shift+p exec passmenu
 bindsym mod4+F12 exec setxkbmap us intl
 bindsym mod4+F11 exec setxkbmap us
-bindsym mod4+w exec . ~/Wallpapers/.i3_wallpapers.sh
+bindsym mod4+w exec ~/Wallpapers/.i3_wallpapers.sh
 bindsym $mod+F11 exec deepin-screenshot
 #bindsym $mod+F5 exec terminal -e 'mocp'
 #bindsym $mod+t exec --no-startup-id pkill compton
@@ -290,7 +293,7 @@ exec_always --no-startup-id picom --backend glx --experimental-backends -bc
 exec --no-startup-id tlp start
 
 #set background
-exec_always feh --bg-scale ~/Wallpapers/blue-gradient-wallpaper_ml.png
+exec_always feh --bg-scale ~/Wallpapers/applelike_invert_wallpaper3.png
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
