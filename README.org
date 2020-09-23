@@ -7,6 +7,7 @@
 This repository was made for me to more easily manage my dotfiles and configuration for my linux system, but you are more than welcome to take them as a reference or use them yourself. This are not all the dotfiles on my machine, only the ones that I personaly modified.
 
 * My Program Configs
+- [[https://gitlab.com/migueldeoleiros/dotfiles/-/blob/master/.bashrc][bash shell]]
 - [[https://gitlab.com/migueldeoleiros/dotfiles/-/tree/master/.config/fish][fish shell]]
 - [[https://gitlab.com/migueldeoleiros/dotfiles/-/tree/master/.config/i3][i3 window manager]]
 - [[https://gitlab.com/migueldeoleiros/dotfiles/-/tree/master/.config/omf][Oh My Fish]]
