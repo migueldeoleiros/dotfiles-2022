@@ -36,5 +36,8 @@ alias xr='xbps-remove'
 alias xq='xbps-query'
 
 #change wallpaper on i3 config
-alias wallpaper='. ~/Wallpapers/.i3_wallpapers.sh &'
+alias wallpaper='. ~/.scripts/i3_wallpapers.sh &'
 
+#Bedrock linux
+alias v='strat -r void'
+alias a='strat -r arch'
