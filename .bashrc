@@ -31,9 +31,10 @@ alias doom='/home/miguel/.emacs.d/bin/doom'
 alias gitc='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 
 #void linux
-alias xi='xbps-install'
-alias xr='xbps-remove'
-alias xq='xbps-query'
+alias xin='xbps-install'
+alias xre='xbps-remove'
+alias xqu='xbps-query'
+alias xbps-src='. ~/void-packages/xbps-src'
 
 #change wallpaper on i3 config
 alias wallpaper='. ~/.scripts/i3_wallpapers.sh &'
