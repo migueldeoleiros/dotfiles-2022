@@ -174,7 +174,7 @@ font:
 # Note: Orange is used in place of Cyan
 colors:
   primary:
-    background: '#161925'
+    background: '#0a091c'
     foreground: '#eeeeec'
   
   # Normal colors
