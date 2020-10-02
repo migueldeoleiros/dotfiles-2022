@@ -42,3 +42,6 @@ alias wallpaper='. ~/.scripts/i3_wallpapers.sh &'
 #Bedrock linux
 alias v='strat -r void'
 alias a='strat -r arch'
+
+#Programing scripts
+alias createc='bash ~/.scripts/cmake-project.sh'
