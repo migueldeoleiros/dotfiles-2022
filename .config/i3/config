@@ -65,6 +65,7 @@ bindsym mod4+q exec qutebrowser
 bindsym mod4+f exec alacritty -e ranger
 bindsym mod4+t exec telegram-desktop
 bindsym mod4+m exec emacs
+bindsym mod4+f exec firefox
 bindsym mod4+h exec feh ~/Estudios/Universidad/horario_udc_1.jpg
 bindsym mod4+shift+p exec passmenu
 bindsym mod4+F12 exec setxkbmap us intl
@@ -295,7 +296,7 @@ exec_always --no-startup-id picom --backend glx --experimental-backends -bc
 exec --no-startup-id tlp start
 
 #set background
-exec_always feh --bg-scale ~/Wallpapers/applelike_invert_wallpaper3.png
+exec_always feh --bg-scale ~/Wallpapers/radpack_4b.jpg
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
