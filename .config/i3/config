@@ -62,7 +62,8 @@ bindsym $mod+F2 exec ~/.scripts/fileLauncher.sh
 bindsym $mod+F3 exec dmenu | sh &
 
 bindsym mod4+q exec qutebrowser
-bindsym mod4+f exec alacritty -e ranger
+bindsym mod4+r exec alacritty -e ranger
+bindsym mod4+d exec dolphin
 bindsym mod4+t exec telegram-desktop
 bindsym mod4+m exec emacs
 bindsym mod4+f exec firefox
