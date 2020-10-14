@@ -289,6 +289,10 @@ mode "resize" {
 #bindsym $mod+9 exec --no-startup-id blurlock
 
 # Autostart applications
+
+ #autostart scripts
+exec_always bash ~/.scripts/capsLock2Esc.sh
+ 
  #add transparency and animations
 #exec xcompmgr -c -f -n
 exec_always --no-startup-id picom --backend glx --experimental-backends -bc
@@ -299,7 +303,7 @@ exec_always --no-startup-id picom --backend glx --experimental-backends -bc
 exec --no-startup-id tlp start
 
 #set background
-exec_always feh --bg-scale ~/Wallpapers/radpack_4b.jpg
+exec_always feh --bg-scale ~/Wallpapers/132884.jpg
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
