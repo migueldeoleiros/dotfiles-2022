@@ -170,34 +170,55 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 #draw_bold_text_with_bright_colors: false
 
-# Colors (Tangoish)
-# Note: Orange is used in place of Cyan
+# Colors (One Dark)
 colors:
   primary:
     background: '#0a091c'
-    foreground: '#eeeeec'
-  
-  # Normal colors
+    foreground: '#d6d6d6'
+  cursor:
+    text:       CellBackground
+    cursor:     '#528bff' # syntax-cursor-color
+  selection:
+    text:       CellForeground
+    background: '#3e4451' # syntax-selection-color
   normal:
-     black:   '#2e3436'
-     red:     '#cc0000'
-     green:   '#73d216'
-     yellow:  '#edd400'
-     blue:    '#3465a4'
-     magenta: '#75507b'
-     cyan:    '#f57900'
-     white:   '#d3d7cf'
+    black:      '#5c6370' # mono-3
+    red:        '#e06c75' # red 1
+    green:      '#98c379'
+    yellow:     '#e5c07b' # orange 2
+    blue:       '#61afef'
+    magenta:    '#c678dd'
+    cyan:       '#56b6c2'
+    white:      '#828997' # mono-2
 
-  # Bright colors
-  bright:
-     black:   '#2e3436'
-     red:     '#ef2929'
-     green:   '#8ae234'
-     yellow:  '#fce94f'
-     blue:    '#729fcf'
-     magenta: '#ad7fa8'
-     cyan:    '#fcaf3e'
-     white:   '#eeeeec'
+# Colors (Tangoish)
+# Note: Orange is used in place of Cyan
+# colors:
+  # primary:
+  #   background: '#0a091c'
+  #   foreground: '#eeeeec'
+  
+  # # Normal colors
+  # normal:
+  #    black:   '#2e3436'
+  #    red:     '#cc0000'
+  #    green:   '#73d216'
+  #    yellow:  '#edd400'
+  #    blue:    '#3465a4'
+  #    magenta: '#75507b'
+  #    cyan:    '#f57900'
+  #    white:   '#d3d7cf'
+
+  # # Bright colors
+  # bright:
+  #    black:   '#2e3436'
+  #    red:     '#ef2929'
+  #    green:   '#8ae234'
+  #    yellow:  '#fce94f'
+  #    blue:    '#729fcf'
+  #    magenta: '#ad7fa8'
+  #    cyan:    '#fcaf3e'
+  #    white:   '#eeeeec'
 
 # Colors (Tomorrow Night Bright)
 #colors:
