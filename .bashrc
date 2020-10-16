@@ -1,4 +1,4 @@
-# .bashrc
+# bashrc
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
@@ -45,3 +45,4 @@ alias a='strat -r arch'
 
 #Programing scripts
 alias createc='bash ~/.scripts/cmake-project.sh'
+
