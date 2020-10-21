@@ -572,8 +572,8 @@ key_bindings:
   - { key: Minus,    mods: Control,       action: DecreaseFontSize }
 
      # Vi Mode
-  - { key: Space,  mods: Shift,         mode: Vi, action: ScrollToBottom          }
-  - { key: Space,  mods: Shift,                   action: ToggleViMode            }
+  - { key: Space,  mods: Control,         mode: Vi, action: ScrollToBottom          }
+  - { key: Space,  mods: Control,                   action: ToggleViMode            }
   - { key: Escape,                      mode: Vi, action: ClearSelection          }
   - { key: I,                           mode: Vi, action: ScrollToBottom          }
   - { key: I,                           mode: Vi, action: ToggleViMode            }
