@@ -24,6 +24,9 @@ alias ll='ls -l'
 alias lla='ls -la'
 alias la='ls -A'
 
+#open programs
+alias op='xdg-open'
+
 #doom
 alias doom='/home/miguel/.emacs.d/bin/doom'
 
