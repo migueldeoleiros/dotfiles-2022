@@ -18,6 +18,9 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias vim='nvim'
 
+#improved find
+alias find='fd'
+
 #ls aliases
 alias ls='ls --color=auto'
 alias ll='ls -l'
