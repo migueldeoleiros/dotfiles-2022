@@ -68,7 +68,7 @@ bindsym mod4+t exec telegram-desktop
 bindsym mod4+m exec emacs
 bindsym mod4+v exec alacritty -e nvim
 bindsym mod4+f exec firefox
-bindsym mod4+h exec feh ~/Estudios/Universidad/horario_udc_1.jpg
+bindsym mod4+h exec feh ~/Universidad/horario_udc_1.jpg
 bindsym mod4+shift+p exec passmenu
 bindsym mod4+F12 exec setxkbmap us intl
 bindsym mod4+F11 exec setxkbmap us
