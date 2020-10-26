@@ -1,4 +1,9 @@
-# bashrc
+#   _               _
+#  | |__   __ _ ___| |__  _ __ ___
+#  | '_ \ / _` / __| '_ \| '__/ __|
+# _| |_) | (_| \__ \ | | | | | (__
+#(_)_.__/ \__,_|___/_| |_|_|  \___|
+
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
@@ -17,6 +22,7 @@ alias df='df -h'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias vim='nvim'
+alias create='touch'
 
 #improved find
 alias find='fd'
@@ -41,6 +47,7 @@ alias xin='xbps-install'
 alias xre='xbps-remove'
 alias xqu='xbps-query'
 alias xbps-src='. ~/void-packages/xbps-src'
+alias xbps="xbps-query -Rl | fzf -e --height 40% --layout=reverse --border | xargs -ro sudo xbps-install -S"
 
 #change wallpaper on i3 config
 alias wallpaper='. ~/.scripts/i3_wallpapers.sh &'
@@ -52,3 +59,6 @@ alias a='strat -r arch'
 #Programing scripts
 alias createc='bash ~/.scripts/cmake-project.sh'
 
+#fzf fuzzy finder
+source /usr/share/doc/fzf/key-bindings.bash
+source /usr/share/doc/fzf/completion.bash
