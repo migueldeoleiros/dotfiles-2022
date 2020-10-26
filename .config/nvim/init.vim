@@ -1,4 +1,7 @@
-"VIMRC
+" (_)_ __ (_) |___   _(_)_ __ ___
+" | | '_ \| | __\ \ / / | '_ ` _ \
+" | | | | | | |_ \ V /| | | | | | |
+" |_|_| |_|_|\__(_)_/ |_|_| |_| |_|
 
 "PLUGINS
 call plug#begin()
@@ -6,7 +9,6 @@ call plug#begin()
 Plug 'joshdick/onedark.vim'
 
 Plug 'itchyny/lightline.vim'
-set noshowmode
 let g:lightline = {
       \ 'colorscheme': 'onedark',
       \ }
@@ -22,10 +24,10 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
 
+Plug 'liuchengxu/vim-which-key'
 Plug 'tpope/vim-commentary'
 Plug 'sheerun/vim-polyglot'
 Plug 'scrooloose/nerdtree'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/fzf.vim'
 
