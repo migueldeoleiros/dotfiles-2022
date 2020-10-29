@@ -14,6 +14,7 @@ PS1="\[\033[38;5;34m\]\w\[$(tput sgr0)\] \[$(tput sgr0)\]\[\033[38;5;201m\]>\[$(
 shopt -s autocd
 
 #basic aliases
+alias sudosu='sudo -Es'
 alias sudo='sudo '
 alias mv='mv -i'
 alias rm='rm -i'
