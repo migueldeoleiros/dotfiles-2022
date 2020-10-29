@@ -28,6 +28,9 @@ alias create='touch'
 #improved find
 alias find='fd'
 
+#process check
+alias psuser='ps -u miguel'
+
 #ls aliases
 alias ls='ls --color=auto'
 alias ll='ls -l'
