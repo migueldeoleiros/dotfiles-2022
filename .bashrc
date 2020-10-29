@@ -10,6 +10,9 @@
 
 PS1="\[\033[38;5;34m\]\w\[$(tput sgr0)\] \[$(tput sgr0)\]\[\033[38;5;201m\]>\[$(tput sgr0)\]\[\033[38;5;226m\]>\[$(tput sgr0)\] "
 
+#PATH
+export PATH=/home/miguel/.scripts:$PATH
+
 #basic setup
 shopt -s autocd
 
@@ -53,15 +56,12 @@ alias xqu='xbps-query'
 alias xbps-src='. ~/void-packages/xbps-src'
 alias xbps="xbps-query -Rl | fzf -e --height 40% --layout=reverse --border | xargs -ro sudo xbps-install -S"
 
-#change wallpaper on i3 config
-alias wallpaper='. ~/.scripts/i3_wallpapers.sh &'
-
 #Bedrock linux
 alias v='strat -r void'
 alias a='strat -r arch'
 
-#Programing scripts
-alias createc='bash ~/.scripts/cmake-project.sh'
+#z jump around
+. ~/programs/z/z.sh
 
 #fzf fuzzy finder
 source /usr/share/doc/fzf/key-bindings.bash
