@@ -171,25 +171,25 @@ font:
 #draw_bold_text_with_bright_colors: false
 
 # Colors (One Dark)
-colors:
-  primary:
-    background: '#0a091c'
-    foreground: '#d6d6d6'
-  cursor:
-    text:       CellBackground
-    cursor:     '#528bff' # syntax-cursor-color
-  selection:
-    text:       CellForeground
-    background: '#3e4451' # syntax-selection-color
-  normal:
-    black:      '#5c6370' # mono-3
-    red:        '#e06c75' # red 1
-    green:      '#98c379'
-    yellow:     '#e5c07b' # orange 2
-    blue:       '#61afef'
-    magenta:    '#c678dd'
-    cyan:       '#56b6c2'
-    white:      '#828997' # mono-2
+# colors:
+#   primary:
+#     background: '#0a091c'
+#     foreground: '#d6d6d6'
+#   cursor:
+#     text:       CellBackground
+#     cursor:     '#528bff' # syntax-cursor-color
+#   selection:
+#     text:       CellForeground
+#     background: '#3e4451' # syntax-selection-color
+#   normal:
+#     black:      '#5c6370' # mono-3
+#     red:        '#e06c75' # red 1
+#     green:      '#98c379'
+#     yellow:     '#e5c07b' # orange 2
+#     blue:       '#61afef'
+#     magenta:    '#c678dd'
+#     cyan:       '#56b6c2'
+#     white:      '#828997' # mono-2
 
 # Colors (Tangoish)
 # Note: Orange is used in place of Cyan
@@ -328,7 +328,7 @@ colors:
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-background_opacity: 0.85
+background_opacity: 0.00
 
 #selection:
   #semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
