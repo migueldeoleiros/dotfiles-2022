@@ -58,7 +58,7 @@ bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness 
 # Start Applications
 #bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
 
-bindsym $mod+F2 exec ~/.scripts/fileLauncher.sh
+bindsym $mod+F2 exec ~/.scripts/flauncher.sh
 bindsym $mod+F3 exec dmenu | sh &
 
 bindsym mod4+q exec qutebrowser
