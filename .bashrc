@@ -16,6 +16,9 @@ export PATH=/home/miguel/.scripts:$PATH
 #basic setup
 shopt -s autocd
 
+#run at start 
+#pfetch | lolcat -h 0.8 
+
 #basic aliases
 alias sudosu='sudo -Es'
 alias sudo='sudo '
