@@ -46,9 +46,7 @@ bindsym $mod+z exec --no-startup-id morc_menu
 #exec --no-startup-id volumeicon
 #bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 #exec --no-startup-id pulseaudio
-#exec --no-startup-id pa-applet
-#bindsym $mod+Ctrl+m exec pavucontrol
-
+#exec --no-startup-id pa-applet bindsym $mod+Ctrl+m exec pavucontrol 
 ################################################################################################
 
 # Screen brightness controls
@@ -203,6 +201,7 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 # assign [class="bluetooth manager"] $ws7
 
 # Open specific applications in floating mode
+for_window [title="Alacritty"] border pixel 2
 for_window [title="alsamixer"] floating enable border pixel 1
 for_window [class="calamares"] floating enable border normal
 for_window [class="Clipgrab"] floating enable
@@ -302,6 +301,7 @@ exec .~/.config/polybar/launch.sh
  #apps
 #exec --no-startup-id mailspring
 exec --no-startup-id tlp start
+exec_always --no-startup-id xbanish
 
 #set background
 exec_always feh --bg-scale ~/Wallpapers/plainWallpaper.png
@@ -371,14 +371,14 @@ set_from_resource $term_color15    color15
 #bindsym $mod+m bar mode toggle
 
 # Theme colors
-# class                   border  backgr. text    indic.   child_border
-# client.focused          #556064 #556064 #80FFF9 #FDF6E3
-# client.focused_inactive #2F3D44 #2F3D44 #1ABC9C #454948
-# client.unfocused        #2F3D44 #2F3D44 #1ABC9C #454948
-# client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2
-# client.placeholder      #000000 #0c0c0c #ffffff #000000 
+#class                   border  backgr. text    indic.   child_border
+client.focused          #556064 #556064 #80FFF9 #556064
+client.focused_inactive #2F3D44 #2F3D44 #1ABC9C #454948
+client.unfocused        #2F3D44 #2F3D44 #1ABC9C #454948
+client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2
+client.placeholder      #000000 #0c0c0c #ffffff #000000 
 
-# client.background       $term_background
+client.background       $term_background
 
 # [Plasma compatibility improvements]
 for_window [window_role="pop-up"] floating enable
@@ -407,8 +407,8 @@ no_focus [class="microsoft teams - preview" window_type="Microsoft Teams Notific
 #############################
 
 # Set inner/outer gaps
-# gaps inner 14
-# gaps outer -2
+gaps inner 14
+gaps outer -2
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
 # gaps inner|outer current|all set|plus|minus <px>
