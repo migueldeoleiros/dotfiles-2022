@@ -20,8 +20,7 @@ Plug 'neoclide/coc.nvim',{'for':['zig','cmake','rust',
 
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-map <C-n> :NERDTreeToggle<CR>
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 let NERDTreeShowHidden=1
 
 Plug 'liuchengxu/vim-which-key'
@@ -30,6 +29,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'scrooloose/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/fzf.vim'
+Plug 'voldikss/vim-floaterm'
 
 call plug#end()
 
@@ -48,4 +48,4 @@ colorscheme onedark
 
 source ~/.config/nvim/basicConfig.vim "Basic configs
 source ~/.config/nvim/cocConfig.vim "COC configuration
-
+source ~/.config/nvim/floaterm.vim "floaterm config
