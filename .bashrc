@@ -22,6 +22,7 @@ shopt -s autocd
 #basic aliases
 alias sudosu='sudo -Es'
 alias sudo='sudo '
+alias poweroff='sudo poweroff'
 alias mv='mv -i'
 alias rm='rm -i'
 alias cp='cp -i'
@@ -29,7 +30,6 @@ alias df='df -h'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias vim='nvim'
-alias create='touch'
 
 #improved find
 alias find='fd'
