@@ -1,5 +1,5 @@
 " set leader key
-let g:mapleader = "\<Space>"
+let g:mapleader = "\<space>"
 
 syntax enable                           " Enables syntax highlighing
 set hidden                              " Required to keep multiple buffers open multiple buffers
@@ -35,7 +35,7 @@ set nowritebackup                       " This is recommended by coc
 set updatetime=300                      " Faster completion
 set timeoutlen=500                      " By default timeoutlen is 1000 ms
 set formatoptions-=cro                  " Stop newline continution of comments
-set clipboard=unnamedplus               " Copy paste between vim and everything else
+" set clipboard=unnamedplus               " Copy paste between vim and everything else
 set ignorecase                          " Case insensitive search
 set smartcase
 "set autochdir                           " Your working directory will always be the same as your working directory
@@ -52,12 +52,27 @@ map Y y$
 " Map <C-L> (redraw screen) to also turn off search highlighting until the next search
 nnoremap <C-M> :nohl<CR><C-L>
 
-"split movement keys
-" nnoremap <space>j <C-W><C-J>
-" nnoremap <space>k <C-W><C-K>
-" nnoremap <space>l <C-W><C-L>
-" nnoremap <space>h <C-W><C-H>
-" nnoremap <space>wv <C-W><C-V>
-" nnoremap <space>ws <C-W><C-S>
-" nnoremap <space>wc <C-W><C-C>
+"toggle nerdtree
+nnoremap <space>n :NERDTreeToggle<CR>
 
+"split movement keys
+nnoremap <leader>j <C-W><C-J>
+nnoremap <leader>k <C-W><C-K>
+nnoremap <leader>l <C-W><C-L>
+nnoremap <leader>h <C-W><C-H>
+nnoremap <leader>wv <C-W><C-V>
+nnoremap <leader>ws <C-W><C-S>
+nnoremap <leader>wc <C-W><C-C>
+
+" " Copy to clipboard
+vnoremap  <leader>y  "+y
+nnoremap  <leader>Y  "+yg_
+nnoremap  <leader>y  "+y
+nnoremap  <leader>yy  "+yy
+
+" " Paste from clipboard
+nnoremap <leader>p "+p
+nnoremap <leader>P "+P
+vnoremap <leader>p "+p
+vnoremap <leader>P "+P
+ 
