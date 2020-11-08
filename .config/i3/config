@@ -59,6 +59,7 @@ bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness 
 bindsym $mod+F2 exec ~/.scripts/flauncher.sh
 bindsym $mod+F3 exec dmenu | sh &
 
+bindsym mod4+s exec scrot 
 bindsym mod4+q exec qutebrowser
 bindsym mod4+r exec alacritty -e ranger
 bindsym mod4+d exec dolphin
@@ -416,7 +417,7 @@ gaps outer -2
 # gaps outer all plus 5
 
 # Smart gaps (gaps used if only more than one container on the workspace)
-# smart_gaps on
+smart_gaps on
 
 # Smart borders (draw borders around container only if it is not the only container on this workspace) 
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
