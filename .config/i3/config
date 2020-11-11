@@ -10,9 +10,6 @@
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod1
 
-# set default desktop layout <stacking|tabbed> 
-workspace_layout tabbed 
-
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
 default_border pixel 0
 default_floating_border normal
