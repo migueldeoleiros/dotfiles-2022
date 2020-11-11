@@ -43,7 +43,7 @@ bindsym $mod+z exec --no-startup-id morc_menu
 ## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
 ################################################################################################
 
-#exec --no-startup-id volumeicon
+# exec --no-startup-id volumeicon
 #bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 #exec --no-startup-id pulseaudio
 #exec --no-startup-id pa-applet bindsym $mod+Ctrl+m exec pavucontrol 
@@ -60,6 +60,7 @@ bindsym $mod+F2 exec ~/.scripts/flauncher.sh
 bindsym $mod+F3 exec dmenu | sh &
 
 bindsym mod4+s exec scrot 
+bindsym mod4+c exec alacritty -e calcurse 
 bindsym mod4+q exec qutebrowser
 bindsym mod4+r exec alacritty -e ranger
 bindsym mod4+d exec dolphin
@@ -293,16 +294,19 @@ bindsym $mod+9 exec --no-startup-id i3lock
 
  #autostart scripts
 exec_always bash ~/.scripts/capsLock2Esc.sh
+exec_always bash ~/.scripts/speed.sh
  
  #add transparency and animations
 #exec xcompmgr -c -f -n
 exec_always --no-startup-id picom --backend glx --experimental-backends -bc
  #bar
-exec .~/.config/polybar/launch.sh 
+# exec_always bash /home/miguel/.config/polybar/launch.sh 
  #apps
 #exec --no-startup-id mailspring
 exec --no-startup-id tlp start
+exec --no-startup-id alacritty -e calcurse
 exec_always --no-startup-id xbanish
+# exec_always --no-startup-id nm-applet
 
 #set background
 exec_always feh --bg-scale ~/Wallpapers/plainWallpaper.png
@@ -379,7 +383,7 @@ client.unfocused        #2F3D44 #2F3D44 #1ABC9C #2F3D44
 client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2
 client.placeholder      #000000 #0c0c0c #ffffff #000000 
 
-client.background       $term_background
+# client.background       $term_background
 
 # [Plasma compatibility improvements]
 for_window [window_role="pop-up"] floating enable
@@ -399,9 +403,6 @@ for_window [class="(?i)*nextcloud*"] floating disable
 for_window [class="plasmashell" window_type="notification"] border none
 no_focus [class="plasmashell" window_type="notification"]
 for_window [title="Desktop — Plasma"] kill; floating enable; border none
-
-# [MS teams compatibility improvements]
-no_focus [class="microsoft teams - preview" window_type="Microsoft Teams Notification"]
 
 #############################
 ### settings for i3-gaps: ###
