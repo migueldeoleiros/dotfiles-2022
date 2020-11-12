@@ -66,7 +66,7 @@ bindsym mod4+t exec telegram-desktop
 bindsym mod4+m exec emacs
 bindsym mod4+v exec alacritty -e nvim
 bindsym mod4+f exec firefox
-bindsym mod4+h exec feh ~/Universidad/horario_udc_1.jpg
+bindsym mod4+u exec feh ~/Universidad/horario_udc_1.jpg
 bindsym mod4+shift+p exec passmenu
 bindsym mod4+F12 exec setxkbmap us intl
 bindsym mod4+F11 exec setxkbmap us
@@ -74,6 +74,9 @@ bindsym mod4+w exec ~/Wallpapers/.i3_wallpapers.sh
 bindsym $mod+F11 exec deepin-screenshot
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
+
+# remap movemet keys
+bindsym mod4+h exec xdotool key Left
 
 # change focus
 focus_follows_mouse yes
@@ -186,7 +189,7 @@ bindsym $mod+Shift+5 move container to workspace $ws5; workspace $ws5
 bindsym $mod+Shift+6 move container to workspace $ws6; workspace $ws6
 bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
-bindsym $mod+Shift+9 move container to workspace $ws8; workspace $ws9
+bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
 
 # Open applications on specific workspaces
 # assign [class="Thunderbird"] $ws1
