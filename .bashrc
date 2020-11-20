@@ -63,6 +63,9 @@ alias xbps="xbps-query -Rl | fzf -e --height 40% --layout=reverse --border | xar
 alias v='strat -r void'
 alias a='strat -r arch'
 
+#youtube on comand line
+alias yt='mpsyt'
+
 #z jump around
 . ~/programs/z/z.sh
 
