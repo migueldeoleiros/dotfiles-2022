@@ -56,6 +56,9 @@ alias op='xdg-open'
 #doom
 alias doom='/home/miguel/.emacs.d/bin/doom'
 
+#octave
+alias octave='flatpak run org.octave.Octave'
+
 #git aliases
 alias gitc='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 
