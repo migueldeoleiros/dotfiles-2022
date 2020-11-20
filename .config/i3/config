@@ -77,6 +77,7 @@ bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
 # remap movemet keys
 bindsym mod4+h exec xdotool key Left
+bindsym mod4+l exec /home/miguel/.scripts/movementkeys/Lkey.sh
 
 # change focus
 focus_follows_mouse yes
