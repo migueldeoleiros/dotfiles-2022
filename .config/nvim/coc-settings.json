@@ -1,5 +1,5 @@
 {
-  "languageserver":{
+"languageserver": {
     "clangd":{
       "command":"clangd",
       "filetypes":[
@@ -25,8 +25,24 @@
         "--header-insertion=never",
         "--limit-results=0",
         "-j=6",
-        "--pch-storage=memory",
+        "--pch-storage=memory"
       ]
+    }
+    ,"cmake": {
+      "command": "cmake-language-server",
+      "filetypes": ["cmake"],
+      "rootPatterns": [
+        "build/"
+      ],
+      "initializationOptions": {
+        "buildDirectory": "build"
+      }
+    }
+    ,"bash": {
+      "command": "bash-language-server",
+      "args": ["start"],
+      "filetypes": ["sh"],
+      "ignoredRootPaths": ["~"]
     }
   }
 }
