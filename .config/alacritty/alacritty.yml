@@ -200,7 +200,7 @@ colors:
 
   # Cursor colors
   cursor:
-    text: '0xFF261E'
+    text: '0xbcbcbc'
     cursor: '0xFF261E'
 
   # Normal colors
@@ -589,6 +589,8 @@ key_bindings:
   - { key: Paste,                                action: Paste          }
   - { key: Copy,                                 action: Copy           }
   - { key: L,         mods: Control,             action: ClearLogNotice }
+  - { key: K,         mods: Control,             action: ScrollHalfPageUp }
+  - { key: J,         mods: Control,             action: ScrollHalfPageDown }
   - { key: L,         mods: Control, mode: ~Vi,  chars: "\x0c"          }
   - { key: PageUp,    mods: Shift,   mode: ~Alt, action: ScrollPageUp,  }
   - { key: PageDown,  mods: Shift,   mode: ~Alt, action: ScrollPageDown }
