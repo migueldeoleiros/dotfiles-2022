@@ -66,7 +66,7 @@ bindsym mod4+t exec telegram-desktop
 bindsym mod4+m exec emacs
 bindsym mod4+v exec alacritty -e nvim
 bindsym mod4+f exec firefox
-bindsym mod4+u exec feh ~/Universidad/horario_udc_1.jpg
+bindsym mod4+u exec feh ~/universidad/horario_udc_1.jpg
 bindsym mod4+shift+p exec passmenu
 bindsym mod4+F12 exec setxkbmap us intl
 bindsym mod4+F11 exec setxkbmap us
@@ -261,7 +261,7 @@ mode "resize" {
 }
 
 # Lock screen
-bindsym mod4+9 exec --no-startup-id i3lock -i ~/Wallpapers/plainWallpaper.png
+bindsym mod4+9 exec --no-startup-id i3lock -i ~/wallpapers/plainWallpaper.png
 
 ##########################
 # Autostart applications #
