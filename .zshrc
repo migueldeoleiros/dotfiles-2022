@@ -51,55 +51,8 @@ function zle-keymap-select {
 }
 zle -N zle-keymap-select
 
-#basic aliases
-alias sudosu='sudo -Es'
-alias sudo='sudo '
-alias poweroff='sudo poweroff'
-alias mv='mv -i'
-alias rm='rm -i'
-alias cp='cp -i'
-alias df='df -h'
-alias ..='cd ..'
-alias ...='cd ../..'
-alias vim='nvim'
-
-#improved find
-alias find='fd'
-
-#process check
-alias psuser='ps -u miguel'
-
-#ls aliases
-alias ls='ls --color=auto'
-alias ll='ls -l'
-alias lla='ls -la'
-alias la='ls -A'
-
-#open programs
-alias op='xdg-open'
-
-#doom
-alias doom='/home/miguel/.emacs.d/bin/doom'
-
-#octave
-alias octave='flatpak run org.octave.Octave'
-
-#git aliases
-alias gitc='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
-
-#void linux
-alias xin='xbps-install'
-alias xre='xbps-remove'
-alias xqu='xbps-query'
-alias xbps-src='. ~/void-packages/xbps-src'
-alias xbps="xbps-query -Rl | fzf -e --height 40% --layout=reverse --border | xargs -ro sudo xbps-install -S"
-
-#Bedrock linux
-alias v='strat -r void'
-alias a='strat -r arch'
-
-#youtube on comand line
-alias yt='mpsyt'
+#aliases
+source $HOME/.alias
 
 #z jump around
 . ~/programs/z/z.sh
