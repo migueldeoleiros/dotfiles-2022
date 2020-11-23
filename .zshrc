@@ -13,6 +13,13 @@
 #PATH
 export PATH=/home/miguel/.scripts:$PATH
 
+# History
+HISTSIZE=500
+SAVEHIST=500
+HISTFILE=~/.cache/zsh/history
+# Enable searching through history
+bindkey '^R' history-incremental-pattern-search-backward
+
 #run at start 
 #pfetch | lolcat -h 0.8 
 
@@ -25,6 +32,24 @@ zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 
 zmodload zsh/complist
 compinit
 _comp_options+=(globdots)		# Include hidden files.
+
+#vi mode
+bindkey -v
+export KEYTIMEOUT=1
+bindkey "^?" backward-delete-char
+# Change cursor shape for different vi modes.
+function zle-keymap-select {
+  if [[ ${KEYMAP} == vicmd ]] ||
+     [[ $1 = 'block' ]]; then
+    echo -ne '\e[1 q'
+  elif [[ ${KEYMAP} == main ]] ||
+       [[ ${KEYMAP} == viins ]] ||
+       [[ ${KEYMAP} = '' ]] ||
+       [[ $1 = 'beam' ]]; then
+    echo -ne '\e[5 q'
+  fi
+}
+zle -N zle-keymap-select
 
 #basic aliases
 alias sudosu='sudo -Es'
