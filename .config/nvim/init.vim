@@ -16,7 +16,7 @@ let g:lightline = {
 Plug 'neoclide/coc.nvim',{'for':['zig','cmake','rust',
      \'java','json', 'haskell', 'ts','sh', 'cs',
      \'yaml', 'c', 'cpp', 'd', 'go',
-     \'python', 'dart', 'javascript', 'vim'], 'branch': 'release'}
+     \'python', 'dart', 'markdown', 'javascript', 'vim'], 'branch': 'release'}
 
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 autocmd StdinReadPre * let s:std_in=1
@@ -30,6 +30,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/fzf.vim'
 Plug 'voldikss/vim-floaterm'
+Plug 'McSinyx/vim-octave'
 
 call plug#end()
 
