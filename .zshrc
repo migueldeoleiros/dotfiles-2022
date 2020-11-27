@@ -14,9 +14,9 @@
 export PATH=/home/miguel/.scripts:$PATH
 
 # History
+setopt append_history inc_append_history share_history
 HISTSIZE=500
 SAVEHIST=500
-HISTFILE=~/.cache/zsh/history
 # Enable searching through history
 bindkey '^R' history-incremental-pattern-search-backward
 
