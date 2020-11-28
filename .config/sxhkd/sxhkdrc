@@ -1,0 +1,45 @@
+alt+Return
+    alacritty
+alt+F1
+    rofi -show drun
+
+super+9
+    i3lock -i ~/wallpapers/plainWallpaper.png
+
+alt+F2 	
+    bash ~/.scripts/flauncher.sh
+alt+F3 	
+    dmenu | sh &
+
+shift+F11
+    scrot 
+super+c
+    alacritty -e calcurse 
+super+q
+    qutebrowser
+super+r
+    alacritty -e ranger
+super+d
+	dolphin
+super+t
+	telegram-desktop
+super+m
+	emacs
+super+v 
+	alacritty -e nvim
+super+f
+	firefox
+super+u 
+	feh ~/universidad/horario_udc_1.jpg
+super+shift+p 
+	passmenu
+super+F12 
+	setxkbmap us intl
+super+F11 
+	setxkbmap us
+super+w 
+	bash ~/wallpapers/.i3_wallpapers.sh
+Print
+	deepin-screenshot
+alt+ctrl+shift+q
+    xkill
