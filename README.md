@@ -22,3 +22,4 @@ on my machine, only the ones that I personaly modified.
 * [rofi](https://gitlab.com/migueldeoleiros/dotfiles/-/tree/master/.config/rofi)
 * [alacritty](https://gitlab.com/migueldeoleiros/dotfiles/-/tree/master/.config/alacritty)
 * [picom](https://gitlab.com/migueldeoleiros/dotfiles/-/tree/master/.config/picom.conf)
+* [sxhkd keybinds](https://gitlab.com/migueldeoleiros/dotfiles/-/tree/master/.config/sxhkd)
