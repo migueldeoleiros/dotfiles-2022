@@ -29,13 +29,13 @@ super+v
 	alacritty -e nvim
 super+f
 	firefox
-super+u 
+super+z 
 	feh ~/universidad/horario_udc_1.jpg
 super+shift+p 
 	passmenu
 super+F12 
 	setxkbmap us intl
-super+F11 
+super+F11
 	setxkbmap us
 super+w 
 	bash ~/wallpapers/.i3_wallpapers.sh
@@ -43,3 +43,18 @@ Print
 	deepin-screenshot
 alt+ctrl+shift+q
     xkill
+
+super+h
+    xdotool mousemove_relative -- -10 0 
+super+j
+    xdotool mousemove_relative 0 10 
+super+k
+    xdotool mousemove_relative -- 0 -10 
+super+l
+    xdotool mousemove_relative 10 0 
+super+u
+    xdotool click 1
+super+i
+    xdotool click 2
+super+o
+    xdotool click 3
