@@ -29,15 +29,8 @@ font xft:DejaVu-sans 11
 # Use Mouse+$mod to drag floating windows
 floating_modifier $mod
 
-# start a terminal
-bindsym $mod+Return exec alacritty
-
 # kill focused window
 bindsym $mod+Shift+q kill
-
-# start program launcher
-#bindsym $mod+d exec --no-startup-id dmenu_recency
-bindsym $mod+F1 exec  rofi -show drun
 
 ################################################################################################
 ## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
@@ -52,32 +45,6 @@ bindsym $mod+F1 exec  rofi -show drun
 # Screen brightness controls
 bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
 bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
-
-#start keybindings
-bindsym $mod+F2 exec ~/.scripts/flauncher.sh
-bindsym $mod+F3 exec dmenu | sh &
-
-bindsym mod4+s exec scrot 
-bindsym mod4+c exec alacritty -e calcurse 
-bindsym mod4+q exec qutebrowser
-bindsym mod4+r exec alacritty -e ranger
-bindsym mod4+d exec dolphin
-bindsym mod4+t exec telegram-desktop
-bindsym mod4+m exec emacs
-bindsym mod4+v exec alacritty -e nvim
-bindsym mod4+f exec firefox
-bindsym mod4+u exec feh ~/universidad/horario_udc_1.jpg
-bindsym mod4+shift+p exec passmenu
-bindsym mod4+F12 exec setxkbmap us intl
-bindsym mod4+F11 exec setxkbmap us
-bindsym mod4+w exec ~/Wallpapers/.i3_wallpapers.sh
-bindsym $mod+F11 exec deepin-screenshot
-bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
-
-
-# remap movemet keys
-bindsym mod4+h exec xdotool key Left
-bindsym mod4+l exec /home/miguel/.scripts/movementkeys/Lkey.sh
 
 # change focus
 focus_follows_mouse yes
@@ -260,8 +227,6 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-# Lock screen
-bindsym mod4+9 exec --no-startup-id i3lock -i ~/wallpapers/plainWallpaper.png
 
 ##########################
 # Autostart applications #
@@ -280,12 +245,14 @@ exec_always --no-startup-id picom --backend glx --experimental-backends -bc
 
  #apps
 exec --no-startup-id tlp start
-exec --no-startup-id alacritty -e calcurse
-exec_always --no-startup-id xbanish
+exec_always xmodmap /home/miguel/.Xmodmap
+exec_always sxhkd
+#exec --no-startup-id alacritty -e calcurse
+# exec_always --no-startup-id xbanish
 # exec_always --no-startup-id nm-applet
 
 #set background
-exec_always feh --bg-scale ~/Wallpapers/plainWallpaper.png
+exec_always feh --bg-scale ~/wallpapers/plainWallpaper.png
 
 
 # Color palette used for the terminal ( ~/.Xresources file )
