@@ -33,18 +33,20 @@ floating_modifier $mod
 bindsym $mod+Shift+q kill
 
 ################################################################################################
-## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
+## sound-section ##
 ################################################################################################
-
-#exec --no-startup-id volumeicon
-#bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
-#exec --no-startup-id pulseaudio
-#exec --no-startup-id pa-applet bindsym $mod+Ctrl+m exec pavucontrol 
-################################################################################################
+bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer -D pulse sset Master '5%+'"
+bindsym XF86AudioLowerVolume exec --no-startup-id "amixer -D pulse sset Master '5%-'"
+bindsym XF86AudioMute exec --no-startup-id "amixer -D pulse set Master toggle"
+#https://github.com/acrisci/playerctl/
+bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
+bindsym XF86AudioNext exec --no-startup-id playerctl next
+bindsym XF86AudioPrev exec --no-startup-id playerctl previous
+bindsym XF86AudioStop exec --no-startup-id playerctl stop
 
 # Screen brightness controls
-bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
-bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 20 # decrease screen brightness
 
 # change focus
 focus_follows_mouse yes
@@ -73,8 +75,8 @@ bindsym $mod+Shift+Right move right
 
 # workspace back and forth (with/without active container)
 workspace_auto_back_and_forth yes
-bindsym $mod+b workspace back_and_forth
-bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
+# bindsym $mod+b workspace back_and_forth
+# bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
 
 # split orientation
 bindsym $mod+c split h;exec notify-send 'tile horizontally'
@@ -244,11 +246,18 @@ exec_always --no-startup-id picom --backend glx --experimental-backends -bc
 # exec_always bash /home/miguel/.config/polybar/launch.sh 
 
  #apps
+exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd &
 exec --no-startup-id tlp start
 exec_always xmodmap /home/miguel/.Xmodmap
 exec_always sxhkd
 #exec --no-startup-id alacritty -e calcurse
 # exec_always --no-startup-id xbanish
+
+# tray apps
+exec --no-startup-id volumeicon
+exec --no-startup-id nm-applet
+#exec --no-startup-id blueberry-tray
+exec_always --no-startup-id numlockx on
 # exec_always --no-startup-id nm-applet
 
 #set background
@@ -296,9 +305,16 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000
 
 # client.background       $term_background
 
-# [Plasma compatibility improvements]
+# [compatibility improvements]
+for_window [title="Copying"] floating enable
+for_window [title="Deleting"] floating enable
+for_window [title="Moving"] floating enable
+for_window [title="^Terminator Preferences$"] floating enable
+
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
+for_window [window_role="^Preferences$"] floating enable
+for_window [window_role="setup"] floating enable
 
 for_window [class="yakuake"] floating enable
 for_window [class="systemsettings"] floating enable
@@ -314,6 +330,24 @@ for_window [class="(?i)*nextcloud*"] floating disable
 for_window [class="plasmashell" window_type="notification"] border none
 no_focus [class="plasmashell" window_type="notification"]
 for_window [title="Desktop — Plasma"] kill; floating enable; border none
+
+#Press $mod (super) and X to exit - check toolbar for next choices
+bindsym $mod+X mode "$mode_system"
+bindsym control+mod1+Delete mode "$mode_system"
+
+set $mode_system System (k) lock, (l) logout, (u) suspend, (h) hibernate, (r) reboot, (s) shutdown
+mode "$mode_system" {
+    bindsym k exec --no-startup-id ~/.config/i3/scripts/i3exit.sh lock, mode "default"
+    bindsym l exec --no-startup-id ~/.config/i3/scripts/i3exit.sh logout, mode "default"
+    bindsym u exec --no-startup-id ~/.config/i3/scripts/i3exit.sh suspend, mode "default"
+    bindsym h exec --no-startup-id ~/.config/i3/scripts/i3exit.sh hibernate, mode "default"
+    bindsym r exec --no-startup-id ~/.config/i3/scripts/i3exit.sh reboot, mode "default"
+    bindsym s exec --no-startup-id ~/.config/i3/scripts/i3exit.sh shutdown, mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
 
 #############################
 ### settings for i3-gaps: ###
@@ -335,3 +369,36 @@ smart_gaps on
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
 # smart_borders on
 
+#################
+### i3 bar    ###
+#################
+bindsym $mod+b bar mode toggle
+
+bar {
+
+    height 25
+    workspace_buttons yes
+    font pango:Noto Sans 14
+
+    position top
+
+    #system icons
+    #tray_output none
+    #tray_output $firstMonitor
+    #tray_output $secondMonitor
+
+    status_command i3status -c ~/.config/i3/i3status.conf
+
+    colors {
+        background #2F2F2F
+        statusline #eeeeee
+        separator  #666666
+
+        # colorclass           border  backgr. text
+        focused_workspace     #a9a9a9 #5f676a #eeeeee
+        active_workspace      #a9a9a9 #5f676a #eeeeee
+        inactive_workspace    #a9a9a9 #222222 #a9a9a9
+        urgent_workspace      #a9a9a9 #d42121 #FFFFFF
+        }
+
+    }
