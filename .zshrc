@@ -57,10 +57,6 @@ source $HOME/.alias
 #z jump around
 . ~/programs/z/z.sh
 
-#fzf fuzzy finder
-source /usr/share/doc/fzf/key-bindings.zsh
-source /usr/share/doc/fzf/completion.zsh
-
 #zsh plugins
 source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh 
