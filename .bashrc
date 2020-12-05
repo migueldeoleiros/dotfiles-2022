@@ -25,6 +25,3 @@ source $HOME/.alias
 #z jump around
 . ~/programs/z/z.sh
 
-#fzf fuzzy finder
-source /usr/share/doc/fzf/key-bindings.bash
-source /usr/share/doc/fzf/completion.bash
