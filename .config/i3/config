@@ -390,7 +390,7 @@ bar {
     status_command i3status -c ~/.config/i3/i3status.conf
 
     colors {
-        background #2F2F2F
+        background #0a091c
         statusline #eeeeee
         separator  #666666
 
