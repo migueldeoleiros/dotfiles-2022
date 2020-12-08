@@ -478,3 +478,7 @@ config.bind('M', 'hint links spawn mpv {hint-url}')
 
 #togle bars
 config.bind('xx', 'config-cycle statusbar.show always never;; config-cycle tabs.show always never')
+
+#deafult page
+c.url.default_page = 'file:///home/miguel/.config/qutebrowser/homepage/homepage.html' 
+c.url.start_pages = 'file:///home/miguel/.config/qutebrowser/homepage/homepage.html' 
