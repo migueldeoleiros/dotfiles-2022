@@ -2,7 +2,7 @@ def blood(c, options = {}):
     palette = {
         'background': '#0a091c',
         'background-alt': '#0a091c',
-        'background-attention': '#181920',
+        'background-attention': '#141329',
         'border': '#0a091c',
         'current-line': '#141329',
         'selection': '#141329',

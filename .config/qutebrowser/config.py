@@ -460,6 +460,21 @@ c.colors.tabs.selected.even.bg = '#0a091c'
 # `colors.webpage.darkmode.threshold.background` to 205.  - "With
 # selective inversion of everything": Combines the two variants   above.
 # Type: Bool
+
+#import theme 
+import dracula.draw
+
+# Load existing settings made via :set
+config.load_autoconfig()
+
+dracula.draw.blood(c, {
+    'spacing': {
+        'vertical': 6,
+        'horizontal': 8
+    }
+})
+
+#darkmode
 c.colors.webpage.darkmode.enabled = True
 
 # Bindings for normal mode
