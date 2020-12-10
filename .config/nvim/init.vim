@@ -31,6 +31,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/fzf.vim'
 Plug 'voldikss/vim-floaterm'
 Plug 'McSinyx/vim-octave'
+Plug 'ap/vim-css-color'
 
 call plug#end()
 
