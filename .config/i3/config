@@ -404,10 +404,10 @@ bar {
         separator  #666666
 
         # colorclass           border  backgr. text
-        focused_workspace     #a9a9a9 #5f676a #eeeeee
-        active_workspace      #a9a9a9 #5f676a #eeeeee
-        inactive_workspace    #a9a9a9 #222222 #a9a9a9
-        urgent_workspace      #a9a9a9 #d42121 #FFFFFF
+        focused_workspace     #0a091c #1b1938 #eeeeee
+        active_workspace      #0a091c #1b1938 #eeeeee
+        inactive_workspace    #0a091c #0a091c #7a7a7a
+        urgent_workspace      #0a091c #d42121 #FFFFFF
         }
 
     }
