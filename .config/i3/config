@@ -10,6 +10,10 @@
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod1
 
+#displays
+set $firstMonitor eDP-1
+set $secondMonitor HDMI-2
+
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
 default_border pixel 0
 default_floating_border normal
@@ -389,7 +393,7 @@ bar {
 
     #system icons
     #tray_output none
-    #tray_output $firstMonitor
+    tray_output $firstMonitor
     #tray_output $secondMonitor
 
     status_command i3status -c ~/.config/i3/i3status.conf
