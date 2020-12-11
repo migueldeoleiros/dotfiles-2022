@@ -385,9 +385,9 @@ bindsym $mod+b bar mode toggle
 
 bar {
 
-    height 25
+    height 30
     workspace_buttons yes
-    font pango:Noto Sans 14
+    font pango:Noto Sans 13
 
     position top
 
