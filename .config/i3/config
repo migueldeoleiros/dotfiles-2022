@@ -172,7 +172,7 @@ bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
 # assign [class="Thunderbird"] $ws1
 
 # Open specific applications in floating mode
-for_window [title="Alacritty"] border pixel 2
+#for_window [title="Alacritty"] border pixel 2
 for_window [title="alsamixer"] floating enable border pixel 1
 for_window [class="calamares"] floating enable border normal
 for_window [class="Clipgrab"] floating enable
@@ -268,7 +268,7 @@ exec_always --no-startup-id numlockx on
 # exec_always --no-startup-id nm-applet
 
 #set background
-exec_always feh --bg-scale ~/wallpapers/plainWallpaper.png
+exec_always feh --bg-scale ~/wallpapers/OLhuqkT.jpg
 
 #set secondary display
 exec_always xrandr --output HDMI-2 --auto --left-of eDP-1
