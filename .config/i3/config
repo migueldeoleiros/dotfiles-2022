@@ -268,7 +268,7 @@ exec_always --no-startup-id numlockx on
 # exec_always --no-startup-id nm-applet
 
 #set background
-exec_always feh --bg-scale ~/wallpapers/OLhuqkT.jpg
+exec_always feh --bg-scale ~/wallpapers/radpack_4b.jpg
 
 #set secondary display
 exec_always xrandr --output HDMI-2 --auto --left-of eDP-1
@@ -325,6 +325,7 @@ for_window [window_role="task_dialog"] floating enable
 for_window [window_role="^Preferences$"] floating enable
 for_window [window_role="setup"] floating enable
 
+for_window [class="Blueberry.py"] floating enable
 for_window [class="yakuake"] floating enable
 for_window [class="systemsettings"] floating enable
 for_window [class="plasmashell"] floating enable;
