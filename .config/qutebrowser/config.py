@@ -487,6 +487,8 @@ config.bind('<Ctrl+6>', 'tab-focus 6')
 config.bind('<Ctrl+7>', 'tab-focus 7')
 config.bind('<Ctrl+8>', 'tab-focus 8')
 config.bind('<Ctrl+9>', 'tab-focus 9')
+config.bind('<Shift+j>', 'tab-prev')
+config.bind('<Shift+k>', 'tab-next')
 
 #mpv video
 config.bind('M', 'hint links spawn mpv {hint-url}')
