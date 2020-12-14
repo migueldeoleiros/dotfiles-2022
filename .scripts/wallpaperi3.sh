@@ -7,7 +7,7 @@
 #
 set -euo pipefail
 
-NewWallName=$(ls ~/Wallpapers | rofi -dmenu -i -p)
-NewWall='~/Wallpapers/'$NewWallName''
+NewWallName=$(ls ~/wallpapers | rofi -dmenu -i -p)
+NewWall='~/wallpapers/'$NewWallName''
 OldWall=$(grep 'exec_always feh' ~/.config/i3/config | awk '{print $4}')
 sed -i 's#'$OldWall'#'$NewWall'#g' ~/.config/i3/config
