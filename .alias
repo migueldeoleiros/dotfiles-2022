@@ -2,6 +2,7 @@
 #they must be sourced to the shell config (.bashrc,.zshrc etc.)
 
 #basic aliases
+alias x='startx'
 alias sudosu='sudo -Es'
 alias sudo='sudo '
 alias poweroff='sudo poweroff'
