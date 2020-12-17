@@ -13,6 +13,8 @@ alt+F3
 
 shift+F11
     scrot 
+super+a
+    pavucontrol
 super+c
     alacritty -e calcurse 
 super+q
