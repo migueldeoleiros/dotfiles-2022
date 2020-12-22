@@ -263,6 +263,7 @@ exec_always sxhkd
 # tray apps
 exec --no-startup-id volumeicon
 exec --no-startup-id nm-applet
+exec --no-startup-id xfce4-clipman
 #exec --no-startup-id blueberry-tray
 exec_always --no-startup-id numlockx on
 # exec_always --no-startup-id nm-applet
