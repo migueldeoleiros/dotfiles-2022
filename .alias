@@ -3,6 +3,7 @@
 
 #basic aliases
 alias x='startx'
+alias b='byobu'
 alias sudosu='sudo -Es'
 alias sudo='sudo '
 alias poweroff='sudo poweroff'
