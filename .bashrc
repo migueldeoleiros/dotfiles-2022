@@ -25,3 +25,7 @@ source $HOME/.alias
 #z jump around
 . ~/programs/z/z.sh
 
+#insults you
+if [ -f /etc/bash.command-not-found ]; then
+	. /etc/bash.command-not-found
+fi
