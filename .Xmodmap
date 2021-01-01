@@ -1,4 +1,4 @@
-keycode 105 = Mode_switch
+keycode 37 = Mode_switch
 
 keycode 43 = h H Left
 keycode 44 = j J Down
