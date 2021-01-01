@@ -170,6 +170,35 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 #draw_bold_text_with_bright_colors: false
 
+# Colors (Terminal.app)
+colors:
+  # Default colors
+  primary:
+    background: '0x000000'
+    foreground: '0xb6b6b6'
+
+  # Normal colors
+  normal:
+    black:   '0x000000'
+    red:     '0x990000'
+    green:   '0x00a600'
+    yellow:  '0x999900'
+    blue:    '0x0000b2'
+    magenta: '0xb200b2'
+    cyan:    '0x00a6b2'
+    white:   '0xbfbfbf'
+
+  # Bright colors
+  bright:
+    black:   '0x666666'
+    red:     '0xe50000'
+    green:   '0x00d900'
+    yellow:  '0xe5e500'
+    blue:    '0x0000ff'
+    magenta: '0xe500e5'
+    cyan:    '0x00e5e5'
+    white:   '0xe5e5e5'
+
 # Colors (One Dark)
 # colors:
 #   primary:
@@ -191,39 +220,39 @@ font:
 #     cyan:       '#56b6c2'
 #     white:      '#828997' # mono-2
 
-# colors (argonaut)
-colors:
-  # Default colors
-  primary:
-    background: '#0a091c'
-    foreground: '0xEBEBEB'
+# # colors (argonaut)
+# colors:
+#   # Default colors
+#   primary:
+#     background: '#0a091c'
+#     foreground: '0xEBEBEB'
 
-  # Cursor colors
-  cursor:
-    text: '0xbcbcbc'
-    cursor: '0xFF261E'
+#   # Cursor colors
+#   cursor:
+#     text: '0xbcbcbc'
+#     cursor: '0xFF261E'
 
-  # Normal colors
-  normal:
-    black:   '0x0d0d0d'
-    red:     '0xFF301B'
-    green:   '0xA0E521'
-    yellow:  '0xFFC620'
-    blue:    '0x1BA6FA'
-    magenta: '0x8763B8'
-    cyan:    '0x21DEEF'
-    white:   '0xEBEBEB'
+#   # Normal colors
+#   normal:
+#     black:   '0x0d0d0d'
+#     red:     '0xFF301B'
+#     green:   '0xA0E521'
+#     yellow:  '0xFFC620'
+#     blue:    '0x1BA6FA'
+#     magenta: '0x8763B8'
+#     cyan:    '0x21DEEF'
+#     white:   '0xEBEBEB'
 
-  # Bright colors
-  bright:
-    black:   '0x6D7070'
-    red:     '0xFF4352'
-    green:   '0xB8E466'
-    yellow:  '0xFFD750'
-    blue:    '0x1BA6FA'
-    magenta: '0xA578EA'
-    cyan:    '0x73FBF1'
-    white:   '0xFEFEF8'
+#   # Bright colors
+#   bright:
+#     black:   '0x6D7070'
+#     red:     '0xFF4352'
+#     green:   '0xB8E466'
+#     yellow:  '0xFFD750'
+#     blue:    '0x1BA6FA'
+#     magenta: '0xA578EA'
+#     cyan:    '0x73FBF1'
+#     white:   '0xFEFEF8'
 
 # Colors (Tangoish)
 # Note: Orange is used in place of Cyan
