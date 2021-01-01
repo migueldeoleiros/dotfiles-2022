@@ -43,6 +43,8 @@ super+w
 	bash ~/wallpapers/.i3_wallpapers.sh
 Print
 	deepin-screenshot
+Insert
+    xset -dpms s off
 alt+ctrl+shift+q
     xkill
 
