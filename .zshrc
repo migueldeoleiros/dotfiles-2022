@@ -12,6 +12,7 @@
 
 #PATH
 export PATH=/home/miguel/.scripts:$PATH
+export PATH=/home/miguel/.doom.d/bin:$PATH
 
 # History
 setopt append_history inc_append_history share_history
