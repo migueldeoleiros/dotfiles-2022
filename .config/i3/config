@@ -243,7 +243,8 @@ mode "resize" {
 ##########################
 
  #autostart scripts
-exec_always bash ~/.scripts/capsLock2Esc.sh
+#exec_always bash ~/.scripts/capsLock2Esc.sh
+exec_always xmodmap ~/.Xmodmap
 exec_always bash ~/.scripts/speed.sh
  
  #add transparency and animations
