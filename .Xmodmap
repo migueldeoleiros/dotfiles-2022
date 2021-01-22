@@ -1,8 +1,3 @@
-! caps_lock is activated with both shift keys
-keycode 50 = Shift_L Caps_Lock
-
-! caps_lock key is now Control_R and shift+caps_lock is now escape
-keycode 66 = Control_R Escape
 
 ! hjkl now have a third mode activated with the control_l key
 keycode 37 = Mode_switch 
