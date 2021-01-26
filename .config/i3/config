@@ -273,7 +273,7 @@ exec_always --no-startup-id numlockx on
 exec_always feh --bg-scale ~/wallpapers/plainWallpaper.png
 
 #set secondary display
-exec_always xrandr --output HDMI-2 --auto --left-of eDP-1
+exec_always xrandr --output HDMI-2 --auto --right-of eDP-1
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
