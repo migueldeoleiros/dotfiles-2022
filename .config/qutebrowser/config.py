@@ -489,9 +489,11 @@ config.bind('<Ctrl+8>', 'tab-focus 8')
 config.bind('<Ctrl+9>', 'tab-focus 9')
 config.bind('<Shift+j>', 'tab-prev')
 config.bind('<Shift+k>', 'tab-next')
+#config.bind('<Shift+Escape>', 'clear-keychain ;; search ;; fullscreen --leave')
 
-#mpv video
-config.bind('M', 'hint links spawn mpv {hint-url}')
+#mpv/vlc video
+#config.bind('M', 'hint links spawn mpv {hint-url}')
+config.bind('M', 'hint links spawn vlc {hint-url}')
 
 #togle bars
 config.bind('xx', 'config-cycle statusbar.show always never;; config-cycle tabs.show always never')
@@ -499,3 +501,8 @@ config.bind('xx', 'config-cycle statusbar.show always never;; config-cycle tabs.
 #deafult page
 c.url.default_page = 'file:///home/miguel/.config/qutebrowser/homepage/homepage.html' 
 c.url.start_pages = 'file:///home/miguel/.config/qutebrowser/homepage/homepage.html' 
+
+#adblock
+c.content.blocking.method = "both"
+
+c.content.blocking.adblock.lists = ["https://easylist.to/easylist/easylist.txt", "https://easylist.to/easylist/easyprivacy.txt", "https://easylist-downloads.adblockplus.org/antiadblockfilters.txt"]
