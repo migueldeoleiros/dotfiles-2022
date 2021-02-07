@@ -32,7 +32,7 @@ super+v
 super+f
 	firefox
 super+z 
-	feh ~/universidad/horario_udc_1.jpg
+	feh ~/universidad/horario_Q2.jpg
 super+shift+p 
 	passmenu
 super+F12 
@@ -40,7 +40,7 @@ super+F12
 super+F11
 	setxkbmap us
 super+w 
-	bash ~/wallpapers/.i3_wallpapers.sh
+	bash ~/wallpapers/i3_wallpapers.sh
 Print
 	deepin-screenshot
 Insert
