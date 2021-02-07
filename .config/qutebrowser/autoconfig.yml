@@ -6,7 +6,7 @@
 
 config_version: 2
 settings:
-  url.default_page:
-    global: 'file:///home/miguel/.config/qutebrowser/homepage/homepage.html '
-  url.start_pages:
-    global: 'file:///home/miguel/.config/qutebrowser/homepage/homepage.html '
+  statusbar.show:
+    global: always
+  tabs.show:
+    global: always
