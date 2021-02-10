@@ -1,0 +1,18 @@
+[Default Applications]
+x-scheme-handler/msteams=teams.desktop
+application/pdf=org.pwmt.zathura-pdf-mupdf.desktop;
+image/bmp=sxiv.desktop;
+image/gif=sxiv.desktop;
+image/jpeg=sxiv.desktop;
+image/jpg=feh.desktop;sxiv.desktop;
+image/png=sxiv.desktop;
+text/plain=nvim.desktop
+x-scheme-handler/etcher=balena-etcher-electron.desktop
+x-scheme-handler/tg=userapp-Telegram Desktop-UOVTW0.desktop
+x-scheme-handler/mailspring=mailspring.desktop
+x-scheme-handler/http=org.qutebrowser.qutebrowser.desktop;
+x-scheme-handler/https=org.qutebrowser.qutebrowser.desktop;
+x-scheme-handler/ftp=org.qutebrowser.qutebrowser.desktop;
+
+[Added Associations]
+x-scheme-handler/tg=userapp-Telegram Desktop-UOVTW0.desktop;
