@@ -56,3 +56,6 @@ alias yre="yay -Qq | fzf --multi --preview 'yay -Qi {1}' | xargs -ro sudo yay -R
 
 #youtube on comand line
 alias yt='mpsyt'
+
+#check the weather in Coruna
+alias weather='curl wttr.in/Coruna'
