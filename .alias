@@ -8,12 +8,15 @@ alias sudosu='sudo -Es'
 alias sudo='sudo '
 alias poweroff='sudo poweroff'
 alias mv='mv -i'
-alias rm='rm -i'
+#alias rm='rm -i'
 alias cp='cp -i'
 alias df='df -h'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias vim='nvim'
+
+#use trash-cli instead of rm
+alias rm='trash-put'
 
 #improved find
 alias find='fd'
