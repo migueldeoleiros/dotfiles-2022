@@ -24,11 +24,11 @@ alias find='fd'
 #process check
 alias psuser='ps -u miguel'
 
-#ls aliases
-alias ls='ls --color=auto'
-alias ll='ls -l'
-alias lla='ls -la'
-alias la='ls -A'
+#ls(delux)
+alias ls='lsd'
+alias ll='lsd -l'
+alias lla='lsd -la'
+alias la='lsd -A'
 
 #open programs
 alias op='xdg-open'
