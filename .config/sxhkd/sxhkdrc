@@ -31,6 +31,8 @@ super+v
 	alacritty -e nvim
 super+f
 	firefox
+super+y
+	firefox https://music.youtube.com 
 super+z 
 	feh ~/universidad/horario_Q2.jpg
 super+shift+p 
