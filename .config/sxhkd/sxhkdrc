@@ -10,6 +10,8 @@ alt+F2
     bash ~/.scripts/flauncher.sh
 alt+F3 	
     dmenu | sh &
+alt+F4
+    bash ~/.scripts/kill.sh
 
 shift+F11
     scrot 
