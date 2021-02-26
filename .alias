@@ -24,11 +24,11 @@ alias find='fd'
 #process check
 alias psuser='ps -u miguel'
 
-#ls(delux)
-alias ls='lsd'
-alias ll='lsd -l'
-alias lla='lsd -la'
-alias la='lsd -a'
+# exa instead of ls
+alias ls='exa -s extension --group-directories-first'
+alias ll='exa -ls extension --group-directories-first'
+alias lla='exa -las extension --group-directories-first'
+alias la='exa -as extension --group-directories-first'
 
 #open programs
 alias op='xdg-open'
