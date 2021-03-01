@@ -6,7 +6,7 @@
   (interactive)
   ;; NOTE: You will need to update this to a valid background path!
   (start-process-shell-command
-      "feh" nil  "feh --bg-scale /usr/share/backgrounds/matt-mcnulty-nyc-2nd-ave.jpg"))
+      "feh" nil  "feh --bg-scale /home/miguel/wallpapers/132884.jpg"))
 
 (defun efs/exwm-init-hook ()
   ;; Make workspace 1 be the one where we land at startup
@@ -30,8 +30,12 @@
 
   ;; Launch apps that will run in the background
   (efs/run-in-background "dunst")
+  (efs/run-in-background "tlp")
+  (efs/run-in-background "sxhkd")
+  (efs/run-in-background "numlockx on")
+  (efs/run-in-background "xmodmap /home/miguel/.Xmodmap")
   (efs/run-in-background "nm-applet")
-  (efs/run-in-background "pasystray")
+  (efs/run-in-background "pasystray"))
 
 (defun efs/exwm-update-class ()
   (exwm-workspace-rename-buffer exwm-class-name))
@@ -107,12 +111,12 @@
   (add-hook 'exwm-randr-screen-change-hook
         (lambda ()
           (start-process-shell-command
-           "xrandr" nil "xrandr --output HDMI-2 --left-of eDP-1 --auto")))
+           "xrandr" nil "xrandr --output eDP-1 --left-of HDMI-2 --auto")))
   (exwm-randr-enable)
 
   ;; This will need to be updated to the name of a display!  You can find
   ;; the names of your displays by looking at arandr or the output of xrandr
-  (setq exwm-randr-workspace-monitor-plist '(2 "Virtual-2" 3 "Virtual-2"))
+  (setq exwm-randr-workspace-monitor-plist '(2 "eDP-1" 3 "HDMI-2"))
 
   ;; NOTE: Uncomment these lines after setting up autorandr!
   ;; React to display connectivity changes, do initial display update

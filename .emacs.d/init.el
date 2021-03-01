@@ -423,6 +423,8 @@
     :prefix lsp-keymap-prefix
     "d" '(dap-hydra t :wk "debugger")))
 
+  (require 'dap-gdb-lldb)
+
 (use-package typescript-mode
   :mode "\\.ts\\'"
   :hook (typescript-mode . lsp-deferred)
@@ -445,11 +447,44 @@
   :config
   (pyvenv-mode 1))
 
+(lsp-register-client
+ (make-lsp-client :new-connection (lsp-stdio-connection '("bash-language-server" "start"))
+                  :major-modes '(sh-mode)
+                  :priority -1
+                  :environment-fn (lambda ()
+                                    '(("EXPLAINSHELL_ENDPOINT" . lsp-bash-explainshell-endpoint)
+                                      ("HIGHLIGHT_PARSING_ERRORS" . lsp-bash-highlight-parsing-errors)))
+                  :server-id 'bash-ls))
+
 (use-package ccls
-  :custom
-  (setq ccls-executable "ccls")
+  :ensure t
   :config
-  (require 'ccls))
+  (setq ccls-executable "ccls")
+  (setq lsp-prefer-flymake nil)
+  (setq-default flycheck-disabled-checkers '(c/c++-clang c/c++-cppcheck c/c++-gcc))
+  :hook ((c-mode c++-mode objc-mode) .
+         (lambda () (require 'ccls) (lsp))))
+
+;;(require 'yasnippet)
+;;(yas-global-mode 1)
+(use-package yasnippet
+  :init 
+  (yas-global-mode 1))
+
+(use-package auto-complete
+  :ensure t
+  :init
+  (progn
+    (ac-config-default)
+    (global-auto-complete-mode t)))
+    
+(use-package flycheck
+  :ensure t
+  :init
+  (global-flycheck-mode t))
+
+(use-package modern-cpp-font-lock
+  :ensure t)
 
 (use-package company
   :after lsp-mode
@@ -573,16 +608,3 @@
   :config
   (evil-collection-define-key 'normal 'dired-mode-map
     "H" 'dired-hide-dotfiles-mode))
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(which-key vterm visual-fill-column use-package typescript-mode ranger rainbow-delimiters pyvenv python-mode project org-latex-impatient org-bullets no-littering lsp-ui lsp-ivy jsonrpc ivy-rich ivy-prescient helpful general forge flymake evil-nerd-commenter evil-collection eterm-256color eshell-git-prompt doom-themes doom-modeline dired-single dired-ranger dired-open dired-hide-dotfiles dap-mode counsel-projectile company-box command-log-mode ccls all-the-icons-dired a)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )

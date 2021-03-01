@@ -1,5 +1,5 @@
 #+title: Emacs From Scratch Configuration
-#+PROPERTY: header-args:emacs-lisp :tangle ./init.el :mkdirp yes
+#+PROPERTY: header-args:emacs-lisp :tael :mkdirp yes
 
 * Welcome!
 
@@ -671,6 +671,8 @@ Try these commands with =M-x=:
       :prefix lsp-keymap-prefix
       "d" '(dap-hydra t :wk "debugger")))
 
+    (require 'dap-gdb-lldb)
+
 #+end_src
 
 *** TypeScript
@@ -738,17 +740,57 @@ You can use the pyvenv package to use =virtualenv= environments in Emacs.  The =
 
 #+end_src
 
+*** Bash
+
+#+begin_src emacs-lisp
+
+(lsp-register-client
+ (make-lsp-client :new-connection (lsp-stdio-connection '("bash-language-server" "start"))
+                  :major-modes '(sh-mode)
+                  :priority -1
+                  :environment-fn (lambda ()
+                                    '(("EXPLAINSHELL_ENDPOINT" . lsp-bash-explainshell-endpoint)
+                                      ("HIGHLIGHT_PARSING_ERRORS" . lsp-bash-highlight-parsing-errors)))
+                  :server-id 'bash-ls))
+#+end_src
+
 *** C/C++
 
 #+begin_src emacs-lisp
 
-  (use-package ccls
-    :custom
-    (setq ccls-executable "ccls")
-    :config
-    (require 'ccls))
+(use-package ccls
+  :ensure t
+  :config
+  (setq ccls-executable "ccls")
+  (setq lsp-prefer-flymake nil)
+  (setq-default flycheck-disabled-checkers '(c/c++-clang c/c++-cppcheck c/c++-gcc))
+  :hook ((c-mode c++-mode objc-mode) .
+         (lambda () (require 'ccls) (lsp))))
 
+#+end_src
 
+#+begin_src emacs-lisp
+
+;;(require 'yasnippet)
+;;(yas-global-mode 1)
+(use-package yasnippet
+  :init 
+  (yas-global-mode 1))
+
+(use-package auto-complete
+  :ensure t
+  :init
+  (progn
+    (ac-config-default)
+    (global-auto-complete-mode t)))
+    
+(use-package flycheck
+  :ensure t
+  :init
+  (global-flycheck-mode t))
+
+(use-package modern-cpp-font-lock
+  :ensure t)
 #+end_src
 
 ** Company Mode
