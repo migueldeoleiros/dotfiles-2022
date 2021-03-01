@@ -48,7 +48,7 @@ super+w
 Print
 	deepin-screenshot
 Insert
-    xset -dpms s off
+    xset -dpms s on
 alt+ctrl+shift+q
     xkill
 

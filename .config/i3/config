@@ -258,6 +258,7 @@ exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd &
 exec --no-startup-id tlp start
 exec_always xmodmap /home/miguel/.Xmodmap
 exec_always sxhkd
+exec_always xset -dpms s on
 #exec --no-startup-id alacritty -e calcurse
 # exec_always --no-startup-id xbanish
 
@@ -270,7 +271,7 @@ exec_always --no-startup-id numlockx on
 # exec_always --no-startup-id nm-applet
 
 #set background
-exec_always feh --bg-scale ~/wallpapers/plainWallpaper.png
+exec_always feh --bg-scale ~/wallpapers/132884.jpg
 
 #set secondary display
 exec_always xrandr --output HDMI-2 --auto --right-of eDP-1
