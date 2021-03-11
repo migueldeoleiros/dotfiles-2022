@@ -4,7 +4,7 @@
 #  _ / /\__ \ | | | | | (__
 # (_)___|___/_| |_|_|  \___|
 
-#aliases
+#login script
 source $HOME/.scripts/startMenu/startMenu.sh
 
 # If not running interactively, don't do anything
