@@ -2,7 +2,6 @@
 #they must be sourced to the shell config (.bashrc,.zshrc etc.)
 
 #basic aliases
-alias x='startx'
 alias b='byobu'
 alias sudosu='sudo -Es'
 alias sudo='sudo '
@@ -34,7 +33,6 @@ alias la='exa -as extension --group-directories-first'
 alias op='xdg-open'
 
 #nvidia-xrun
-alias nx='nvidia-xrun'
 alias killn='pkill -9 -t tty2'
 alias dispn='xrandr --output HDMI-1-2 --off'
 
