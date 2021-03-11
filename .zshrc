@@ -4,6 +4,8 @@
 #  _ / /\__ \ | | | | | (__
 # (_)___|___/_| |_|_|  \___|
 
+#aliases
+source $HOME/.scripts/startMenu/startMenu.sh
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
