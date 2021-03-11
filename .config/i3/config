@@ -245,6 +245,7 @@ mode "resize" {
  #autostart scripts
 exec_always bash ~/.scripts/easyKey.sh
 exec_always bash ~/.scripts/speed.sh
+exec_always bash ~/.scripts/nvidiarun.sh
  
  #add transparency and animations
 #exec xcompmgr -c -f -n
