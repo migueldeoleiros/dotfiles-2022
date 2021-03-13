@@ -34,7 +34,7 @@ alias op='xdg-open'
 
 #nvidia-xrun
 alias killn='pkill -9 -t tty2'
-alias dispn='xrandr --output HDMI-1-2 --off'
+alias dispn='xrandr --output HDMI-1-2 --auto --right-of eDP-1-1'
 
 #doom
 alias doom='/home/miguel/.emacs.d/bin/doom'
