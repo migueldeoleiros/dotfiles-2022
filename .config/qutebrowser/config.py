@@ -28,7 +28,7 @@
 #   - no-3rdparty: Accept cookies from the same origin only. This is known to break some sites, such as GMail.
 #   - no-unknown-3rdparty: Accept cookies from the same origin only, unless a cookie is already set for the domain. On QtWebEngine, this is the same as no-3rdparty.
 #   - never: Don't accept cookies at all.
-config.set('content.cookies.accept', 'all', 'chrome-devtools://*')
+config.set('content.cookies.accept', 'no-3rdparty', 'chrome-devtools://*')
 
 # Which cookies to accept. With QtWebEngine, this setting also controls
 # other features with tracking capabilities similar to those of cookies;
@@ -45,7 +45,7 @@ config.set('content.cookies.accept', 'all', 'chrome-devtools://*')
 #   - no-3rdparty: Accept cookies from the same origin only. This is known to break some sites, such as GMail.
 #   - no-unknown-3rdparty: Accept cookies from the same origin only, unless a cookie is already set for the domain. On QtWebEngine, this is the same as no-3rdparty.
 #   - never: Don't accept cookies at all.
-config.set('content.cookies.accept', 'all', 'devtools://*')
+config.set('content.cookies.accept', 'no-3rdparty', 'devtools://*')
 
 # User agent to send.  The following placeholders are defined:  *
 # `{os_info}`: Something like "X11; Linux x86_64". * `{webkit_version}`:
@@ -452,14 +452,14 @@ c.colors.tabs.selected.even.bg = '#0a091c'
 
 # Render all web contents using a dark theme. Example configurations
 # from Chromium's `chrome://flags`:  - "With simple HSL/CIELAB/RGB-based
-# inversion": Set   `colors.webpage.darkmode.algorithm` accordingly.  -
-# "With selective image inversion": Set
-# `colors.webpage.darkmode.policy.images` to `smart`.  - "With selective
-# inversion of non-image elements": Set
-# `colors.webpage.darkmode.threshold.text` to 150 and
-# `colors.webpage.darkmode.threshold.background` to 205.  - "With
+ # inversion": Set   `colors.webpage.darkmode.algorithm` accordingly.  -
+ # "With selective image inversion": Set
+ # `colors.webpage.darkmode.policy.images` to `smart`.  - "With selective
+ # inversion of non-image elements": Set
+ # `colors.webpage.darkmode.threshold.text` to 150 and
+ # `colors.webpage.darkmode.threshold.background` to 205.  - "With
 # selective inversion of everything": Combines the two variants   above.
-# Type: Bool
+ # Type: Bool
 
 #import theme 
 import dracula.draw
@@ -475,7 +475,13 @@ dracula.draw.blood(c, {
 })
 
 #darkmode
-c.colors.webpage.darkmode.enabled = True
+ccw = c.colors.webpage
+ccw.bg = "black"
+ccw.darkmode.enabled = True
+ccw.darkmode.threshold.background = 100
+ccw.darkmode.threshold.text = 256 - ccw.darkmode.threshold.background
+ccw.darkmode.policy.images = 'smart'
+ccw.preferred_color_scheme = 'dark'
 
 # Bindings for normal mode
 config.bind('<Ctrl+1>', 'tab-focus 1')
