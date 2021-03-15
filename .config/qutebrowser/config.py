@@ -474,6 +474,10 @@ dracula.draw.blood(c, {
     }
 })
 
+#font
+c.fonts.default_family = 'Roboto'
+c.fonts.default_size = '10.5pt'
+
 #darkmode
 ccw = c.colors.webpage
 ccw.bg = "black"
