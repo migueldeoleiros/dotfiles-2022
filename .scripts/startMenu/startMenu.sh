@@ -4,6 +4,7 @@
 #Script that displays a menu on tty login
 #dependencies: smenu, figlet, lolcat, neofetch and whatever you want to start on
 
+
 if [[ "$(tty)" == "/dev/tty1" || "$(tty)" == "/dev/tty2" || "$(tty)" == "/dev/tty3" || "$(tty)" == "/dev/tty4" ]]; then
 
     figlet welcome MASTER | lolcat
