@@ -9,9 +9,11 @@ super+9
 alt+F2 	
     bash ~/.scripts/flauncher.sh
 alt+F3 	
-    dmenu | sh &
-alt+F4
     bash ~/.scripts/kill.sh
+alt+F4
+    bash ~/.scripts/tuxi.sh
+alt+F5
+    dmenu -p "cmd" | sh &
 
 shift+F11
     scrot 
