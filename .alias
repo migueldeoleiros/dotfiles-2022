@@ -20,6 +20,9 @@ alias rm='trash-put'
 #improved find
 alias find='fd'
 
+#use ranger to move around directories
+alias ranger='. ranger'
+
 #process check
 alias psuser='ps -u miguel'
 
