@@ -5,6 +5,12 @@ export XDG_DATA_HOME=${XDG_DATA_HOME:="$HOME/.local/share"}
 export XDG_CACHE_HOME=${XDG_CACHE_HOME:="$HOME/.cache"}
 export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:="$HOME/.config"}
 
+#japanese
+export GTK_IM_MODULE='fcitx'
+export QT_IM_MODULE='fcitx'
+export SDL_IM_MODULE='fcitx'
+export XMODIFIERS='@im=fcitx'
+
 # Disable files
 export LESSHISTFILE=-
 
@@ -20,6 +26,9 @@ export OPENER="xdg-open"
 export PAGER="less"
 export WM="i3-gaps"
  
+#set go path
+export GOPATH='$HOME/.config/go'
+
 # Start blinking
 export LESS_TERMCAP_mb=$(tput bold; tput setaf 2) # green
 # Start bold
