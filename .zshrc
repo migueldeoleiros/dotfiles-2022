@@ -20,6 +20,7 @@ export PATH=/home/miguel/.doom.d/bin:$PATH
 setopt append_history inc_append_history share_history
 HISTSIZE=500
 SAVEHIST=500
+HISTFILE=~/.zsh_history
 # Enable searching through history
 bindkey '^R' history-incremental-pattern-search-backward
 
