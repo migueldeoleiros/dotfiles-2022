@@ -1,7 +1,7 @@
 # **DOTFILES**
 
 ![Desktop
-Screenshot](https://gitlab.com/migueldeoleiros/dotfiles/-/raw/master/.screenshots/Screenshot_20200906_130334_thumbnail.png)
+Screenshot](https://gitlab.com/migueldeoleiros/dotfiles/-/raw/master/.screenshots/desktop_scrot.png)
 
 This repository was made for me to more easily manage my dotfiles and
 configuration for my linux system, but you are more than welcome to take
