@@ -13,6 +13,7 @@ alias df='df -h'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias vim='nvim'
+alias diff='diff --color'
 
 #use trash-cli instead of rm
 alias rm='trash-put'
