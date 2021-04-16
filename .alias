@@ -21,7 +21,7 @@ alias rm='trash-put'
 alias find='fd'
 
 #use ranger to move around directories
-alias ranger='. ranger'
+alias rn='. ranger'
 
 #process check
 alias psuser='ps -u miguel'
