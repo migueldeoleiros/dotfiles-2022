@@ -502,8 +502,8 @@ config.bind('<Shift+k>', 'tab-next')
 #config.bind('<Shift+Escape>', 'clear-keychain ;; search ;; fullscreen --leave')
 
 #mpv/vlc video
-#config.bind('M', 'hint links spawn mpv {hint-url}')
-config.bind('M', 'hint links spawn vlc {hint-url}')
+config.bind('M', 'hint links spawn mpv {hint-url}')
+#config.bind('M', 'hint links spawn vlc {hint-url}')
 
 #togle bars
 config.bind('xx', 'config-cycle statusbar.show always never;; config-cycle tabs.show always never')
