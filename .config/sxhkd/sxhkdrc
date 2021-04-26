@@ -34,7 +34,7 @@ super+m
 super+v 
 	alacritty -e nvim
 super+f
-	firefox
+	ferdi
 super+y
 	firefox https://music.youtube.com 
 super+z 
