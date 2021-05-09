@@ -9,10 +9,11 @@ image/png=sxiv.desktop;
 text/plain=nvim.desktop
 x-scheme-handler/etcher=balena-etcher-electron.desktop
 x-scheme-handler/tg=userapp-Telegram Desktop-UOVTW0.desktop
-x-scheme-handler/mailspring=mailspring.desktop
-x-scheme-handler/http=org.qutebrowser.qutebrowser.desktop;
-x-scheme-handler/https=org.qutebrowser.qutebrowser.desktop;
-x-scheme-handler/ftp=org.qutebrowser.qutebrowser.desktop;
+x-scheme-handler/mailspring=Mailspring.desktop
+x-scheme-handler/http=librewolf.desktop;
+x-scheme-handler/https=librewolf.desktop;
+x-scheme-handler/ftp=librewolf.desktop;
 
 [Added Associations]
 x-scheme-handler/tg=userapp-Telegram Desktop-UOVTW0.desktop;
+application/x-xpinstall=librewolf.desktop;
