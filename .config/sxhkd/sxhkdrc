@@ -23,6 +23,8 @@ super+c
     alacritty -e calcurse 
 super+q
     qutebrowser
+super+w
+    librewolf
 super+r
     alacritty -e ranger
 super+d
