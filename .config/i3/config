@@ -200,7 +200,7 @@ for_window [class="Simple-scan"] floating enable border normal
 for_window [class="(?i)System-config-printer.py"] floating enable border normal
 for_window [class="Skype"] floating enable border normal
 for_window [class="Timeset-gui"] floating enable border normal
-for_window [class="(?i)virtualbox"] floating enable border normal
+#for_window [class="(?i)virtualbox"] floating enable border normal
 for_window [class="Xfburn"] floating enable
 for_window [class="feh"] floating enable
 for_window [class="octoxbps"] floating enable sticky enable 
@@ -277,7 +277,7 @@ exec_always --no-startup-id numlockx on
 exec_always feh --bg-scale ~/wallpapers/blue-gradient-wallpaper_ml.png
 
 #set secondary display
-exec_always xrandr --output HDMI-2 --auto --right-of eDP-1
+exec_always xrandr --output $secondMonitor --auto --left-of $firstMonitor
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
