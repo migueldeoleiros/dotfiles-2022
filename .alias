@@ -61,6 +61,10 @@ alias a='strat -r arch'
 alias p='pacman'
 alias pin="pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S" 
 alias pre="pacman -Qq | fzf --multi --preview 'pacman -Qi {1}' | xargs -ro sudo pacman -Rns"
+alias parus="paru -Slq | fzf --multi --preview 'paru -Si {1}' | xargs -ro paru -S" 
+alias parur="paru -Qq | fzf --multi --preview 'paru -Qi {1}' | xargs -ro sudo paru -Rns"
+
+#legacy yay scripts
 alias yin="yay -Slq | fzf --multi --preview 'yay -Si {1}' | xargs -ro yay -S" 
 alias yre="yay -Qq | fzf --multi --preview 'yay -Qi {1}' | xargs -ro sudo yay -Rns"
 
@@ -69,3 +73,4 @@ alias yt='mpsyt'
 
 #check the weather in Coruna
 alias weather='curl wttr.in/Coruna'
+
