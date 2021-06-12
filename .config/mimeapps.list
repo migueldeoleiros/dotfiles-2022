@@ -17,3 +17,4 @@ x-scheme-handler/ftp=librewolf.desktop;
 [Added Associations]
 x-scheme-handler/tg=userapp-Telegram Desktop-UOVTW0.desktop;
 application/x-xpinstall=librewolf.desktop;
+video/mp4=libreoffice-draw.desktop;

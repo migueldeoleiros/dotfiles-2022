@@ -28,7 +28,8 @@ export PAGER="less"
 export WM="i3-gaps"
  
 #set go path
-export GOPATH='$HOME/.config/go'
+# export GOPATH=$HOME/.config/go
+export GOPATH=/home/miguel/.config/go
 
 # Start blinking
 export LESS_TERMCAP_mb=$(tput bold; tput setaf 2) # green

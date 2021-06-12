@@ -274,7 +274,7 @@ exec_always --no-startup-id numlockx on
 # exec_always --no-startup-id nm-applet
 
 #set background
-exec_always feh --bg-scale ~/wallpapers/blue-gradient-wallpaper_ml.png
+exec_always feh --bg-scale ~/wallpapers/MinimalistWallpaperLogo.png
 
 #set secondary display
 exec_always xrandr --output $secondMonitor --auto --left-of $firstMonitor

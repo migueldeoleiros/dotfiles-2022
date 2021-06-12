@@ -21,6 +21,7 @@ settings:
         J: tab-prev
         K: tab-next
         M: hint links spawn vlc {hint-url}
+        P: set-cmd-text -s :open -t !sp
         xx: config-cycle statusbar.show always never;; config-cycle tabs.show always
           never
   statusbar.show:
