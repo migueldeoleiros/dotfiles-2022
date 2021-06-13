@@ -39,9 +39,9 @@ bindsym $mod+Shift+q kill
 ################################################################################################
 ## sound-section ##
 ################################################################################################
-bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer -D pulse sset Master '5%+'"
-bindsym XF86AudioLowerVolume exec --no-startup-id "amixer -D pulse sset Master '5%-'"
-bindsym XF86AudioMute exec --no-startup-id "amixer -D pulse set Master toggle"
+# bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer -D pulse sset Master '5%+'"
+# bindsym XF86AudioLowerVolume exec --no-startup-id "amixer -D pulse sset Master '5%-'"
+# bindsym XF86AudioMute exec --no-startup-id "amixer -D pulse set Master toggle"
 #https://github.com/acrisci/playerctl/
 bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
 bindsym XF86AudioNext exec --no-startup-id playerctl next
@@ -244,7 +244,7 @@ mode "resize" {
 ##########################
 
  #autostart scripts
-exec_always bash ~/.scripts/easyKey.sh
+#exec_always bash ~/.scripts/easyKey.sh
 exec_always bash ~/.scripts/speed.sh
 exec_always bash ~/.scripts/nvidiarun.sh
  
@@ -258,7 +258,8 @@ exec_always --no-startup-id picom --experimental-backend -bc
  #apps
 exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd &
 exec --no-startup-id tlp start
-exec_always xmodmap /home/miguel/.Xmodmap
+exec_always kmonad ~/.config/kmonad/config.kbd
+#exec_always xmodmap /home/miguel/.Xmodmap
 exec_always sxhkd
 exec_always xset -dpms s off
 exec_always --no-startup-id fcitx -d
@@ -269,7 +270,7 @@ exec_always --no-startup-id fcitx -d
 exec --no-startup-id volumeicon
 exec --no-startup-id nm-applet
 #exec --no-startup-id xfce4-clipman
-#exec --no-startup-id blueberry-tray
+exec --no-startup-id blueberry-tray
 exec_always --no-startup-id numlockx on
 # exec_always --no-startup-id nm-applet
 
