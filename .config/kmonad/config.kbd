@@ -26,7 +26,7 @@
     cesc (tap-next-release esc lctl)
     alt (tap-next-release alt (layer-toggle vi))
     tab (tap-next-release tab (layer-toggle spanish))
-    @rsft (multi-tap 200 rsft caps)
+    lsft (multi-tap 200 rsft caps)
 )
 
 ;; VI-like-mode-aliases 
