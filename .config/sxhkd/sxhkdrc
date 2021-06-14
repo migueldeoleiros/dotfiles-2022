@@ -1,5 +1,5 @@
 alt+Return
-    alacritty
+    kitty
 alt+F1
     rofi -show drun
 
@@ -26,7 +26,7 @@ super+q
 super+w
     librewolf
 super+r
-    alacritty -e ranger
+    kitty -e ranger
 super+d
 	dolphin
 super+t
@@ -34,21 +34,17 @@ super+t
 super+m
 	emacs
 super+v 
-	alacritty -e nvim
+	kitty -e nvim
 super+f
 	ferdi
 super+y
 	 firefox
-super+z 
-	feh ~/universidad/horario_Q2.jpg
 super+shift+p 
 	passmenu
 super+F12 
 	setxkbmap us intl
 super+F11
 	setxkbmap us
-super+w 
-	bash ~/wallpapers/i3_wallpapers.sh
 Print
 	deepin-screenshot
 Insert

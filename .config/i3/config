@@ -10,6 +10,8 @@
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod1
 
+set $terminal kitty
+
 #displays
 set $firstMonitor eDP-1
 set $secondMonitor HDMI-2
@@ -263,7 +265,7 @@ exec_always kmonad ~/.config/kmonad/config.kbd
 exec_always sxhkd
 exec_always xset -dpms s off
 exec_always --no-startup-id fcitx -d
-#exec --no-startup-id alacritty -e calcurse
+#exec --no-startup-id $terminal -e calcurse
 # exec_always --no-startup-id xbanish
 
 # tray apps
@@ -275,7 +277,7 @@ exec_always --no-startup-id numlockx on
 # exec_always --no-startup-id nm-applet
 
 #set background
-exec_always feh --bg-scale ~/wallpapers/MinimalistWallpaperLogo.png
+exec_always feh --bg-scale ~/wallpapers/scenic_landscape.png
 
 #set secondary display
 exec_always xrandr --output $secondMonitor --auto --left-of $firstMonitor
