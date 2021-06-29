@@ -15,6 +15,9 @@ alt+F4
 alt+F5
     dmenu -p "cmd" | sh &
 
+super+F1
+    volumeicon
+
 shift+F11
     scrot 
 super+a
