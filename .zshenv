@@ -11,6 +11,9 @@ export QT_IM_MODULE='fcitx'
 export SDL_IM_MODULE='fcitx'
 export XMODIFIERS='@im=fcitx'
 
+#QT themes
+export QT_STYLE_OVERRIDE=kvantum
+
 # Disable files
 export LESSHISTFILE=-
 
