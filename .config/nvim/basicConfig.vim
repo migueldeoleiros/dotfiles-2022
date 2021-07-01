@@ -52,10 +52,16 @@ map Y y$
 " Map <C-L> (redraw screen) to also turn off search highlighting until the next search
 nnoremap <C-M> :nohl<CR><C-L>
 
-"toggle nerdtree
+" toggle nerdtree
 nnoremap <space>n :NERDTreeToggle<CR>
 
-"split movement keys
+" persistent undo
+if has('persistent_undo')
+  set undodir=$HOME/.vim/undo
+  set undofile
+endif
+
+" split movement keys
 nnoremap <leader>j <C-W><C-J>
 nnoremap <leader>k <C-W><C-K>
 nnoremap <leader>l <C-W><C-L>
@@ -64,15 +70,23 @@ nnoremap <leader>wv <C-W><C-V>
 nnoremap <leader>ws <C-W><C-S>
 nnoremap <leader>wc <C-W><C-C>
 
-" " Copy to clipboard
+" Copy to clipboard
 vnoremap  <leader>y  "+y
 nnoremap  <leader>Y  "+yg_
 nnoremap  <leader>y  "+y
 nnoremap  <leader>yy  "+yy
 
-" " Paste from clipboard
+" Paste from clipboard
 nnoremap <leader>p "+p
 nnoremap <leader>P "+P
 vnoremap <leader>p "+p
 vnoremap <leader>P "+P
  
+" pair syntax
+inoremap " ""<left>
+"inoremap ' ''<left>
+inoremap ( ()<left>
+inoremap [ []<left>
+inoremap { {}<left>
+inoremap {<CR> {<CR>}<ESC>O
+inoremap {;<CR> {<CR>};<ESC>O
