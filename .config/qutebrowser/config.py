@@ -479,13 +479,13 @@ c.fonts.default_family = 'Roboto'
 c.fonts.default_size = '10.5pt'
 
 #darkmode
-ccw = c.colors.webpage
-ccw.bg = "black"
-ccw.darkmode.enabled = True
-ccw.darkmode.threshold.background = 100
-ccw.darkmode.threshold.text = 256 - ccw.darkmode.threshold.background
-ccw.darkmode.policy.images = 'smart'
-ccw.preferred_color_scheme = 'dark'
+# ccw = c.colors.webpage
+# ccw.bg = "black"
+# ccw.darkmode.enabled = True
+# ccw.darkmode.threshold.background = 100
+# ccw.darkmode.threshold.text = 256 - ccw.darkmode.threshold.background
+# ccw.darkmode.policy.images = 'smart'
+# ccw.preferred_color_scheme = 'dark'
 
 # Bindings for normal mode
 config.bind('<Ctrl+1>', 'tab-focus 1')
