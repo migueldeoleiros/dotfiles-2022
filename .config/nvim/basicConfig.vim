@@ -57,7 +57,7 @@ nnoremap <space>n :NERDTreeToggle<CR>
 
 " persistent undo
 if has('persistent_undo')
-  set undodir=$HOME/.vim/undo
+  set undodir=$HOME/.cache/nvim/undo
   set undofile
 endif
 
