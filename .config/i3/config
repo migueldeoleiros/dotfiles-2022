@@ -41,9 +41,9 @@ bindsym $mod+Shift+q kill
 ################################################################################################
 ## sound-section ##
 ################################################################################################
-# bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer -D pulse sset Master '5%+'"
-# bindsym XF86AudioLowerVolume exec --no-startup-id "amixer -D pulse sset Master '5%-'"
-# bindsym XF86AudioMute exec --no-startup-id "amixer -D pulse set Master toggle"
+ bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer -D pulse sset Master '5%+'"
+ bindsym XF86AudioLowerVolume exec --no-startup-id "amixer -D pulse sset Master '5%-'"
+ bindsym XF86AudioMute exec --no-startup-id "amixer -D pulse set Master toggle"
 #https://github.com/acrisci/playerctl/
 bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
 bindsym XF86AudioNext exec --no-startup-id playerctl next
@@ -277,7 +277,7 @@ exec_always --no-startup-id numlockx on
 # exec_always --no-startup-id nm-applet
 
 #set background
-exec_always feh --bg-scale ~/wallpapers/scenic_landscape.png
+exec_always feh --bg-scale ~/wallpapers/volcanoML.png
 
 #set secondary display
 exec_always xrandr --output $secondMonitor --auto --left-of $firstMonitor
