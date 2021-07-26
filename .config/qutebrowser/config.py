@@ -501,6 +501,9 @@ config.bind('<Shift+j>', 'tab-prev')
 config.bind('<Shift+k>', 'tab-next')
 #config.bind('<Shift+Escape>', 'clear-keychain ;; search ;; fullscreen --leave')
 
+#download an image
+config.bind('I', 'hint images download')
+
 #mpv/vlc video
 config.bind('M', 'hint links spawn mpv {hint-url}')
 #config.bind('M', 'hint links spawn vlc {hint-url}')
