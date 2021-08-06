@@ -32,6 +32,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'voldikss/vim-floaterm'
 Plug 'McSinyx/vim-octave'
 Plug 'ap/vim-css-color'
+Plug 'jceb/vim-orgmode'
 
 call plug#end()
 
