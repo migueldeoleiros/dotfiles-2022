@@ -31,7 +31,7 @@ super+w
 super+r
     kitty -e ranger
 super+d
-	dolphin
+	discord
 super+t
 	telegram-desktop
 super+m
@@ -41,7 +41,7 @@ super+v
 super+f
 	ferdi
 super+y
-	 firefox
+	firefox
 super+shift+p 
 	passmenu
 super+F12 
