@@ -1,9 +1,11 @@
 alt+Return
     kitty
+super+Return
+    kitty
 alt+F1
     rofi -show drun
 
-super+9
+alt+ctrl+l
     i3lock -i ~/wallpapers/plainWallpaper.png
 
 alt+F2 	
@@ -15,38 +17,38 @@ alt+F4
 alt+F5
     dmenu -p "cmd" | sh &
 
-super+F1
+super+ctrl+F1
     volumeicon
 
 shift+F11
     scrot 
-super+a
+super+ctrl+a
     pavucontrol
-super+c
+super+ctrl+c
     alacritty -e calcurse 
-super+q
+super+ctrl+q
     qutebrowser
-super+w
+super+ctrl+w
     librewolf
-super+r
+super+ctrl+r
     kitty -e ranger
-super+d
+super+ctrl+d
 	discord
-super+t
+super+ctrl+t
 	telegram-desktop
-super+m
+super+ctrl+m
 	emacs
-super+v 
+super+ctrl+v 
 	kitty -e nvim
-super+f
+super+ctrl+f
 	ferdi
-super+y
+super+ctrl+y
 	firefox
-super+shift+p 
+super+ctrl+shift+p 
 	passmenu
-super+F12 
+super+ctrl+F12 
 	setxkbmap us intl
-super+F11
+super+ctrl+F11
 	setxkbmap us
 Print
 	deepin-screenshot
@@ -55,17 +57,17 @@ Insert
 alt+ctrl+shift+q
     xkill
 
-super+h
+super+ctrl+h
     xdotool mousemove_relative -- -10 0 
-super+j
+super+ctrl+j
     xdotool mousemove_relative 0 10 
-super+k
+super+ctrl+k
     xdotool mousemove_relative -- 0 -10 
-super+l
+super+ctrl+l
     xdotool mousemove_relative 10 0 
-super+u
+super+ctrl+u
     xdotool click 1
-super+i
+super+ctrl+i
     xdotool click 2
-super+o
+super+ctrl+o
     xdotool click 3
