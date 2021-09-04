@@ -5,6 +5,9 @@ super+Return
 alt+F1
     rofi -show drun
 
+super+z
+    feh ~/universidad/horarioQ3.png
+
 alt+ctrl+l
     i3lock -i ~/wallpapers/plainWallpaper.png
 
