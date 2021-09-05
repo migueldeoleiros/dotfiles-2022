@@ -19,6 +19,10 @@ alt+F4
     bash ~/.scripts/tuxi.sh
 alt+F5
     dmenu -p "cmd" | sh &
+alt+F6
+    bash ~/.scripts/autoMount.sh
+alt+F7
+    bash ~/.scripts/autoUmount.sh
 
 super+ctrl+F1
     volumeicon
