@@ -13,6 +13,7 @@ x-scheme-handler/mailspring=Mailspring.desktop
 x-scheme-handler/http=org.qutebrowser.qutebrowser.desktop;librewolf.desktop;
 x-scheme-handler/https=org.qutebrowser.qutebrowser.desktop;librewolf.desktop;
 x-scheme-handler/ftp=librewolf.desktop;
+x-scheme-handler/ferdi=ferdi.desktop
 
 [Added Associations]
 x-scheme-handler/tg=userapp-Telegram Desktop-UOVTW0.desktop;
