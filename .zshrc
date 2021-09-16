@@ -70,7 +70,7 @@ fi
 [ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
 [ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
 export FZF_DEFAULT_OPS="--extended"
-export FZF_DEFAULT_COMMAND="fzf --type f"
+# export FZF_DEFAULT_COMMAND="fzf --type f"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 #zsh plugins
@@ -114,3 +114,6 @@ prompt spaceship
 
 
 eval $(thefuck --alias)
+
+# opam configuration
+[[ ! -r /home/miguel/.opam/opam-init/init.zsh ]] || source /home/miguel/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
