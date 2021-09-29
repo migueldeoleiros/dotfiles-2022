@@ -246,7 +246,7 @@ mode "resize" {
 ##########################
 
  #autostart scripts
-#exec_always bash ~/.scripts/easyKey.sh
+exec_always bash ~/.scripts/easyKey.sh
 exec_always bash ~/.scripts/speed.sh
 exec_always bash ~/.scripts/nvidiarun.sh
  
@@ -277,7 +277,7 @@ exec_always --no-startup-id numlockx on
 # exec_always --no-startup-id nm-applet
 
 #set background
-exec_always feh --bg-scale ~/wallpapers/volcanoML.png
+exec_always feh --bg-scale ~/wallpapers/sky-minimalist-14.jpg
 
 #set secondary display
 exec_always xrandr --output $secondMonitor --auto --left-of $firstMonitor
