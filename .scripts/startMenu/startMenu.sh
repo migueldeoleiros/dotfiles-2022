@@ -12,11 +12,13 @@ if [[ "$(tty)" == "/dev/tty1" || "$(tty)" == "/dev/tty2" || "$(tty)" == "/dev/tt
     selection=$(cat /home/miguel/.scripts/startMenu/menuList| smenu -c -W $'\n' -N )
 
     if [[ "$(echo $selection)" == "Start xserver for i3" ]]; then
-        startx 
+        startx i3
     elif [[ "$(echo $selection)" == "Start xserver with NVidia drivers and i3" ]]; then
         nvidia-xrun i3
     elif [[ "$(echo $selection)" == "Start Sway" ]]; then
         sway
+    elif [[ "$(echo $selection)" == "Start xserver for awesome" ]]; then
+        startx awesome
     elif [[ "$(echo $selection)" == "Continue on the TTY" ]]; then
         neofetch
     fi
