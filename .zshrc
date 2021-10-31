@@ -14,6 +14,7 @@ source $HOME/.scripts/startMenu/startMenu.sh
 
 #PATH
 export PATH=/home/miguel/.scripts:$PATH
+export PATH=/home/miguel/.local/bin:$PATH
 export PATH=/home/miguel/.doom.d/bin:$PATH
 
 # History
@@ -94,8 +95,8 @@ SPACESHIP_GOLANG_SHOW=false
 SPACESHIP_PHP_SHOW=false
 SPACESHIP_RUST_SHOW=false
 SPACESHIP_JULIA_SHOW=false
-SPACESHIP_DOCKER_SHOW=false
-SPACESHIP_DOCKER_CONTEXT_SHOW=false
+#SPACESHIP_DOCKER_SHOW=false
+#SPACESHIP_DOCKER_CONTEXT_SHOW=false
 SPACESHIP_AWS_SHOW=false
 SPACESHIP_CONDA_SHOW=false
 SPACESHIP_VENV_SHOW=false
@@ -106,7 +107,7 @@ SPACESHIP_KUBECONTEXT_SHOW=false
 SPACESHIP_TERRAFORM_SHOW=false
 SPACESHIP_TERRAFORM_SHOW=false
 SPACESHIP_VI_MODE_SHOW=false
-SPACESHIP_JOBS_SHOW=false
+#SPACESHIP_JOBS_SHOW=false
 
 # Spaceship Prompt
 autoload -U promptinit; promptinit
