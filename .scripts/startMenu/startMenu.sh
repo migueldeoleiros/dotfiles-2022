@@ -20,7 +20,7 @@ if [[ "$(tty)" == "/dev/tty1" || "$(tty)" == "/dev/tty2" || "$(tty)" == "/dev/tt
     elif [[ "$(echo $selection)" == "Start xserver for awesome" ]]; then
         startx awesome
     elif [[ "$(echo $selection)" == "Continue on the TTY" ]]; then
-        neofetch
+        tmux -2 new-session "neofetch ; zsh"
     fi
 
 fi
