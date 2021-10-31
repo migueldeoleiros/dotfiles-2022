@@ -4,7 +4,6 @@
 #Script that displays a menu on tty login
 #dependencies: smenu, figlet, lolcat, neofetch and whatever you want to start on
 
-SPACESHIP_BATTERY_SHOW=false
 
 if [[ "$(tty)" == "/dev/tty1" || "$(tty)" == "/dev/tty2" || "$(tty)" == "/dev/tty3" || "$(tty)" == "/dev/tty4" ]]; then
 
@@ -22,7 +21,6 @@ if [[ "$(tty)" == "/dev/tty1" || "$(tty)" == "/dev/tty2" || "$(tty)" == "/dev/tt
         startx awesome
     elif [[ "$(echo $selection)" == "Continue on the TTY" ]]; then
         neofetch
-        SPACESHIP_BATTERY_SHOW=true
     fi
 
 fi
