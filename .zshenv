@@ -1,4 +1,4 @@
-typeset -U PATH path
+set -U PATH path
 
 # Other XDG paths
 export XDG_DATA_HOME=${XDG_DATA_HOME:="$HOME/.local/share"}
@@ -12,7 +12,8 @@ export SDL_IM_MODULE='fcitx'
 export XMODIFIERS='@im=fcitx'
 
 #QT themes
-export QT_STYLE_OVERRIDE=kvantum
+export QT_QPA_PLATFORMTHEME='qt5ct'
+#export QT_STYLE_OVERRIDE=kvantum
 
 # Disable files
 export LESSHISTFILE=-
@@ -22,17 +23,26 @@ export EDITOR="nvim"
 export READER="zathura"
 export VISUAL="nvim"
 export TERMINAL="kitty"
-#export BROWSER="qutebrowser"
-export BROWSER="librewolf"
+export BROWSER="qutebrowser"
+#export BROWSER="librewolf"
 export VIDEO="mpv"
 export IMAGE="feh"
 export OPENER="xdg-open"
 export PAGER="less"
 export WM="i3-gaps"
  
-#set go path
-# export GOPATH=$HOME/.config/go
-export GOPATH=/home/miguel/.config/go
+#clean $HOME
+export GOPATH=$XDG_CONFIG_HOME/go
+export CARGO_HOME="$XDG_DATA_HOME"/cargo
+export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
+export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
+export OPAMROOT="$XDG_DATA_HOME/opam"
+export PARALLEL_HOME="$XDG_CONFIG_HOME"/parallel
+export STACK_ROOT="$XDG_DATA_HOME"/stack
+export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
+export SCREENRC="$XDG_CONFIG_HOME"/screen/screenrc
+export _Z_DATA="$XDG_DATA_HOME/z"
+
 
 # Start blinking
 export LESS_TERMCAP_mb=$(tput bold; tput setaf 2) # green
