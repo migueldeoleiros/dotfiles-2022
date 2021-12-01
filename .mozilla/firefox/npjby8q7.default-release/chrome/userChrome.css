@@ -1,7 +1,7 @@
 
 /* Tabs fill all abaliabe space*/
 /* Why 100vw? Tab closing requires width animation to end and "none" can't be animated */
-.tabbrowser-tab[fadein]{ max-width: 100vw !important }
+/*.tabbrowser-tab[fadein]{ max-width: 100vw !important } */
 
 /* Changes various in-UI scrollabars to be slim and more subtle */
 .panel-subview-body,
