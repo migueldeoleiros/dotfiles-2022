@@ -35,7 +35,10 @@
     (auto-package-update-at-time "09:00"))
 
 
-;;;OTHER CONFIG
+;;; OTHER CONFIG
+;; initial buffer 
+;;(setq initial-buffer-choice (lambda () (dired "~/")))
+
 ;; set tab to 4
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
@@ -57,6 +60,19 @@
     kept-new-versions 20   ; how many of the newest versions to keep
     kept-old-versions 5    ; and how many of the old
     )
+
+;;; KEYBINDS
+(use-package general
+  :after evil
+  :config
+  (general-create-definer efs/leader-keys
+    :keymaps '(normal insert visual emacs)
+    :prefix "SPC"
+    :global-prefix "C-SPC")
+
+  (efs/leader-keys
+    "b" '(switch-to-buffer :which-key "buffer menu")
+    ))
 
 ;;; UI
 (setq inhibit-startup-message t)
@@ -182,7 +198,14 @@
     ;; no vim insert bindings
     (setq evil-undo-system 'undo-fu)
     :config
-    (evil-mode t))
+    (evil-mode t)
+    (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
+    (define-key evil-normal-state-map "\C-w\C-h" 'evil-window-left)
+    (define-key evil-normal-state-map "\C-w\C-j" 'evil-window-down)
+    (define-key evil-normal-state-map "\C-w\C-k" 'evil-window-up)
+    (define-key evil-normal-state-map "\C-w\C-l" 'evil-window-right)
+    (evil-set-initial-state 'messages-buffer-mode 'normal)
+    (evil-set-initial-state 'dashboard-mode 'normal))
 (use-package evil-collection
     :after evil
     :config
@@ -293,6 +316,10 @@
 (use-package counsel-projectile
     :after projectile
     :config (counsel-projectile-mode))
+
+;;magit
+(use-package magit
+  :ensure t)
 
 ;;whichKey
 (use-package which-key
