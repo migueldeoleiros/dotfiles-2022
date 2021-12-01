@@ -72,6 +72,7 @@
 
   (efs/leader-keys
     "b" '(switch-to-buffer :which-key "buffer menu")
+    "d" '(dired :which-key "dired")
     ))
 
 ;;; UI
@@ -236,7 +237,7 @@
     (add-hook 'c-mode-hook #'lsp)
     (add-hook 'c++-mode-hook #'lsp)
     (add-hook 'cmake-mode-hook #'lsp)
-    (add-hook 'sh-mode-hook #'lsp)
+    (add-hook 'bash-mode-hook #'lsp)
     (add-hook 'ocaml-mode-hook #'lsp)
 (use-package lsp-ui
     :hook (lsp-mode . lsp-ui-mode)
@@ -261,6 +262,14 @@
 ;;LANGUAGES
 ;;Ocaml
 (use-package tuareg)
+
+;;Java
+(use-package lsp-java
+  :config (add-hook 'java-mode-hook 'lsp))
+(require 'lsp-java-boot)
+;; to enable the lenses
+(add-hook 'lsp-mode-hook #'lsp-lens-mode)
+(add-hook 'java-mode-hook #'lsp-java-boot-lens-mode)
 
 ;;Python
 (use-package python-mode
