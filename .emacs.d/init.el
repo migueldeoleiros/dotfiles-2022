@@ -36,13 +36,16 @@
 
 
 ;;;OTHER CONFIG
-;;set tab to 4
+;; set tab to 4
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
 (setq c-set-style "k&r")
 (setq c-basic-offset 4)
 
-;;set custom
+;; autocomplete brackets
+(electric-pair-mode t)
+
+;; set custom
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
 
