@@ -2,7 +2,8 @@
 #they must be sourced to the shell config (.bashrc,.zshrc etc.)
 
 #basic aliases
-alias b='byobu'
+#alias tmux="TERM=screen-256color-bce tmux"
+alias tmux="tmux -2"
 alias sudosu='sudo -Es'
 alias sudo='sudo '
 alias poweroff='sudo poweroff'
@@ -13,6 +14,7 @@ alias df='df -h'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias vim='nvim'
+alias e='emacs -nw'
 alias diff='diff --color'
 
 #use trash-cli instead of rm
@@ -32,6 +34,9 @@ alias ls='exa -s extension --group-directories-first'
 alias ll='exa -ls extension --group-directories-first'
 alias lla='exa -las extension --group-directories-first'
 alias la='exa -as extension --group-directories-first'
+
+#music player MOCP
+alias moc='mocp -O MOCDir="$XDG_CONFIG_HOME"/moc'
 
 #open programs
 alias op='xdg-open'
@@ -69,7 +74,7 @@ alias yin="yay -Slq | fzf --multi --preview 'yay -Si {1}' | xargs -ro yay -S"
 alias yre="yay -Qq | fzf --multi --preview 'yay -Qi {1}' | xargs -ro sudo yay -Rns"
 
 #youtube on comand line
-alias yt='mpsyt'
+alias yt='ytfzf'
 
 #check the weather in Coruna
 alias weather='curl wttr.in/Coruna'
