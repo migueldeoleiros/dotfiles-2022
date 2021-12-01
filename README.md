@@ -32,14 +32,17 @@ Kitty is my terminal emulator at the moment, but I also have a copy of alacritty
 I use both qutebrowser and librewolf for my browser, using firefox userChrome to make is look similar and less bloated
 * [qutebrowser](https://github.com/migueldeoleiros/dotfiles/tree/master/.config/qutebrowser)
 * [librewolf](https://github.com/migueldeoleiros/dotfiles/tree/master/.librewolf/pzk2etkd.default-release/chrome) (It's fully compatible with Firefox)
+
+## Text editor
+I am currently using emacs because of the better IDE features like code completion, but both of this configs are usable and have a lot of the same features
+* [neovim](https://github.com/migueldeoleiros/dotfiles/blob/master/.config/nvim) 
+* [emacs](https://github.com/migueldeoleiros/dotfiles/tree/master/.emacs.d) (check out [System Crafter](https://systemcrafters.cc/))
         
 ## Other apps
-* [neovim](https://github.com/migueldeoleiros/dotfiles/blob/master/.config/nvim) (My text editor of choice )
 * [tmux](https://github.com/migueldeoleiros/dotfiles/blob/master/.config/tmux) (terminal multiplexer configured with vim-like bindings for my sanity )
 * [i3 window manager](https://github.com/migueldeoleiros/dotfiles/tree/master/.config/i3) (My window manager of choice)
 * [ranger file-manager](https://github.com/migueldeoleiros/dotfiles/tree/master/.config/ranger) (Best terminal file manager out there)
 * [rofi](https://github.com/migueldeoleiros/dotfiles/tree/master/.config/rofi) (I use for both my scipts and as an app launcher)
 * [dunst](https://github.com/migueldeoleiros/dotfiles/tree/master/.config/dunst) (Notification daemon without bloat)
 * [picom](https://github.com/migueldeoleiros/dotfiles/tree/master/.config/picom.conf) (Currently using [jonaburg's](https://github.com/jonaburg/picom) fork of picom for round corners, animations and blur)
-* [emacs](https://github.com/migueldeoleiros/dotfiles/tree/master/.emacs.d) (I do not recomend using this config, check out [System Crafter](https://systemcrafters.cc/))
 * [polybar](https://github.com/migueldeoleiros/dotfiles/tree/master/.config/polybar) (This is supposed to be used with emacs as a window manager (not my current set up))
