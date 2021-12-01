@@ -29,12 +29,12 @@ Kitty is my terminal emulator at the moment, but I also have a copy of alacritty
 * [alacritty](https://github.com/migueldeoleiros/dotfiles/tree/master/.config/alacritty)
         
 ## Browser
-I use both qutebrowser and librewolf for my browser, using firefox userChrome to make is look similar and less bloated
+I use both qutebrowser and firefox for my browser, using firefox userChrome to make them look similar and less bloated
 * [qutebrowser](https://github.com/migueldeoleiros/dotfiles/tree/master/.config/qutebrowser)
-* [librewolf](https://github.com/migueldeoleiros/dotfiles/tree/master/.librewolf/pzk2etkd.default-release/chrome) (It's fully compatible with Firefox)
+* [firefox userChrome](https://github.com/migueldeoleiros/dotfiles/tree/master/.mozilla/firefox/npjby8q7.default-release/chrome) 
 
 ## Text editor
-I am currently using emacs because of the better IDE features like code completion, but both of this configs are usable and have a lot of the same features
+I'm currently using emacs because of the better IDE features like code completion, but both of this configs are usable and have a lot of the same features
 * [neovim](https://github.com/migueldeoleiros/dotfiles/blob/master/.config/nvim) 
 * [emacs](https://github.com/migueldeoleiros/dotfiles/tree/master/.emacs.d) (check out [System Crafter](https://systemcrafters.cc/))
         
