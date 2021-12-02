@@ -26,18 +26,22 @@
 
 ;;; PACKAGE UPDATE
 (use-package auto-package-update
-    :custom
-    (auto-package-update-interval 7)
-    (auto-package-update-prompt-before-update t)
-    (auto-package-update-hide-results t)
-    :config
-    (auto-package-update-maybe)
-    (auto-package-update-at-time "09:00"))
+  :custom
+  (auto-package-update-interval 7)
+  (auto-package-update-prompt-before-update t)
+  (auto-package-update-hide-results t)
+  :config
+  (auto-package-update-maybe)
+  (auto-package-update-at-time "09:00"))
 
 
 ;;; OTHER CONFIG
 ;; initial buffer
 ;;(setq initial-buffer-choice (lambda () (dired "~/")))
+
+;; always ask for `y` or `n` instead of `yes` or `no`
+(defalias 'yes-or-no-p 'y-or-n-p)
+
 ;;scrolling
 (setq redisplay-dont-pause t
   scroll-margin 1
@@ -67,6 +71,14 @@
     kept-old-versions 5    ; and how many of the old
     )
 
+;; open a browser and search
+(defun search (url)
+  "Opens a browser and search URL DuckDuckGo for the given string."
+  (interactive "sSearch for: ")
+  (browse-url (concat "http://www.duckduckgo.com/?q="
+                      (url-hexify-string url))))
+(global-set-key (kbd "C-c C-s") 'search)
+
 ;;; KEYBINDS
 (use-package general
   :after evil
@@ -81,6 +93,7 @@
     "t" '(vterm :which-key "teminal")
     "d" '(dired :which-key "dired")
     "e" '(flycheck-list-errors :which-key "list of errors in file")
+    "s" '(search :which-key "search in browser")
     ))
 
 ;;; UI
@@ -115,19 +128,20 @@
 
 ;;modeline
 (use-package doom-modeline
-    :init (doom-modeline-mode t)
-    :custom ((doom-modeline-height 25)))
+  :init (doom-modeline-mode t)
+  :custom ((doom-modeline-height 25)))
 
 
 ;;; THEME
 (use-package doom-themes
-     :init
-     (load-theme 'doom-dracula t)
-     (set-background-color "black"))
+  :init
+  (load-theme 'doom-dracula t)
+  (set-background-color "black"))
 
 (defun on-after-init ()
-    (unless (display-graphic-p (selected-frame))
-        (set-face-background 'default "unspecified-bg" (selected-frame))))
+  "Disable theme's background color."
+  (unless (display-graphic-p (selected-frame))
+      (set-face-background 'default "unspecified-bg" (selected-frame))))
 
 (add-hook 'window-setup-hook 'on-after-init)
 
@@ -143,24 +157,25 @@
 
 ;;; ORG-MODE
 (use-package org-bullets
-    :hook (org-mode . org-bullets-mode)
-    :custom
-    (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
+  :hook (org-mode . org-bullets-mode)
+  :custom
+  (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
 
 (defun efs/org-mode-visual-fill ()
-    (setq visual-fill-column-width 100 
-          visual-fill-column-center-text t)
-    (visual-fill-column-mode 1))
+  "Center text on org-mode"
+  (setq visual-fill-column-width 100
+        visual-fill-column-center-text t)
+  (visual-fill-column-mode 1))
 
 (use-package visual-fill-column
-    :hook (org-mode . efs/org-mode-visual-fill))
+  :hook (org-mode . efs/org-mode-visual-fill))
 
 ;; better font faces
 (defun efs/org-font-setup ()
-    ;; Replace list hyphen with dot
-    (font-lock-add-keywords 'org-mode 
-                            '(("^ *\\([-]\\) " 
-                               (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
+  "Replace list hyphen with dot."
+  (font-lock-add-keywords 'org-mode
+                          '(("^ *\\([-]\\) " 
+                            (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
 
 ;; Set faces for heading levels
 (dolist (face '((org-level-1 . 1.2)
@@ -171,7 +186,7 @@
                 (org-level-6 . 1.1)
                 (org-level-7 . 1.1)
                 (org-level-8 . 1.1)))
-    (set-face-attribute (car face) nil :font "Cantarell" :weight 'regular :height (cdr face)))
+  (set-face-attribute (car face) nil :font "Cantarell" :weight 'regular :height (cdr face)))
 
 ;; Ensure that anything that should be fixed-pitch in Org files appears that way
 (set-face-attribute 'org-block nil    :foreground nil :inherit 'fixed-pitch)
@@ -193,64 +208,65 @@
       '((emacs-lisp . t)
       (python . t)))
 
-  (push '("conf-unix" . conf-unix) org-src-lang-modes))
+(push '("conf-unix" . conf-unix) org-src-lang-modes))
 
 
 ;;; VIM
 (use-package evil
-    :demand t
-    :bind (("<escape>" . keyboard-escape-quit))
-    :init
-    ;; allow for using cgn
-    ;; (setq evil-search-module 'evil-search)
-    (setq evil-want-keybinding nil)
-    ;; no vim insert bindings
-    (setq evil-undo-system 'undo-fu)
-    :config
-    (evil-mode t)
-    (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
-    (define-key evil-normal-state-map "\C-w\C-h" 'evil-window-left)
-    (define-key evil-normal-state-map "\C-w\C-j" 'evil-window-down)
-    (define-key evil-normal-state-map "\C-w\C-k" 'evil-window-up)
-    (define-key evil-normal-state-map "\C-w\C-l" 'evil-window-right)
-    (evil-set-initial-state 'messages-buffer-mode 'normal)
-    (evil-set-initial-state 'dashboard-mode 'normal))
+  :demand t
+  :bind (("<escape>" . keyboard-escape-quit))
+  :init
+  ;; allow for using cgn
+  ;; (setq evil-search-module 'evil-search)
+  (setq evil-want-keybinding nil)
+  ;; no vim insert bindings
+  (setq evil-undo-system 'undo-fu)
+  :config
+  (evil-mode t)
+  (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
+  (define-key evil-normal-state-map "\C-w\C-h" 'evil-window-left)
+  (define-key evil-normal-state-map "\C-w\C-j" 'evil-window-down)
+  (define-key evil-normal-state-map "\C-w\C-k" 'evil-window-up)
+  (define-key evil-normal-state-map "\C-w\C-l" 'evil-window-right)
+  (evil-set-initial-state 'messages-buffer-mode 'normal)
+  (evil-set-initial-state 'dashboard-mode 'normal))
 (use-package evil-collection
-    :after evil
-    :config
-    (setq evil-want-integration t)
-    (evil-collection-init))
+  :after evil
+  :config
+  (setq evil-want-integration t)
+  (evil-collection-init))
 ;; Vim style undo
 (use-package undo-fu)
 ;; Change cursor terminal
 (unless (display-graphic-p)
-    (use-package evil-terminal-cursor-changer
-    :config (evil-terminal-cursor-changer-activate)))
+  (use-package evil-terminal-cursor-changer
+  :config (evil-terminal-cursor-changer-activate)))
 
 ;;; CODE
 ;;lsp
 (defun efs/lsp-mode-setup ()
-    (setq lsp-headerline-breadcrumb-segments '(path-up-to-project file symbols))
-    (lsp-headerline-breadcrumb-mode))
+  "Set up lsp mode."
+  (setq lsp-headerline-breadcrumb-segments '(path-up-to-project file symbols))
+  (lsp-headerline-breadcrumb-mode))
 (use-package lsp-mode
-    :commands (lsp lsp-deferred)
-    :hook (lsp-mode . efs/lsp-mode-setup)
-    :init
-    (setq lsp-keymap-prefix "C-c l")  ;; Or 'C-l', 's-l'
-    :config
-    (lsp-enable-which-key-integration t))
-    (add-hook 'dockerfile-mode-hook #'lsp)
-    (add-hook 'java-mode-hook #'lsp)
-    (add-hook 'sql-mode-hook #'lsp)
-    (add-hook 'c-mode-hook #'lsp)
-    (add-hook 'c++-mode-hook #'lsp)
-    (add-hook 'cmake-mode-hook #'lsp)
-    (add-hook 'bash-mode-hook #'lsp)
-    (add-hook 'ocaml-mode-hook #'lsp)
+  :commands (lsp lsp-deferred)
+  :hook (lsp-mode . efs/lsp-mode-setup)
+  :init
+  (setq lsp-keymap-prefix "C-c l")  ;; Or 'C-l', 's-l'
+  :config
+  (lsp-enable-which-key-integration t))
+  (add-hook 'dockerfile-mode-hook #'lsp)
+  (add-hook 'java-mode-hook #'lsp)
+  (add-hook 'sql-mode-hook #'lsp)
+  (add-hook 'c-mode-hook #'lsp)
+  (add-hook 'c++-mode-hook #'lsp)
+  (add-hook 'cmake-mode-hook #'lsp)
+  (add-hook 'bash-mode-hook #'lsp)
+  (add-hook 'ocaml-mode-hook #'lsp)
 (use-package lsp-ui
-    :hook (lsp-mode . lsp-ui-mode)
-    :custom
-    (lsp-ui-doc-position 'bottom))
+  :hook (lsp-mode . lsp-ui-mode)
+  :custom
+  (lsp-ui-doc-position 'bottom))
 
 ;;flycheck
 (use-package flycheck
@@ -259,15 +275,15 @@
 
 ;;company
 (use-package company
-    :after lsp-mode
-    :hook (lsp-mode . company-mode)
-    :bind (:map company-active-map
-            ("<tab>" . company-complete-selection))
-          (:map lsp-mode-map
-            ("<tab>" . company-indent-or-complete-common))
-    :custom
-    (company-minimum-prefix-length 1)
-    (company-idle-delay 0.0))
+  :after lsp-mode
+  :hook (lsp-mode . company-mode)
+  :bind (:map company-active-map
+          ("<tab>" . company-complete-selection))
+        (:map lsp-mode-map
+          ("<tab>" . company-indent-or-complete-common))
+  :custom
+  (company-minimum-prefix-length 1)
+  (company-idle-delay 0.0))
 (use-package company-box
   :hook (company-mode . company-box-mode))
 
@@ -294,58 +310,58 @@
 
 ;;Python
 (use-package python-mode
-    :ensure t
-    :hook (python-mode . lsp-deferred)
-    :custom
-    ;; NOTE: Set these if Python 3 is called "python3" on your system!
-    ;; (python-shell-interpreter "python3")
-    ;; (dap-python-executable "python3")
-    (dap-python-debugger 'debugpy)
-    :config
-    (require 'dap-python))
+  :ensure t
+  :hook (python-mode . lsp-deferred)
+  :custom
+  ;; NOTE: Set these if Python 3 is called "python3" on your system!
+  ;; (python-shell-interpreter "python3")
+  ;; (dap-python-executable "python3")
+  (dap-python-debugger 'debugpy)
+  :config
+  (require 'dap-python))
 (use-package pyvenv
-    :after python-mode
-    :config
-    (pyvenv-mode 1))
+  :after python-mode
+  :config
+  (pyvenv-mode 1))
 
 
 ;;; PACKAGES
 ;;ivy
 (use-package ivy 
-    :config
-    (ivy-mode t)
-    (setq ivy-use-virtual-buffers t)
-    (setq enable-recursive-minibuffers t))
+  :config
+  (ivy-mode t)
+  (setq ivy-use-virtual-buffers t)
+  (setq enable-recursive-minibuffers t))
 (use-package ivy-rich
-    :after ivy
-    :init (ivy-rich-mode t))
+  :after ivy
+  :init (ivy-rich-mode t))
 (use-package counsel 
-    :config (counsel-mode t))
+  :config (counsel-mode t))
 (use-package ivy-prescient
-    :after counsel
-    :custom
-    (ivy-prescient-enable-filtering nil)
-    :config
-    (prescient-persist-mode t)
-    (ivy-prescient-mode t))
+  :after counsel
+  :custom
+  (ivy-prescient-enable-filtering nil)
+  :config
+  (prescient-persist-mode t)
+  (ivy-prescient-mode t))
 (use-package lsp-ivy
-    :after lsp)
+  :after lsp)
 
 ;;projectile
 (use-package projectile
-    :diminish projectile-mode
-    :config (projectile-mode)
-    :custom ((projectile-completion-system 'ivy))
-    :bind-keymap
-    ("C-c p" . projectile-command-map)
-    :init
-    ;; NOTE: Set this to the folder where you keep your Git repos!
-    ;; (when (file-directory-p "~/")
-    ;; (setq projectile-project-search-path '("~/")))
-    (setq projectile-switch-project-action #'projectile-dired))
+  :diminish projectile-mode
+  :config (projectile-mode)
+  :custom ((projectile-completion-system 'ivy))
+  :bind-keymap
+  ("C-c p" . projectile-command-map)
+  :init
+  ;; NOTE: Set this to the folder where you keep your Git repos!
+  ;; (when (file-directory-p "~/")
+  ;; (setq projectile-project-search-path '("~/")))
+  (setq projectile-switch-project-action #'projectile-dired))
 (use-package counsel-projectile
-    :after projectile
-    :config (counsel-projectile-mode))
+  :after projectile
+  :config (counsel-projectile-mode))
 
 ;;vterm
 (use-package vterm
