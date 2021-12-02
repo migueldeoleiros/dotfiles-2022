@@ -36,8 +36,14 @@
 
 
 ;;; OTHER CONFIG
-;; initial buffer 
+;; initial buffer
 ;;(setq initial-buffer-choice (lambda () (dired "~/")))
+;;scrolling
+(setq redisplay-dont-pause t
+  scroll-margin 1
+  scroll-step 1
+  scroll-conservatively 10000
+  scroll-preserve-screen-position 1)
 
 ;; set tab to 4
 (setq-default indent-tabs-mode nil)
@@ -72,7 +78,9 @@
 
   (efs/leader-keys
     "b" '(switch-to-buffer :which-key "buffer menu")
+    "t" '(vterm :which-key "teminal")
     "d" '(dired :which-key "dired")
+    "e" '(flycheck-list-errors :which-key "list of errors in file")
     ))
 
 ;;; UI
@@ -244,6 +252,11 @@
     :custom
     (lsp-ui-doc-position 'bottom))
 
+;;flycheck
+(use-package flycheck
+  :ensure t
+  :init (global-flycheck-mode))
+
 ;;company
 (use-package company
     :after lsp-mode
@@ -261,7 +274,15 @@
 
 ;;LANGUAGES
 ;;Ocaml
-(use-package tuareg)
+(require 'opam-user-setup "~/.emacs.d/opam-user-setup.el")
+(use-package flycheck-ocaml
+  :config
+  (with-eval-after-load 'merlin
+    ;; Disable Merlin's own error checking
+    (setq merlin-error-after-save nil)
+    ;; Enable Flycheck checker
+    (flycheck-ocaml-setup))
+  (add-hook 'tuareg-mode-hook #'merlin-mode))
 
 ;;Java
 (use-package lsp-java
@@ -326,6 +347,13 @@
     :after projectile
     :config (counsel-projectile-mode))
 
+;;vterm
+(use-package vterm
+  :commands vterm
+  :config
+  (setq vterm-shell "zsh")
+  (setq vterm-max-scrollback 10000))
+
 ;;magit
 (use-package magit
   :ensure t)
@@ -346,3 +374,4 @@
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
 
+;;; init.el ends here
