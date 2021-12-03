@@ -162,7 +162,7 @@
   (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
 
 (defun efs/org-mode-visual-fill ()
-  "Center text on org-mode"
+  "Center text on 'org-mode'."
   (setq visual-fill-column-width 100
         visual-fill-column-center-text t)
   (visual-fill-column-mode 1))
@@ -324,6 +324,20 @@
   :config
   (pyvenv-mode 1))
 
+;;; EAF
+(use-package eaf
+  :load-path "~/.emacs.d/site-lisp/emacs-application-framework" 
+  :custom
+  ; See https://github.com/emacs-eaf/emacs-application-framework/wiki/Customization
+  (eaf-browser-continue-where-left-off t)
+  (eaf-browser-enable-adblocker t)
+  (browse-url-browser-function 'eaf-open-browser)
+  :config
+  (require 'eaf-browser)
+  (require 'eaf-pdf-viewer)
+  (require 'eaf-markdown-previewer)
+  (require 'eaf-org-previewer)
+  )
 
 ;;; PACKAGES
 ;;ivy
