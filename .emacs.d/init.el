@@ -77,7 +77,6 @@
   (interactive "sSearch for: ")
   (browse-url (concat "http://www.duckduckgo.com/?q="
                       (url-hexify-string url))))
-(global-set-key (kbd "C-c C-s") 'search)
 
 ;;; KEYBINDS
 (use-package general
@@ -93,6 +92,7 @@
     "t" '(vterm :which-key "teminal")
     "d" '(dired :which-key "dired")
     "e" '(flycheck-list-errors :which-key "list of errors in file")
+    "k" '(kill-buffer :which-key "kill buffer")
     "s" '(search :which-key "search in browser")
     ))
 
@@ -339,7 +339,25 @@
   (require 'eaf-org-previewer)
   )
 
-;;; PACKAGES
+;;;DIRED
+(use-package dired
+  :ensure nil
+  :commands (dired dired-jump)
+  :bind (("C-x C-j" . dired-jump))
+  :custom ((dired-listing-switches "-Aghvol --group-directories-first --time-style=iso"))
+  :config
+  (evil-collection-define-key 'normal 'dired-mode-map
+    "h" 'dired-single-up-directory
+    "l" 'dired-single-buffer))
+(use-package dired-single)
+(use-package all-the-icons-dired
+  :hook (dired-mode . all-the-icons-dired-mode))
+(use-package dired-open
+  :config
+  (setq dired-open-extensions '(("mp4" . "mpv")
+                                ("mkv" . "mpv"))))
+
+;;;OTHER PACKAGES
 ;;ivy
 (use-package ivy 
   :config
