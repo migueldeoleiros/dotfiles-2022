@@ -35,6 +35,20 @@
   (auto-package-update-at-time "09:00"))
 
 
+;;; LANGUAGE SPELLING AND TYPING
+(set-input-method 'spanish-prefix)
+(use-package guess-language  ;Automatically detect language for Flyspell
+  :ensure t
+  :defer t
+  :init (add-hook 'text-mode-hook #'guess-language-mode)
+  :config
+  (setq guess-language-langcodes '((en . ("en_US" "English"))
+                                   (es . ("es_ES" "Spanish")))
+        guess-language-languages '(en es)
+        guess-language-min-paragraph-length 45)
+  :diminish guess-language-mode)
+
+
 ;;; OTHER CONFIG
 ;; initial buffer
 ;;(setq initial-buffer-choice (lambda () (dired "~/")))
@@ -120,9 +134,10 @@
 
 ;; Disable line numbers for some modes
 (dolist (mode '(org-mode-hook
-                term-mode-hook
                 shell-mode-hook
                 treemacs-mode-hook
+                term-mode-hook
+                vterm-mode-hook
                 eshell-mode-hook))
     (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
@@ -343,16 +358,34 @@
 (use-package dired
   :ensure nil
   :commands (dired dired-jump)
-  :bind (("C-x C-j" . dired-jump))
-  :custom ((dired-listing-switches "-Aghvol --group-directories-first --time-style=iso"))
+  :bind
+  (("C-x C-j" . dired-jump)
+   ("<tab>" . dired-subtree-toggle)
+   ("<backtab>" . dired-subtree-remove))
+  :custom
+  ((dired-listing-switches "-Aghvol --group-directories-first --time-style=iso")
+  (dired-recursive-copies 'always)
+  (dired-recursive-deletes 'always)
+  (delete-by-moving-to-trash t))
   :config
   (evil-collection-define-key 'normal 'dired-mode-map
     "h" 'dired-single-up-directory
-    "l" 'dired-single-buffer))
-(use-package dired-single)
+    "l" 'dired-single-buffer
+    "P" 'dired-view-file
+    "y" 'dired-ranger-copy
+    "X" 'dired-ranger-move
+    "p" 'dired-ranger-paste))
+(use-package dired-single
+  :defer t)
 (use-package all-the-icons-dired
+  :defer t
   :hook (dired-mode . all-the-icons-dired-mode))
+(use-package dired-subtree
+  :defer t)
+(use-package dired-ranger
+  :defer t)
 (use-package dired-open
+  :defer t
   :config
   (setq dired-open-extensions '(("mp4" . "mpv")
                                 ("mkv" . "mpv"))))
@@ -421,5 +454,11 @@
 ;;Rainbow delimiters
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
+
+;;colorize color names
+(use-package rainbow-mode
+  :config
+  (setq rainbow-ansi-colors nil)
+  (setq rainbow-x-colors nil))
 
 ;;; init.el ends here
