@@ -153,12 +153,18 @@
   (load-theme 'doom-dracula t)
   (set-background-color "black"))
 
-(defun on-after-init ()
+(defun set-black-background()
   "Disable theme's background color."
-  (unless (display-graphic-p (selected-frame))
-      (set-face-background 'default "unspecified-bg" (selected-frame))))
+  (set-face-background 'default "#000000" (selected-frame)))
 
-(add-hook 'window-setup-hook 'on-after-init)
+(if (daemonp)
+  (add-hook 'after-make-frame-functions
+            (lambda (frame)
+              ;; (setq doom-modeline-icon t)
+              (with-selected-frame frame
+                (set-black-background))))
+  (set-black-background))
+
 
 ;;; FONT
 (defvar efs/default-font-size 120)
@@ -184,6 +190,13 @@
 
 (use-package visual-fill-column
   :hook (org-mode . efs/org-mode-visual-fill))
+
+;; source block
+(require 'org-tempo)
+(add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp"))
+(add-to-list 'org-structure-template-alist '("sh" . "src shell"))
+(add-to-list 'org-structure-template-alist '("py" . "src python"))
+(add-to-list 'org-structure-template-alist '("oc" . "src ocaml"))
 
 ;; better font faces
 (defun efs/org-font-setup ()

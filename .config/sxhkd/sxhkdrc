@@ -42,7 +42,7 @@ super+ctrl+d
 super+ctrl+t
 	telegram-desktop
 super+ctrl+m
-	emacs
+	emacsclient --alternate-editor="" -c
 super+ctrl+v 
 	kitty -e nvim
 super+ctrl+f
