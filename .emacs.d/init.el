@@ -373,8 +373,7 @@
   :commands (dired dired-jump)
   :bind
   (("C-x C-j" . dired-jump)
-   ("<tab>" . dired-subtree-toggle)
-   ("<backtab>" . dired-subtree-remove))
+   ("<backtab>" . dired-subtree-toggle))
   :custom
   ((dired-listing-switches "-Aghvol --group-directories-first --time-style=iso")
   (dired-recursive-copies 'always)
