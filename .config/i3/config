@@ -175,6 +175,9 @@ bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
 
 # Open specific applications in floating mode
 #for_window [title="Alacritty"] border pixel 2
+#
+for_window [title="GameJammer"] floating enable border pixel 1
+
 for_window [title="alsamixer"] floating enable border pixel 1
 for_window [title="win0"] floating enable 
 for_window [class="calamares"] floating enable border normal
@@ -324,6 +327,7 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000
 # client.background       $term_background
 
 # [compatibility improvements]
+for_window [title="xclock"] floating enable
 for_window [title="Copying"] floating enable
 for_window [title="Deleting"] floating enable
 for_window [title="Moving"] floating enable
