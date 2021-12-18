@@ -31,12 +31,16 @@ export OPENER="xdg-open"
 export PAGER="less"
 export WM="i3-gaps"
  
+#ytfzf
+YTFZF_CONFIG_FILE=$YTFZF_CONFIG_DIR/conf.sh
+YTFZF_CONFIG_DIR=$HOME/.config/ytfzf
+
 #clean $HOME
 export GOPATH=$XDG_CONFIG_HOME/go
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
-export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
+# export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
-export OPAMROOT="$XDG_DATA_HOME/opam"
+# export OPAMROOT="$XDG_DATA_HOME/opam"
 export PARALLEL_HOME="$XDG_CONFIG_HOME"/parallel
 export STACK_ROOT="$XDG_DATA_HOME"/stack
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
