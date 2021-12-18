@@ -44,5 +44,10 @@
       "filetypes": ["sh"],
       "ignoredRootPaths": ["~"]
     }
+    ,"ocaml-lsp": {
+      "command": "opam",
+      "args": ["config", "exec", "--", "ocamllsp"],
+      "filetypes": ["ml","ocaml", "reason"]
+    }
   }
 }
