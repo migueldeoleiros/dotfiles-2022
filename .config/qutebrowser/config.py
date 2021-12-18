@@ -487,6 +487,10 @@ c.fonts.default_size = '10.5pt'
 # ccw.darkmode.policy.images = 'smart'
 # ccw.preferred_color_scheme = 'dark'
 
+#stylesheets
+# css = '~/.config/qutebrowser/css/solarized-everything-css/css/solarized-dark/solarized-dark-all-sites.css'
+# config.bind(',n', f'config-cycle content.user_stylesheets {css} ""')
+
 # Bindings for normal mode
 config.bind('<Ctrl+1>', 'tab-focus 1')
 config.bind('<Ctrl+2>', 'tab-focus 2')

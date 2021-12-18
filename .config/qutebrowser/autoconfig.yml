@@ -24,6 +24,10 @@ settings:
         P: set-cmd-text -s :open -t !sp
         xx: config-cycle statusbar.show always never;; config-cycle tabs.show always
           never
+  content.notifications.enabled:
+    https://dankwank.net: false
+  content.user_stylesheets:
+    global: null
   statusbar.show:
     global: always
   tabs.show:
