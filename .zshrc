@@ -30,6 +30,9 @@ HISTFILE=~/.zsh_history
 # Enable searching through history
 bindkey '^R' history-incremental-pattern-search-backward
 
+#EMACS
+export ALTERNATE_EDITOR=""
+
 #run at start 
 . ranger > /dev/null 2>&1
 . ranger > /dev/null 2>&1
