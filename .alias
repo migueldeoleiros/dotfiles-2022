@@ -14,8 +14,8 @@ alias df='df -h'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias vim='nvim'
-alias e='emacs -nw'
 alias diff='diff --color'
+alias e='emacsclient --tty'
 
 #use trash-cli instead of rm
 alias rm='trash-put'
