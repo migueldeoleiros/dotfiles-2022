@@ -104,7 +104,10 @@
   (efs/leader-keys
     "b" '(switch-to-buffer :which-key "buffer menu")
     "t" '(vterm :which-key "teminal")
+    "a" '(org-agenda :which-key "org agenda")
+    "c" '(cfw:open-org-calendar :which-key "calendar")
     "d" '(dired :which-key "dired")
+    "f" '(find-file :which-key "find file")
     "e" '(flycheck-list-errors :which-key "list of errors in file")
     "k" '(kill-buffer :which-key "kill buffer")
     "s" '(search :which-key "search in browser")
@@ -175,18 +178,72 @@
 ;; Set the variable pitch face
 (set-face-attribute 'variable-pitch nil :font "Cantarell" :height efs/default-variable-font-size :weight 'regular)
 
+(defun efs/org-font-setup ()
+  ;; Set faces for heading levels
+  (dolist (face '((org-level-1 . 1.2)
+                  (org-level-2 . 1.1)
+                  (org-level-3 . 1.05)
+                  (org-level-4 . 1.0)
+                  (org-level-5 . 1.1)
+                  (org-level-6 . 1.1)
+                  (org-level-7 . 1.1)
+                  (org-level-8 . 1.1)))
+    (set-face-attribute (car face) nil :font "SauceCodePro Nerd Font" :weight 'regular :height (cdr face)))
+  
+  ;; Ensure that anything that should be fixed-pitch in Org files appears that way
+  (set-face-attribute 'org-block nil    :foreground nil :inherit 'fixed-pitch)
+  (set-face-attribute 'org-table nil    :inherit 'fixed-pitch)
+  (set-face-attribute 'org-formula nil  :inherit 'fixed-pitch)
+  (set-face-attribute 'org-code nil     :inherit '(shadow fixed-pitch))
+  (set-face-attribute 'org-table nil    :inherit '(shadow fixed-pitch))
+  (set-face-attribute 'org-verbatim nil :inherit '(shadow fixed-pitch))
+  (set-face-attribute 'org-special-keyword nil :inherit '(font-lock-comment-face fixed-pitch))
+  (set-face-attribute 'org-meta-line nil :inherit '(font-lock-comment-face fixed-pitch))
+  (set-face-attribute 'org-checkbox nil  :inherit 'fixed-pitch)
+  (set-face-attribute 'line-number nil :inherit 'fixed-pitch)
+  (set-face-attribute 'line-number-current-line nil :inherit 'fixed-pitch))
+
 
 ;;; ORG-MODE
-(use-package org-bullets
-  :hook (org-mode . org-bullets-mode)
-  :custom
-  (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
+(defun efs/org-mode-setup ()
+  "Set up 'org-mode'."
+  (org-indent-mode)
+  (efs/org-font-setup)
+  (variable-pitch-mode 1)
+  (visual-line-mode 1))
+
+(use-package org
+  :pin org
+  :commands (org-capture org-agenda)
+  :hook (org-mode . efs/org-mode-setup)
+  :config
+  (setq org-ellipsis " ▾")
+
+  (setq org-agenda-start-with-log-mode t)
+  (setq org-log-done 'time)
+  (setq org-log-into-drawer t)
+
+  (setq org-agenda-files
+        '("~/notes/tasks.org"
+          ))
+
+  (setq org-refile-targets
+    '(("archive.org" :maxlevel . 1)
+      ("tasks.org" :maxlevel . 1)))
+  (advice-add 'org-refile :after 'org-save-all-org-buffers)
+
+  (efs/org-font-setup))
 
 (defun efs/org-mode-visual-fill ()
   "Center text on 'org-mode'."
   (setq visual-fill-column-width 100
         visual-fill-column-center-text t)
   (visual-fill-column-mode 1))
+
+(use-package org-bullets
+  :hook (org-mode . org-bullets-mode)
+  :custom
+  (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
 
 (use-package visual-fill-column
   :hook (org-mode . efs/org-mode-visual-fill))
@@ -198,37 +255,6 @@
 (add-to-list 'org-structure-template-alist '("py" . "src python"))
 (add-to-list 'org-structure-template-alist '("oc" . "src ocaml"))
 
-;; better font faces
-(defun efs/org-font-setup ()
-  "Replace list hyphen with dot."
-  (font-lock-add-keywords 'org-mode
-                          '(("^ *\\([-]\\) " 
-                            (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
-
-;; Set faces for heading levels
-(dolist (face '((org-level-1 . 1.2)
-                (org-level-2 . 1.1)
-                (org-level-3 . 1.05)
-                (org-level-4 . 1.0)
-                (org-level-5 . 1.1)
-                (org-level-6 . 1.1)
-                (org-level-7 . 1.1)
-                (org-level-8 . 1.1)))
-  (set-face-attribute (car face) nil :font "Cantarell" :weight 'regular :height (cdr face)))
-
-;; Ensure that anything that should be fixed-pitch in Org files appears that way
-(set-face-attribute 'org-block nil    :foreground nil :inherit 'fixed-pitch)
-(set-face-attribute 'org-table nil    :inherit 'fixed-pitch)
-(set-face-attribute 'org-formula nil  :inherit 'fixed-pitch)
-(set-face-attribute 'org-code nil     :inherit '(shadow fixed-pitch))
-(set-face-attribute 'org-table nil    :inherit '(shadow fixed-pitch))
-(set-face-attribute 'org-verbatim nil :inherit '(shadow fixed-pitch))
-(set-face-attribute 'org-special-keyword nil :inherit '(font-lock-comment-face fixed-pitch))
-(set-face-attribute 'org-meta-line nil :inherit '(font-lock-comment-face fixed-pitch))
-(set-face-attribute 'org-checkbox nil  :inherit 'fixed-pitch)
-(set-face-attribute 'line-number nil :inherit 'fixed-pitch)
-(set-face-attribute 'line-number-current-line nil :inherit 'fixed-pitch))
-
 ;; Org babel for code blocks
 (with-eval-after-load 'org
   (org-babel-do-load-languages
@@ -237,6 +263,8 @@
       (python . t)))
 
 (push '("conf-unix" . conf-unix) org-src-lang-modes))
+
+(use-package calfw-org)
 
 
 ;;; VIM
