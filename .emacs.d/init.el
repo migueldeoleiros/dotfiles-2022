@@ -53,6 +53,8 @@
 ;; initial buffer
 ;;(setq initial-buffer-choice (lambda () (dired "~/")))
 
+(setq calendar-week-start-day 1)
+
 ;; always ask for `y` or `n` instead of `yes` or `no`
 (defalias 'yes-or-no-p 'y-or-n-p)
 
@@ -93,6 +95,7 @@
                       (url-hexify-string url))))
 
 ;;; KEYBINDS
+
 (use-package general
   :after evil
   :config
@@ -102,6 +105,7 @@
     :global-prefix "C-SPC")
 
   (efs/leader-keys
+    "n" '((lambda() (interactive)(find-file "~/notes/tasks.org")) :which-key "org file with tasks")
     "b" '(switch-to-buffer :which-key "buffer menu")
     "t" '(vterm :which-key "teminal")
     "a" '(org-agenda :which-key "org agenda")
@@ -137,6 +141,7 @@
 
 ;; Disable line numbers for some modes
 (dolist (mode '(org-mode-hook
+                cfw:calendar-mode-hook
                 shell-mode-hook
                 treemacs-mode-hook
                 term-mode-hook
@@ -225,6 +230,7 @@
 
   (setq org-agenda-files
         '("~/notes/tasks.org"
+          "~/notes/birthdays.org"
           ))
 
   (setq org-refile-targets
