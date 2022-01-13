@@ -14,7 +14,7 @@ alt+F2
 alt+F3 	
     bash ~/.scripts/kill.sh
 alt+F4
-    bash ~/.scripts/tuxi.sh
+    bash ~/.scripts/rofiSearch.sh
 alt+F5
     dmenu -p "cmd" | sh &
 alt+F6
