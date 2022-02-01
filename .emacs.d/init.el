@@ -53,6 +53,7 @@
 ;; initial buffer
 ;;(setq initial-buffer-choice (lambda () (dired "~/")))
 
+;;set up calendar
 (setq calendar-week-start-day 1)
 
 ;; always ask for `y` or `n` instead of `yes` or `no`
@@ -102,7 +103,7 @@
   (general-create-definer efs/leader-keys
     :keymaps '(normal insert visual emacs)
     :prefix "SPC"
-    :global-prefix "C-SPC")
+    :global-prefix "M-SPC")
 
   (efs/leader-keys
     "n" '((lambda() (interactive)(find-file "~/notes/tasks.org")) :which-key "org file with tasks")
@@ -184,7 +185,10 @@
 (set-face-attribute 'variable-pitch nil :font "Cantarell" :height efs/default-variable-font-size :weight 'regular)
 
 (defun efs/org-font-setup ()
-  ;; Set faces for heading levels
+  "Set faces for heading levels and replace hyphen."
+ ;; (font-lock-add-keywords 'org-mode
+ ;;                          '(("^ *\\([-]\\) "
+ ;;                             (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "➤"))))))
   (dolist (face '((org-level-1 . 1.2)
                   (org-level-2 . 1.1)
                   (org-level-3 . 1.05)
@@ -261,11 +265,22 @@
 (add-to-list 'org-structure-template-alist '("py" . "src python"))
 (add-to-list 'org-structure-template-alist '("oc" . "src ocaml"))
 
+;;colors in latex export
+(require 'ox-latex)
+(add-to-list 'org-latex-packages-alist '("" "minted"))
+(setq org-latex-listings 'minted)
+
+(setq org-latex-pdf-process
+      '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+        "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+        "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
+
 ;; Org babel for code blocks
 (with-eval-after-load 'org
   (org-babel-do-load-languages
       'org-babel-load-languages
       '((emacs-lisp . t)
+      (ocaml . t)
       (python . t)))
 
 (push '("conf-unix" . conf-unix) org-src-lang-modes))
@@ -386,20 +401,6 @@
   :config
   (pyvenv-mode 1))
 
-;;; EAF
-(use-package eaf
-  :load-path "~/.emacs.d/site-lisp/emacs-application-framework" 
-  :custom
-  ; See https://github.com/emacs-eaf/emacs-application-framework/wiki/Customization
-  (eaf-browser-continue-where-left-off t)
-  (eaf-browser-enable-adblocker t)
-  (browse-url-browser-function 'eaf-open-browser)
-  :config
-  (require 'eaf-browser)
-  (require 'eaf-pdf-viewer)
-  (require 'eaf-markdown-previewer)
-  (require 'eaf-org-previewer)
-  )
 
 ;;;DIRED
 (use-package dired
@@ -421,6 +422,12 @@
     "y" 'dired-ranger-copy
     "X" 'dired-ranger-move
     "p" 'dired-ranger-paste))
+
+;; (add-hook 'dired-mode-hook
+;;           (lambda ()
+;;             (when (file-remote-p dired-directory))
+;;             (setq-local dired-actual-switches "-AhlX")))
+
 (use-package dired-single
   :defer t)
 (use-package all-the-icons-dired
@@ -431,14 +438,15 @@
 (use-package dired-ranger
   :defer t)
 (use-package dired-open
-  :defer t
+  :commands (dired dired-jump)
   :config
   (setq dired-open-extensions '(("mp4" . "mpv")
-                                ("mkv" . "mpv"))))
+                                ("mkv" . "mpv")
+                                ("pdf" . "zathura"))))
 
 ;;;OTHER PACKAGES
 ;;ivy
-(use-package ivy 
+(use-package ivy
   :config
   (ivy-mode t)
   (setq ivy-use-virtual-buffers t)
@@ -507,4 +515,5 @@
   (setq rainbow-ansi-colors nil)
   (setq rainbow-x-colors nil))
 
+(define-key dired-mode-map [remap dired-find-file] 'dired-open-file)
 ;;; init.el ends here
