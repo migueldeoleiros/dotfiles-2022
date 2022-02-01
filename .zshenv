@@ -63,3 +63,8 @@ export LESS_TERMCAP_ue=$(tput sgr0)
 # End bold, blinking, standout, underline
 export LESS_TERMCAP_me=$(tput sgr0)
 
+#gnome-keyring
+if [ -n "$DESKTOP_SESSION" ];then
+    eval $(gnome-keyring-daemon --start)
+    export SSH_AUTH_SOCK
+fi
