@@ -36,7 +36,7 @@ I use both qutebrowser and firefox for my browser, using firefox userChrome to m
 ## Text editor
 I'm currently using emacs because of the better IDE features like code completion, but both of this configs are usable and have a lot of the same features
 * [neovim](https://github.com/migueldeoleiros/dotfiles/blob/master/.config/nvim) 
-* [emacs](https://github.com/migueldeoleiros/dotfiles/tree/master/.emacs.d) (check out [System Crafter](https://systemcrafters.cc/))
+* [emacs](https://github.com/migueldeoleiros/dotfiles/tree/master/.emacs.d) (check out [System Crafter](https://systemcrafters.net/))
         
 ## Other apps
 * [tmux](https://github.com/migueldeoleiros/dotfiles/blob/master/.config/tmux) (terminal multiplexer configured with vim-like bindings for my sanity )
