@@ -107,13 +107,15 @@
 
   (efs/leader-keys
     "n" '((lambda() (interactive)(find-file "~/notes/tasks.org")) :which-key "org file with tasks")
+    "C-s" '((lambda() (interactive)(set-input-method "spanish-prefix")) :which-key "change input method to spanish")
+    "C-j" '((lambda() (interactive)(set-input-method "japanese")) :which-key "change input method to japanese")
     "b" '(switch-to-buffer :which-key "buffer menu")
     "t" '(vterm :which-key "teminal")
     "a" '(org-agenda :which-key "org agenda")
     "c" '(cfw:open-org-calendar :which-key "calendar")
     "d" '(dired :which-key "dired")
     "f" '(find-file :which-key "find file")
-    "e" '(flycheck-list-errors :which-key "list of errors in file")
+    "e" '(flycheck-list-errors :which-key "list of errors in code")
     "k" '(kill-buffer :which-key "kill buffer")
     "s" '(search :which-key "search in browser")
     ))
@@ -234,6 +236,7 @@
 
   (setq org-agenda-files
         '("~/notes/tasks.org"
+          "~/notes/archive.org"
           "~/notes/birthdays.org"
           ))
 
