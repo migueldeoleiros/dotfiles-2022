@@ -2,7 +2,7 @@
 #+PROPERTY: header-args:emacs-lisp :tangle init.el :mkdirp yes
 
 * Start up
-** Garbaje collection
+** Garbage collection
 #+begin_src emacs-lisp 
   ;; Minimize garbage collection during startup
   (setq gc-cons-threshold most-positive-fixnum)
@@ -133,10 +133,10 @@
 
 ** Theme
 #+begin_src emacs-lisp
-  ;;; THEME
+      ;;; THEME
   (use-package doom-themes
     :init
-    (load-theme 'doom-dracula t)
+    (load-theme 'doom-ir-black t)
     (set-background-color "black"))
 
   (defun set-black-background()
@@ -150,6 +150,10 @@
                 (with-selected-frame frame
                   (set-black-background))))
     (set-black-background))
+
+  ;; (set-face-attribute 'mode-line nil
+  ;;                       :box '(:width 0))
+
 #+end_src
 
 ** Font
