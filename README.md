@@ -41,6 +41,7 @@ I'm currently using emacs because of the better IDE features like code completio
 ## Other apps
 * [tmux](https://github.com/migueldeoleiros/dotfiles/blob/master/.config/tmux) (terminal multiplexer configured with vim-like bindings for my sanity )
 * [i3 window manager](https://github.com/migueldeoleiros/dotfiles/tree/master/.config/i3) (My window manager of choice)
+* [stumpwm](https://github.com/migueldeoleiros/dotfiles/tree/master/.config/stumpwm) Window manager written and configured in Common Lisp (config based on [Gavin's work](https://www.youtube.com/watch?v=TdQdBQu3fFM&t=816s))
 * [ranger file-manager](https://github.com/migueldeoleiros/dotfiles/tree/master/.config/ranger) (Best terminal file manager out there)
 * [rofi](https://github.com/migueldeoleiros/dotfiles/tree/master/.config/rofi) (I use for both my scipts and as an app launcher)
 * [dunst](https://github.com/migueldeoleiros/dotfiles/tree/master/.config/dunst) (Notification daemon without bloat)
