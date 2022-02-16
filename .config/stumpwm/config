@@ -1,0 +1,306 @@
+;;; -*-  mode: lisp; -*-
+;;;quicklisp
+(let ((quicklisp-init (merge-pathnames "programs/quicklisp/setup.lisp"
+				       (user-homedir-pathname))))
+  (when (probe-file quicklisp-init)
+    (load quicklisp-init)))
+
+(ql:quickload "stumpwm")
+(in-package :stumpwm)
+
+;;; Helper Functions
+(defun file-readable-p (file)
+  "Return t, if FILE is available for reading."
+  (handler-case
+      (with-open-file (f file)
+        (and (read-line f) t))
+    (stream-error () nil)))
+
+(defun executable-p (name)
+  "Tell if given executable is present in PATH."
+  (let ((which-out (string-trim '(#\  #\linefeed) (run-shell-command (concat "which " name) t))))
+    (unless (string-equal "" which-out) which-out)))
+
+;;; Theme
+(setf *colors*
+      '("#000000"   ;black
+        "#BF6262"   ;red
+        "#a1bf78"   ;green
+        "#dbb774"   ;yellow
+        "#7D8FA3"   ;blue
+        "#ff99ff"   ;magenta
+        "#53cdbd"   ;cyan
+        "#b7bec9")) ;white
+
+(setf *default-bg-color* "#e699cc")
+
+(update-color-map (current-screen))
+
+(setf *window-format* "%m%s%50t")
+
+;;; Basic Settings
+(setf *mode-line-background-color* (car *colors*)
+      *mode-line-foreground-color* (car (last *colors*))
+      *mode-line-timeout* 1)
+
+(set-msg-border-width 1)
+
+(setf *message-window-gravity* :center
+      *input-window-gravity* :center
+      *window-border-style* :none
+      *message-window-padding* 6
+      *message-window-y-padding* 6
+      *maxsize-border-width* 1          ;
+      *normal-border-width* 1
+      *transient-border-width* 1
+      stumpwm::*float-window-border* 4
+      stumpwm::*float-window-title-height* 4)
+
+;; Focus Follow Mouse
+(setf *mouse-focus-policy* :click)
+
+;;; Startup Commands
+(run-shell-command "bash ~/.scripts/easyKey.sh")
+(run-shell-command "bash ~/.scripts/speed.sh")
+(run-shell-command "bash ~/.scripts/nvidiarun.sh")
+
+(run-shell-command "xset -dpms s off")
+(run-shell-command "feh --bg-scale ~/wallpapers/fuji-mono.jpg")
+(run-shell-command "picom --experimental-backend -bc")
+(run-shell-command "xsetroot -cursor_name left_ptr")
+(run-shell-command "kmonad ~/.config/kmonad/config.kbd")
+(run-shell-command "sxhkd")
+
+;;; Bindings
+(set-prefix-key (kbd "s-SPC"))
+
+;; General Top Level Bindings
+(define-key *top-map* (kbd "s-n") "pull-hidden-next")
+(define-key *top-map* (kbd "s-p") "pull-hidden-previous")
+(define-key *top-map* (kbd "s-TAB") "fnext")
+(define-key *top-map* (kbd "s-ISO_Left_Tab") "fprev")
+
+(setf *resize-increment* 25)
+(define-key *top-map* (kbd "s-H") "move-window left")
+(define-key *top-map* (kbd "s-J") "move-window down")
+(define-key *top-map* (kbd "s-K") "move-window up")
+(define-key *top-map* (kbd "s-L") "move-window right")
+(define-key *top-map* (kbd "s-f") "fullscreen")
+(define-key *top-map* (kbd "s-F") "float-this")
+(define-key *top-map* (kbd "s-q") "remove")
+(define-key *top-map* (kbd "s-Q") "delete")
+(define-key *top-map* (kbd "s-b") "grouplist")
+(define-key *top-map* (kbd "s-w") "windowlist")
+(define-key *top-map* (kbd "s-;") "colon")
+(define-key *top-map* (kbd "s-RET") "exec kitty")
+(define-key *top-map* (kbd "s-e") "exec emacsclient -c -a 'emacs'")
+
+;; groups
+(define-key *top-map* (kbd "s-1") "gselect 1")
+(define-key *top-map* (kbd "s-!") "gmove-and-follow 1")
+(define-key *top-map* (kbd "s-2") "gselect 2")
+(define-key *top-map* (kbd "s-@") "gmove-and-follow 2")
+(define-key *top-map* (kbd "s-3") "gselect 3")
+(define-key *top-map* (kbd "s-#") "gmove-and-follow 3")
+(define-key *top-map* (kbd "s-4") "gselect 4")
+(define-key *top-map* (kbd "s-$") "gsmove-and-follow 4")
+(define-key *top-map* (kbd "s-5") "gselect 5")
+(define-key *top-map* (kbd "s-%") "gsmove-and-follow 5")
+(define-key *top-map* (kbd "s-6") "gselect 6")
+(define-key *top-map* (kbd "s-^") "gsmove-and-follow 6")
+(define-key *top-map* (kbd "s-7") "gselect 7")
+(define-key *top-map* (kbd "s-&") "gsmove-and-follow 7")
+(define-key *top-map* (kbd "s-8") "gselect 8")
+(define-key *top-map* (kbd "s-*") "gsmove-and-follow 8")
+(define-key *top-map* (kbd "s-9") "gselect 9")
+(define-key *top-map* (kbd "s-(") "gsmove-and-follow 9")
+
+
+;;; Volume Stuff
+(let ((vdown "exec amixer sset Master '5%-'")
+      (vup "exec amixer sset Master '5%+'")
+      (vtoggle "exec amixer set Master toggle")
+      (m *top-map*))
+  (define-key m (kbd "XF86AudioLowerVolume") vdown)
+  (define-key m (kbd "XF86AudioRaiseVolume") vup)
+  (define-key m (kbd "XF86AudioMute") vtoggle))
+
+;;; Brightness
+(when *initializing*
+  (defconstant backlightfile "/sys/class/backlight/intel_backlight/brightness"))
+
+;; Xbacklight broak so I made this
+(defcommand brighten (val) ((:number "Change brightness by: "))
+  (with-open-file (fp backlightfile
+                      :if-exists :overwrite
+                      :direction :io)
+                      (write-sequence (write-to-string (+ (parse-integer (read-line fp nil)) val))
+                                      fp)))
+
+(let ((bdown "xbacklight -dec 30")
+      (bup   "brighten   -inc 30")
+      (m *top-map*))
+  (define-key m (kbd "s-C-s")                 bdown)
+  (define-key m (kbd "XF86MonBrightnessDown") bdown)
+  (define-key m (kbd "s-C-d")                 bup)
+  (define-key m (kbd "XF86MonBrightnessUp")   bup))
+
+;;; General Root Level Bindings
+(defcommand term (&optional prg) ()
+  (run-shell-command (if prg
+                         (format nil "st -e ~A" prg)
+                       "st")))
+(define-key *root-map* (kbd "b") "pull-from-windowlist")
+(define-key *root-map* (kbd "r") "iresize")
+(define-key *root-map* (kbd "f") "fullscreen")
+(define-key *root-map* (kbd "Q") "quit-confirm")
+(define-key *root-map* (kbd "q") "only")
+(define-key *root-map* (kbd "K") "kill")
+
+;; more usful alternatives to i and I
+(define-key *root-map* (kbd "i") "show-window-properties")
+(define-key *root-map* (kbd "I") "list-window-properties")
+
+;;; Groups
+(grename "main")
+(gnewbg "code")
+(gnewbg "docs")
+(gnewbg "aux")
+(gnewbg "social")
+
+;; Don't jump between groups when switching apps
+(setf *run-or-raise-all-groups* nil)
+(define-key *groups-map* (kbd "d") "gnew-dynamic")
+(define-key *groups-map* (kbd "s") "gselect")
+
+(load-module "globalwindows")
+(define-key *groups-map* (kbd "b") "global-pull-windowlist")
+
+
+;;;; Hide and Show Windows
+(defun window-menu-format (w)
+  (list (format-expand *window-formatters* *window-format* w) w))
+
+(defun window-from-menu (windows)
+  (when windows
+    (second (select-from-menu
+             (group-screen (window-group (car windows)))
+             (mapcar 'window-menu-format windows)))))
+
+(defun windows-in-group (group)
+  (group-windows (find group (screen-groups (current-screen))
+                       :key 'group-name :test 'equal)))
+
+;;; Splits
+(defcommand hsplit-and-focus () ()
+  "create a new frame on the right and focus it."
+  (hsplit)
+  (move-focus :right))
+
+(defcommand vsplit-and-focus () ()
+  "create a new frame below and focus it."
+  (vsplit)
+  (move-focus :down))
+(define-key *root-map* (kbd "v") "hsplit-and-focus")
+(define-key *top-map* (kbd "s-v") "hsplit-and-focus")
+(define-key *root-map* (kbd "c") "vsplit-and-focus")
+(define-key *top-map* (kbd "s-c") "vsplit-and-focus")
+(loop for i in '("hsplit-and-focus"
+                 "vsplit-and-focus")
+do (dyn-blacklist-command i))
+
+;;; Mode-Line
+(load-module "battery-portable")
+(load-module "wifi")
+(load-module "stumptray")
+(stumptray::stumptray)
+
+(setf *screen-mode-line-format*
+      (list
+       ;; Groups
+       " ^7[^B^4%n^7^b]"
+       ;; Pad to right
+       "^>"
+       ;; Wifi
+       " ^7[^n%I^7]^n "
+       ;; Battery
+       " ^7[^n%B^7]^n "
+       ;; Date
+       "^7"'(:eval (run-shell-command "date +\"%a, %b %d %R\" | tr '\\n' ' '" t))
+       ;; Tray
+       " %T "
+       ))
+
+(defun enable-mode-line-everywhere ()
+  (loop for screen in *screen-list* do
+    (loop for head in (screen-heads screen) do
+	    (enable-mode-line screen head t))))
+(enable-mode-line-everywhere)
+;; turn on/off the mode line for the current head only.
+(define-key *root-map* (kbd "B") "mode-line")
+
+;; Font
+(ql:quickload "clx-truetype")
+(load-module "ttf-fonts")
+(clx-truetype:cache-fonts)
+(set-font (make-instance 'xft:font
+                         :family "JetBrains Mono"
+                         :subfamily "Regular"
+                         :size 10
+                         :antialias t))
+
+;;; Undo And Redo Functionality
+(load-module "winner-mode")
+(define-key *root-map* (kbd "u") "winner-undo")
+(define-key *root-map* (kbd "C-r") "winner-redo")
+(add-hook *post-command-hook* (lambda (command)
+                                (when (member command winner-mode:*default-commands*)
+                                  (winner-mode:dump-group-to-file))))
+
+;;; Emacs integration
+(defcommand emacs () () ; override default emacs command
+  "Start emacs if emacsclient is not running and focus emacs if it is
+running in the current group"
+  (run-or-raise "emacsclient -c -a 'emacs'" '(:class "Emacs")))
+;; Treat emacs splits like Xorg windows
+(defun is-emacs-p (win)
+  "nil if the WIN"
+  (when win
+    (string-equal (window-class win) "Emacs")))
+
+(defun exec-el (expression)
+  "execute emacs lisp do not collect it's output"
+  (run-shell-command (concat "emacsclient -e '" (write-to-string
+                                                 expression) "'") nil))
+
+(defun eval-string-as-el (expression)
+  "evaluate a string as emacs lisp"
+  (run-shell-command (concat "emacsclient -e '" expression "'") t))
+
+(defun eval-el (expression)
+  "evaluate emacs lisp and collect it's output"
+  (eval-string-as-el (write-to-string expression)))
+
+(defun emacs-winmove (direction)
+  "executes the emacs function winmove-DIRECTION where DIRECTION is a string"
+  (eval-string-as-el (concat "(windmove-" direction ")")))
+
+(defun better-move-focus (ogdir)
+  "Similar to move-focus but also treats emacs windows as Xorg windows"
+  (let ((mv `(move-focus ,(intern (string ogdir) "KEYWORD"))))
+    (if (is-emacs-p (current-window))
+        (when
+            ;; There is not emacs window in that direction
+            (= (length (emacs-winmove
+                        (string-downcase (string ogdir))))
+               1)
+          (eval mv))
+        (eval mv))))
+
+(defcommand my-mv (dir) ((:direction "Enter direction: "))
+  (when dir
+    (better-move-focus (string-upcase dir))))
+(define-key *top-map* (kbd "s-h") "my-mv left")
+(define-key *top-map* (kbd "s-j") "my-mv down")
+(define-key *top-map* (kbd "s-k") "my-mv up")
+(define-key *top-map* (kbd "s-l") "my-mv right")
