@@ -80,7 +80,7 @@
 (define-key *top-map* (kbd "s-w") "windowlist")
 (define-key *top-map* (kbd "s-;") "colon")
 (define-key *top-map* (kbd "s-RET") "exec kitty")
-(define-key *top-map* (kbd "s-e") "exec emacsclient -c -a 'emacs'")
+(define-key *top-map* (kbd "s-e") "emacs")
 
 ;; groups
 (define-key *top-map* (kbd "s-1") "gselect 1")
