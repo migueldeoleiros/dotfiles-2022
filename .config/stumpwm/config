@@ -10,14 +10,14 @@
 
 ;;; Theme
 (setf *colors*
-      '("#000000"   ;black
-        "#BF6262"   ;red
-        "#a1bf78"   ;green
-        "#dbb774"   ;yellow
-        "#7D8FA3"   ;blue
-        "#ff99ff"   ;magenta
-        "#53cdbd"   ;cyan
-        "#b7bec9")) ;white
+      '("#000000"   ; 0 black
+        "#BF6262"   ; 1 red
+        "#a1bf78"   ; 2 green
+        "#dbb774"   ; 3 yellow
+        "#7D8FA3"   ; 4 blue
+        "#ff99ff"   ; 5 magenta
+        "#53cdbd"   ; 6 cyan
+        "#b7bec9")) ; 7 white
 
 (setf *default-bg-color* "#e699cc")
 
@@ -202,20 +202,26 @@ do (dyn-blacklist-command i))
 (load-module "battery-portable")
 (load-module "wifi")
 (load-module "stumptray")
-(stumptray::stumptray)
 
 (setf *screen-mode-line-format*
       (list
        ;; Groups
        " ^7[^B^4%n^7^b]"
        ;; Pad to right
-       "^>"
+        "^>"
+       ;; Volume
+       ;; "^7{"'(:eval (run-shell-command
+       ;;          "amixer -D pulse sget Master | awk '/%]/{print $5}' 
+       ;;           | uniq | tr -d '\\n' | tr '[]' '\"' " t))
+       ;; "}"
        ;; Wifi
-       " ^7[^n%I^7]^n "
+       " %I "
+       "^7 | ^n"
        ;; Battery
-       " ^7[^n%B^7]^n "
+       " %B "
+       "^7 | ^n"
        ;; Date
-       "^7"'(:eval (run-shell-command "date +\"%a, %b %d %R\" | tr '\\n' ' '" t))
+       "^6"'(:eval (run-shell-command "date +\"%a, %b %d %R\" | tr '\\n' ' '" t))
        ;; Tray
        " %T "
        ))
@@ -227,6 +233,9 @@ do (dyn-blacklist-command i))
 (enable-mode-line-everywhere)
 ;; turn on/off the mode line for the current head only.
 (define-key *root-map* (kbd "B") "mode-line")
+
+;; Systray
+(stumptray::stumptray)
 
 ;; Font
 (ql:quickload "clx-truetype")
@@ -293,3 +302,4 @@ running in the current group"
 (define-key *top-map* (kbd "s-j") "my-mv down")
 (define-key *top-map* (kbd "s-k") "my-mv up")
 (define-key *top-map* (kbd "s-l") "my-mv right")
+
