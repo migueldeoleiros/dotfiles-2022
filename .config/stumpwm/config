@@ -8,19 +8,6 @@
 (ql:quickload "stumpwm")
 (in-package :stumpwm)
 
-;;; Helper Functions
-(defun file-readable-p (file)
-  "Return t, if FILE is available for reading."
-  (handler-case
-      (with-open-file (f file)
-        (and (read-line f) t))
-    (stream-error () nil)))
-
-(defun executable-p (name)
-  "Tell if given executable is present in PATH."
-  (let ((which-out (string-trim '(#\  #\linefeed) (run-shell-command (concat "which " name) t))))
-    (unless (string-equal "" which-out) which-out)))
-
 ;;; Theme
 (setf *colors*
       '("#000000"   ;black
@@ -126,19 +113,21 @@
   (define-key m (kbd "XF86AudioMute") vtoggle))
 
 ;;; Brightness
+
+;; #/etc/udev/rules.d/99-intel.rules
+;; # allow keyboard brightness control for everyone
+;; ACTION=="add", SUBSYSTEM=="backlight", KERNEL=="intel_backlight", RUN+="/bin/chmod a+w /sys/class/backlight/%k/brightness"
 (when *initializing*
   (defconstant backlightfile "/sys/class/backlight/intel_backlight/brightness"))
 
-;; Xbacklight broak so I made this
 (defcommand brighten (val) ((:number "Change brightness by: "))
   (with-open-file (fp backlightfile
                       :if-exists :overwrite
                       :direction :io)
-                      (write-sequence (write-to-string (+ (parse-integer (read-line fp nil)) val))
-                                      fp)))
+                  (write-sequence (write-to-string (+ (parse-integer (read-line fp nil)) val))fp)))
 
-(let ((bdown "xbacklight -dec 30")
-      (bup   "brighten   -inc 30")
+(let ((bdown "brighten -500")
+      (bup   "brighten 500")
       (m *top-map*))
   (define-key m (kbd "s-C-s")                 bdown)
   (define-key m (kbd "XF86MonBrightnessDown") bdown)
