@@ -37,7 +37,7 @@
       *window-border-style* :none
       *message-window-padding* 6
       *message-window-y-padding* 6
-      *maxsize-border-width* 1          ;
+      *maxsize-border-width* 1 
       *normal-border-width* 1
       *transient-border-width* 1
       stumpwm::*float-window-border* 4
@@ -52,6 +52,7 @@
 (run-shell-command "bash ~/.scripts/nvidiarun.sh")
 
 (run-shell-command "xset -dpms s off")
+(run-shell-command "blueberry-tray")
 (run-shell-command "feh --bg-scale ~/wallpapers/fuji-mono.jpg")
 (run-shell-command "picom --experimental-backend -bc")
 (run-shell-command "xsetroot -cursor_name left_ptr")
@@ -62,45 +63,43 @@
 (set-prefix-key (kbd "s-SPC"))
 
 ;; General Top Level Bindings
-(define-key *top-map* (kbd "s-n") "pull-hidden-next")
-(define-key *top-map* (kbd "s-p") "pull-hidden-previous")
-(define-key *top-map* (kbd "s-TAB") "fnext")
-(define-key *top-map* (kbd "s-ISO_Left_Tab") "fprev")
-
 (setf *resize-increment* 25)
 (define-key *top-map* (kbd "s-H") "move-window left")
 (define-key *top-map* (kbd "s-J") "move-window down")
 (define-key *top-map* (kbd "s-K") "move-window up")
 (define-key *top-map* (kbd "s-L") "move-window right")
+
+(define-key *top-map* (kbd "s-t") "title")
+(define-key *top-map* (kbd "s-n") "pull-hidden-next")
+(define-key *top-map* (kbd "s-p") "pull-hidden-previous")
+(define-key *top-map* (kbd "s-TAB") "fnext")
+(define-key *top-map* (kbd "s-ISO_Left_Tab") "fprev")
 (define-key *top-map* (kbd "s-f") "fullscreen")
 (define-key *top-map* (kbd "s-F") "float-this")
 (define-key *top-map* (kbd "s-q") "remove")
 (define-key *top-map* (kbd "s-Q") "delete")
 (define-key *top-map* (kbd "s-b") "grouplist")
-(define-key *top-map* (kbd "s-w") "windowlist")
+(define-key *top-map* (kbd "s-w") "global-windowlist")
+(define-key *top-map* (kbd "s-W") "global-pull-windowlist")
 (define-key *top-map* (kbd "s-;") "colon")
 (define-key *top-map* (kbd "s-RET") "exec kitty")
-(define-key *top-map* (kbd "s-e") "emacs")
 
 ;; groups
-(define-key *top-map* (kbd "s-1") "gselect 1")
+
+;; use s+[1-9] to change group
+(dotimes (i 9)
+  (unless (eq i 0) ; group 0 doesn't exist  
+    (define-key *top-map* (kbd (format nil "s-~a" i)) (format nil "gselect ~a" i))))
+
 (define-key *top-map* (kbd "s-!") "gmove-and-follow 1")
-(define-key *top-map* (kbd "s-2") "gselect 2")
 (define-key *top-map* (kbd "s-@") "gmove-and-follow 2")
-(define-key *top-map* (kbd "s-3") "gselect 3")
 (define-key *top-map* (kbd "s-#") "gmove-and-follow 3")
-(define-key *top-map* (kbd "s-4") "gselect 4")
-(define-key *top-map* (kbd "s-$") "gsmove-and-follow 4")
-(define-key *top-map* (kbd "s-5") "gselect 5")
-(define-key *top-map* (kbd "s-%") "gsmove-and-follow 5")
-(define-key *top-map* (kbd "s-6") "gselect 6")
-(define-key *top-map* (kbd "s-^") "gsmove-and-follow 6")
-(define-key *top-map* (kbd "s-7") "gselect 7")
-(define-key *top-map* (kbd "s-&") "gsmove-and-follow 7")
-(define-key *top-map* (kbd "s-8") "gselect 8")
-(define-key *top-map* (kbd "s-*") "gsmove-and-follow 8")
-(define-key *top-map* (kbd "s-9") "gselect 9")
-(define-key *top-map* (kbd "s-(") "gsmove-and-follow 9")
+(define-key *top-map* (kbd "s-$") "gmove-and-follow 4")
+(define-key *top-map* (kbd "s-%") "gmove-and-follow 5")
+(define-key *top-map* (kbd "s-^") "gmove-and-follow 6")
+(define-key *top-map* (kbd "s-&") "gmove-and-follow 7")
+(define-key *top-map* (kbd "s-*") "gmove-and-follow 8")
+(define-key *top-map* (kbd "s-(") "gmove-and-follow 9")
 
 
 ;;; Volume Stuff
@@ -134,11 +133,11 @@
   (define-key m (kbd "s-C-d")                 bup)
   (define-key m (kbd "XF86MonBrightnessUp")   bup))
 
+;; run on terminnal
+(defcommand term (prg) (:string "run: ")
+  (run-shell-command (format nil "kitty -e ~A" prg)))
+
 ;;; General Root Level Bindings
-(defcommand term (&optional prg) ()
-  (run-shell-command (if prg
-                         (format nil "st -e ~A" prg)
-                       "st")))
 (define-key *root-map* (kbd "b") "pull-from-windowlist")
 (define-key *root-map* (kbd "r") "iresize")
 (define-key *root-map* (kbd "f") "fullscreen")
@@ -190,10 +189,11 @@
   "create a new frame below and focus it."
   (vsplit)
   (move-focus :down))
+
 (define-key *root-map* (kbd "v") "hsplit-and-focus")
 (define-key *top-map* (kbd "s-v") "hsplit-and-focus")
-(define-key *root-map* (kbd "c") "vsplit-and-focus")
-(define-key *top-map* (kbd "s-c") "vsplit-and-focus")
+(define-key *root-map* (kbd "s") "vsplit-and-focus")
+(define-key *top-map* (kbd "s-s") "vsplit-and-focus")
 (loop for i in '("hsplit-and-focus"
                  "vsplit-and-focus")
 do (dyn-blacklist-command i))
@@ -260,6 +260,7 @@ do (dyn-blacklist-command i))
   "Start emacs if emacsclient is not running and focus emacs if it is
 running in the current group"
   (run-or-raise "emacsclient -c -a 'emacs'" '(:class "Emacs")))
+
 ;; Treat emacs splits like Xorg windows
 (defun is-emacs-p (win)
   "nil if the WIN"
