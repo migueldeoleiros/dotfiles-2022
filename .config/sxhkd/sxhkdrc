@@ -4,61 +4,33 @@ alt+F1
     rofi -show drun
 
 super+z
-    feh ~/universidad/horarioQ3.png
-
-alt+ctrl+l
-    i3lock -i ~/wallpapers/plainWallpaper.png
+    feh ~/universidad/horarioQ4.png
 
 alt+F2 	
-    bash ~/.scripts/flauncher.sh
-alt+F3 	
     bash ~/.scripts/kill.sh
-alt+F4
+alt+F3
     bash ~/.scripts/rofiSearch.sh
+alt+F4
+    rofi -dmenu -p "cmd" | sh &
 alt+F5
-    dmenu -p "cmd" | sh &
-alt+F6
     bash ~/.scripts/autoMount.sh
-alt+F7
+alt+F6
     bash ~/.scripts/autoUmount.sh
-
-super+ctrl+F1
-    volumeicon
 
 shift+F11
     scrot 
-super+ctrl+a
-    pavucontrol
-super+ctrl+c
-    alacritty -e calcurse 
 super+ctrl+q
     qutebrowser
 super+ctrl+w
-    librewolf
-super+ctrl+r
-    kitty -e ranger
-super+ctrl+d
-	discord
-super+ctrl+t
-	telegram-desktop
-super+ctrl+m
+    firefox
+super+ctrl+e
 	emacsclient --alternate-editor="" -c
-super+ctrl+v 
-	kitty -e nvim
-super+ctrl+f
-	ferdi
-super+ctrl+y
-	firefox
-super+ctrl+shift+p 
+super+ctrl+p 
 	passmenu
-super+ctrl+F12 
-	setxkbmap us intl
-super+ctrl+F11
-	setxkbmap us
+super+ctrl+n
+    networkmanager_dmenu
 Print
 	deepin-screenshot
-Insert
-    xset -dpms s on
 alt+ctrl+shift+q
     xkill
 
