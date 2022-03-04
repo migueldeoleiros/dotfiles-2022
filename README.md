@@ -24,7 +24,8 @@ For my keyboard I'm using both sxhkd and kmonad, althow I'm planing on moving al
 * [Xmodmap](https://github.com/migueldeoleiros/dotfiles/blob/master/.Xmodmap) (I used this for hjkl as arrow keys, but I now archieve that with kmonad)
         
 ## Terminal emulator
-Kitty is my terminal emulator at the moment, but I also have a copy of alacritty with a similar set up
+I'm mainly using my build of **st** with some patches, but I also have a bloated kitty and alacritty config that looks pretty similar
+* [st](https://github.com/migueldeoleiros/st) (my build of st) 
 * [kitty](https://github.com/migueldeoleiros/dotfiles/tree/master/.config/kitty) 
 * [alacritty](https://github.com/migueldeoleiros/dotfiles/tree/master/.config/alacritty)
         

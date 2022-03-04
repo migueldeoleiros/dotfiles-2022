@@ -10,7 +10,7 @@
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
 
-set $terminal kitty
+set $terminal st
 
 #displays
 set $firstMonitor eDP-1
@@ -280,7 +280,7 @@ exec_always --no-startup-id numlockx on
 # exec_always --no-startup-id nm-applet
 
 #set background
-exec_always feh --bg-scale ~/wallpapers/sky-minimalist-14.jpg
+exec_always feh --bg-scale ~/wallpapers/fuji-mono.jpg
 
 #set secondary display
 exec_always xrandr --output $secondMonitor --auto --right-of $firstMonitor

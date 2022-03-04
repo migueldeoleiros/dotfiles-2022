@@ -82,7 +82,7 @@
 (define-key *top-map* (kbd "s-w") "global-windowlist")
 (define-key *top-map* (kbd "s-W") "global-pull-windowlist")
 (define-key *top-map* (kbd "s-;") "colon")
-(define-key *top-map* (kbd "s-RET") "exec kitty")
+(define-key *top-map* (kbd "s-RET") "exec st")
 
 ;; groups
 
@@ -134,8 +134,10 @@
   (define-key m (kbd "XF86MonBrightnessUp")   bup))
 
 ;; run on terminnal
-(defcommand term (prg) (:string "run: ")
-  (run-shell-command (format nil "kitty -e ~A" prg)))
+(defcommand term (&optional prg) ()
+  (run-shell-command (if prg
+                         (format nil "st -e ~A" prg)
+                       "st")))
 
 ;;; General Root Level Bindings
 (define-key *root-map* (kbd "b") "pull-from-windowlist")

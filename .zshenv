@@ -22,14 +22,14 @@ export LESSHISTFILE=-
 export EDITOR="nvim"
 export READER="zathura"
 export VISUAL="nvim"
-export TERMINAL="kitty"
+export TERMINAL="st"
 export BROWSER="qutebrowser"
 #export BROWSER="librewolf"
 export VIDEO="mpv"
 export IMAGE="feh"
 export OPENER="xdg-open"
 export PAGER="less"
-export WM="i3-gaps"
+export WM="stumpwm"
  
 #ytfzf
 YTFZF_CONFIG_FILE=$YTFZF_CONFIG_DIR/conf.sh
