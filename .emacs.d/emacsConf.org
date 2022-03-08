@@ -133,27 +133,36 @@
 
 ** Theme
 #+begin_src emacs-lisp
-      ;;; THEME
+;;; THEME
   (use-package doom-themes
     :init
     (load-theme 'doom-ir-black t)
     (set-background-color "black"))
 
-  (defun set-black-background()
-    "Disable theme's background color."
-    (set-face-background 'default "#000000" (selected-frame)))
+   ;;  (defun set-black-background()
+   ;;    "Make theme's background color black."
+   ;;    (set-face-background 'default "#000000" (selected-frame)))
 
-  (if (daemonp)
-    (add-hook 'after-make-frame-functions
-              (lambda (frame)
-                ;; (setq doom-modeline-icon t)
-                (with-selected-frame frame
-                  (set-black-background))))
-    (set-black-background))
+   ;;  (if (daemonp)
+   ;;    (add-hook 'after-make-frame-functions
+   ;;              (lambda (frame)
+   ;;                ;; (setq doom-modeline-icon t)
+   ;;                (with-selected-frame frame
+   ;;                  (set-black-background))))
+   ;;    (set-black-background))
 
-  ;; (set-face-attribute 'mode-line nil
-  ;;                       :box '(:width 0))
+  (defun on-frame-open (&optional frame)
+    "If the FRAME created in terminal don't load background color."
+    (unless (display-graphic-p frame)
+      (set-face-background 'default "unspecified-bg" frame)))
 
+  (add-hook 'after-make-frame-functions 'on-frame-open)
+
+  (defun on-after-init ()
+    (unless (display-graphic-p (selected-frame))
+      (set-face-background 'default "unspecified-bg" (selected-frame))))
+
+  (add-hook 'window-setup-hook 'on-after-init)
 #+end_src
 
 ** Font
@@ -167,6 +176,12 @@
   (set-face-attribute 'fixed-pitch nil :font "SauceCodePro Nerd Font" :height efs/default-font-size)
   ;; Set the variable pitch face
   (set-face-attribute 'variable-pitch nil :font "DejaVu Sans" :height efs/default-variable-font-size :weight 'regular)
+#+end_src
+
+** Add support for 256colors on ST
+#+begin_src emacs-lisp
+(add-to-list 'term-file-aliases
+    '("st-256color" . "xterm-256color"))
 #+end_src
 
 * Org-mode
@@ -419,6 +434,16 @@
     (pyvenv-mode 1))
 #+end_src
 
+** Erlang
+#+begin_src emacs-lisp
+  (setq load-path (cons "/lib/erlang/lib/tools-3.5.2/emacs"
+  load-path))
+  (setq erlang-root-dir "/lib/erlang")
+  (setq exec-path (cons "/lib/erlang/bin" exec-path))
+  (require 'erlang-start)
+  (require 'erlang-flymake)
+#+end_src
+
 * Dired
 ** Basic setup
 #+begin_src emacs-lisp
@@ -465,6 +490,10 @@
     (setq dired-open-extensions '(("mp4" . "mpv")
                                   ("mkv" . "mpv")
                                   ("xlsx" . "libreoffice")
+                                  ("docx" . "libreoffice")
+                                  ("doc" . "libreoffice")
+                                  ("odt" . "libreoffice")
+                                  ("ods" . "libreoffice")
                                   ("pdf" . "zathura"))))
 
 #+end_src
