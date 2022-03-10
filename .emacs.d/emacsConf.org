@@ -80,7 +80,7 @@
       "C-j" '((lambda() (interactive)(set-input-method "japanese")) :which-key "change input method to japanese")
       "b" '(switch-to-buffer :which-key "buffer menu")
       "t" '(vterm :which-key "teminal")
-      "a" '(org-agenda :which-key "org agenda")
+      "a" '((lambda() (interactive)(org-agenda nil "n")) :which-key "org week agenda with todos")
       "c" '(cfw:open-org-calendar :which-key "calendar")
       "d" '(dired :which-key "dired")
       "f" '(find-file :which-key "find file")
