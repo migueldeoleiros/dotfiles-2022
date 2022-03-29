@@ -38,6 +38,11 @@ export ALTERNATE_EDITOR=""
 . ranger > /dev/null 2>&1
 #pfetch | lolcat -h 0.8 
 
+#autostart tmux
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+  exec tmux
+fi
+
 # Basic auto/tab complete:
 autoload -U compinit
 zstyle ':completion:*' menu select
