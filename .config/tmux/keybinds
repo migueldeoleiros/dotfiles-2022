@@ -48,6 +48,14 @@
     # <Alt+/> list keys
     bind-key -n M-/    list-keys
 
+    # prefix+v copy mode
+    bind-key -T prefix v         copy-mode
+    bind-key -T copy-mode-vi C-g send-keys -X cancel
+    bind-key -T copy-mode-vi v   send-keys -X begin-selection
+    bind-key -T copy-mode-vi y   send-keys -X copy-selection
+    bind-key -T copy-mode-vi r   send-keys -X rectangle-toggle
+
+
 ### Session Hotkeys
 ###
     # <Alt+e> list sessions
@@ -80,7 +88,7 @@
 
     # <Alt+v> split window horizontally
     bind-key -n M-v    split-window -h
-    bind-key -T prefix v         split-window -h
+    #bind-key -T prefix v         split-window -h
 
     # <Alt+w> select window
     bind-key -n M-"'"  command-prompt -p index "select-window -t ':%%'"
