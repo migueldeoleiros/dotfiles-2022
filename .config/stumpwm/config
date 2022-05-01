@@ -28,6 +28,8 @@
 ;;; Basic Settings
 (setf *mode-line-background-color* (car *colors*)
       *mode-line-foreground-color* (car (last *colors*))
+      *mode-line-border-width* 3 
+      *mode-line-border-color* (car *colors*)
       *mode-line-timeout* 1)
 
 (set-msg-border-width 1)
@@ -53,7 +55,7 @@
 
 (run-shell-command "xset -dpms s off")
 (run-shell-command "blueberry-tray")
-(run-shell-command "feh --bg-scale ~/wallpapers/fuji-mono.jpg")
+(run-shell-command "feh --bg-scale ~/wallpapers/cherry_wallpaper_desaturated.jpg")
 (run-shell-command "picom --experimental-backend -bc")
 (run-shell-command "xsetroot -cursor_name left_ptr")
 (run-shell-command "kmonad ~/.config/kmonad/config.kbd")
