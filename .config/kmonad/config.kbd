@@ -31,8 +31,8 @@
     cesc (tap-next-release esc lctl)
     alt (tap-next-release alt (layer-toggle vi))
     caps (multi-tap 200 ` caps)
-    lang (layer-toggle spanish)
-    ;;tab (tap-next-release tab (layer-toggle spanish))
+    lang (sticky-key 500 (layer-toggle accents))
+    slan (sticky-key 500 (layer-toggle m-accents))
 )
 
 ;; VI-like-mode-aliases 
@@ -61,17 +61,25 @@
 (deflayer standard
   @caps 1    2    3    4    5    6    7    8    9    0    -    =    bspc
   tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
-  @cesc a    s    d    f    g    h    j    k    l    ;    '    ret
+  @cesc a    s    d    f    g    h    j    k    l    ;  @lang   ret
   lsft   z    x    c    v    b    n    m    ,    .    /    rsft
-  @lang -  met lalt           spc       @alt  rctl
+  lctl -  met lalt           spc       @alt  rctl
 )
 
-(deflayer spanish
+(deflayer accents
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
   tab  q    w    é    r    t    y    ú    í    ó    p    [    ]    \
   @cesc á    ã    d    f    g    h    j    k    l    ;    '    ret
-  lsft   z    x    ç    v    b    ñ    m    ,    .    ¿    rsft
+  @slan  z    x    ç    v    b    ñ    m    ,    .    ¿    rsft
   lctl -  met lalt           spc       ralt  rctl
+)
+
+(deflayer m-accents
+  grv  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    Q    W    É    R    T    Y    Ú    Í    Ó    P    _    _    _
+  @cesc Á    Ã    D    F    G    H    J    K    L    _   "    _
+  @slan  Z    X    Ç    V    B    Ñ    M    _    _    ¿   _
+  _    _    _    _              _              _    _    
 )
 
 (deflayer vi
