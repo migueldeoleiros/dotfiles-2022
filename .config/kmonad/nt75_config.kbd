@@ -31,7 +31,6 @@
 (defalias 
     cesc (tap-next-release esc lctl)
     alt (tap-next-release alt (layer-toggle vi))
-    caps (multi-tap 200 ` caps)
     lang (sticky-key 1000 (layer-toggle accents))
     slan (sticky-key 1000 (layer-toggle m-accents))
 )

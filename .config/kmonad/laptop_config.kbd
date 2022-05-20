@@ -31,8 +31,8 @@
     cesc (tap-next-release esc lctl)
     alt (tap-next-release alt (layer-toggle vi))
     caps (multi-tap 200 ` caps)
-    lang (sticky-key 500 (layer-toggle accents))
-    slan (sticky-key 500 (layer-toggle m-accents))
+    lang (sticky-key 1000 (layer-toggle accents))
+    slan (sticky-key 1000 (layer-toggle m-accents))
 )
 
 ;; VI-like-mode-aliases 
@@ -83,17 +83,17 @@
 )
 
 (deflayer vi
-	_    1    2    3    4    5    6    7    8    9    0    _    _    _
-	_    _    @w   end  _    _    @ynk _    _    _    @pst _    _    _
-	_    home _    @cut _    _    lft  down up   rght _    _    _  
-	_    _    _    _    @v   @b   _    _    _    _    _    _   
-	_    _    _    _              _              _    _    
+  _    1    2    3    4    5    6    7    8    9    0    _    _    _
+  _    _    @w   end  _    _    @ynk _    _    _    @pst _    _    _
+  _    home _    @cut _    _    lft  down up   rght _    _    _  
+  _    _    _    _    @v   @b   _    _    _    _    _    _   
+  _    _    _    _              _              _    _    
 )
 
 (deflayer sel
-	_    1    2    3    4    5    6    7    8    9    0    _    _    _
-	_    _    @vw  @ven _    _    _    _    _    _    _    _    _    _
-	@ves @vho _    _    _    _    @vlf @vdo @vup  @vrg _    _    _  
-	_    _    _    _    @ves @vb   _    _    _    _    _    _   
-	_    _    _    _              _               _    _    
+  _    1    2    3    4    5    6    7    8    9    0    _    _    _
+  _    _    @vw  @ven _    _    _    _    _    _    _    _    _    _
+  @ves @vho _    _    _    _    @vlf @vdo @vup  @vrg _    _    _  
+  _    _    _    _    @ves @vb   _    _    _    _    _    _   
+  _    _    _    _              _               _    _    
 )
