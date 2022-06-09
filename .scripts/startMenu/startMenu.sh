@@ -11,16 +11,18 @@ if [[ "$(tty)" == "/dev/tty1" || "$(tty)" == "/dev/tty2" || "$(tty)" == "/dev/tt
 
     selection=$(cat /home/miguel/.scripts/startMenu/menuList| smenu -c -W $'\n' -N )
 
-    if [[ "$(echo $selection)" == "Start xserver for i3" ]]; then
+    if [[ "$(echo $selection)" == "Start i3" ]]; then
         startx i3
+    elif [[ "$(echo $selection)" == "Start stumpwm" ]]; then
+        startx stumpwm
+    elif [[ "$(echo $selection)" == "Start dwm" ]]; then
+        startx dwm
     elif [[ "$(echo $selection)" == "Start xserver with NVidia drivers and i3" ]]; then
         nvidia-xrun i3
-    elif [[ "$(echo $selection)" == "Start Sway" ]]; then
-        sway
-    elif [[ "$(echo $selection)" == "Start xserver for awesome" ]]; then
-        startx awesome
-    elif [[ "$(echo $selection)" == "Continue on the TTY" ]]; then
+    elif [[ "$(echo $selection)" == "Continue on the TTY with tmux" ]]; then
         tmux -2 new-session "neofetch ; zsh"
+    elif [[ "$(echo $selection)" == "Continue on the TTY" ]]; then
+        neofetch
     fi
 
 fi

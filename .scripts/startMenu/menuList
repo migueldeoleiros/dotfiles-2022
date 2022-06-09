@@ -1,5 +1,6 @@
-Start xserver for i3
+Start dwm
+Start i3
+Start stumpwm
 Start xserver with NVidia drivers and i3
-Start xserver for awesome
-Start Sway
-Continue on the TTY
+Continue on the TTY with tmux
+Continue on the TTY 
