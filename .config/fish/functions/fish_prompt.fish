@@ -1,1 +1,0 @@
-/home/miguel/.local/share/omf/themes/toaster/fish_prompt.fish

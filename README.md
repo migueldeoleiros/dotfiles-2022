@@ -14,8 +14,6 @@ on my machine, only the ones that I personaly modified.
 (aliases are separeted on [.alias](https://github.com/migueldeoleiros/dotfiles/blob/master/.alias))
 * [zsh shell](https://github.com/migueldeoleiros/dotfiles/blob/master/.zshrc) (My shell of choice )
 * [bash shell](https://github.com/migueldeoleiros/dotfiles/blob/master/.bashrc)
-* [fish shell](https://github.com/migueldeoleiros/dotfiles/tree/master/.config/fish)
-* [Oh My Fish!](https://github.com/migueldeoleiros/dotfiles/tree/master/.config/omf)
         
 ## Keyboard setup
 For my keyboard I'm using both sxhkd and kmonad, althow I'm planing on moving all to kmonad
@@ -24,7 +22,7 @@ For my keyboard I'm using both sxhkd and kmonad, althow I'm planing on moving al
 * [Xmodmap](https://github.com/migueldeoleiros/dotfiles/blob/master/.Xmodmap) (I used this for hjkl as arrow keys, but I now archieve that with kmonad)
         
 ## Terminal emulator
-I'm mainly using my build of **st** with some patches, but I also have a bloated kitty and alacritty config that looks pretty similar
+I'm mainly using my build of **st** with some patches, but I also have a kitty and alacritty config that look pretty similar
 * [st](https://github.com/migueldeoleiros/st) (my build of st) 
 * [kitty](https://github.com/migueldeoleiros/dotfiles/tree/master/.config/kitty) 
 * [alacritty](https://github.com/migueldeoleiros/dotfiles/tree/master/.config/alacritty)
@@ -39,12 +37,15 @@ I'm currently using emacs because of the better IDE features like code completio
 * [neovim](https://github.com/migueldeoleiros/dotfiles/blob/master/.config/nvim) 
 * [emacs](https://github.com/migueldeoleiros/dotfiles/tree/master/.emacs.d) (check out [System Crafter](https://systemcrafters.net/))
         
-## Other apps
-* [tmux](https://github.com/migueldeoleiros/dotfiles/blob/master/.config/tmux) (terminal multiplexer configured with vim-like bindings for my sanity )
-* [i3 window manager](https://github.com/migueldeoleiros/dotfiles/tree/master/.config/i3) (My window manager of choice)
+## Window Manager 
+I'm currently using my build of **dwm**
+* [dwm](https://github.com/migueldeoleiros/dwm) (My build of dwm)
+* [i3 window manager](https://github.com/migueldeoleiros/dotfiles/tree/master/.config/i3) (Simple user frieldly manual window manager)
 * [stumpwm](https://github.com/migueldeoleiros/dotfiles/tree/master/.config/stumpwm) Window manager written and configured in Common Lisp (config based on [Gavin's work](https://www.youtube.com/watch?v=TdQdBQu3fFM&t=816s))
+        
+## Other apps
+* [tmux](https://github.com/migueldeoleiros/dotfiles/blob/master/.config/tmux) (terminal multiplexer configured with vim-like bindings for my sanity)
 * [ranger file-manager](https://github.com/migueldeoleiros/dotfiles/tree/master/.config/ranger) (Best terminal file manager out there)
-* [rofi](https://github.com/migueldeoleiros/dotfiles/tree/master/.config/rofi) (I use for both my scipts and as an app launcher)
+* [rofi](https://github.com/migueldeoleiros/dotfiles/tree/master/.config/rofi) (I use for both my scripts and as an app launcher)
 * [dunst](https://github.com/migueldeoleiros/dotfiles/tree/master/.config/dunst) (Notification daemon without bloat)
 * [picom](https://github.com/migueldeoleiros/dotfiles/tree/master/.config/picom.conf) (Currently using [jonaburg's](https://github.com/jonaburg/picom) fork of picom for round corners, animations and blur)
-* [polybar](https://github.com/migueldeoleiros/dotfiles/tree/master/.config/polybar) (This is supposed to be used with emacs as a window manager (not my current set up))
