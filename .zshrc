@@ -24,8 +24,8 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 # History
 setopt append_history inc_append_history share_history histignorealldups
-HISTSIZE=500
-SAVEHIST=500
+HISTSIZE=1000
+SAVEHIST=1000
 HISTFILE=~/.zsh_history
 # Enable searching through history
 bindkey '^R' history-incremental-pattern-search-backward
@@ -39,9 +39,9 @@ export ALTERNATE_EDITOR=""
 #pfetch | lolcat -h 0.8 
 
 #autostart tmux
-if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-  exec tmux
-fi
+# if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+#   exec tmux
+# fi
 
 # Basic auto/tab complete:
 autoload -U compinit
@@ -94,43 +94,6 @@ source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-SPACESHIP_PROMPT_ADD_NEWLINE=false
-SPACESHIP_PROMPT_SEPARATE_LINE=false
-SPACESHIP_CHAR_SYMBOL=">"
-SPACESHIP_CHAR_SUFFIX=" "
-#SPACESHIP_HG_SHOW=false
-#SPACESHIP_PACKAGE_SHOW=false
-#SPACESHIP_NODE_SHOW=false
-#SPACESHIP_RUBY_SHOW=false
-#SPACESHIP_ELM_SHOW=false
-#SPACESHIP_ELIXIR_SHOW=false
-#SPACESHIP_XCODE_SHOW_LOCAL=false
-#SPACESHIP_SWIFT_SHOW_LOCAL=false
-#SPACESHIP_GOLANG_SHOW=false
-#SPACESHIP_PHP_SHOW=false
-#SPACESHIP_RUST_SHOW=false
-#SPACESHIP_JULIA_SHOW=false
-#SPACESHIP_DOCKER_SHOW=false
-#SPACESHIP_DOCKER_CONTEXT_SHOW=false
-#SPACESHIP_AWS_SHOW=false
-#SPACESHIP_CONDA_SHOW=false
-#SPACESHIP_VENV_SHOW=false
-##SPACESHIP_PYENV_SHOW=false
-#SPACESHIP_DOTNET_SHOW=false
-#SPACESHIP_EMBER_SHOW=false
-#SPACESHIP_KUBECONTEXT_SHOW=false
-#SPACESHIP_TERRAFORM_SHOW=false
-#SPACESHIP_TERRAFORM_SHOW=false
-SPACESHIP_VI_MODE_SHOW=false
-SPACESHIP_BATTERY_SHOW=false
-#SPACESHIP_JOBS_SHOW=false
+# Starship Prompt
+eval "$(starship init zsh)"
 
-# Spaceship Prompt
-autoload -U promptinit; promptinit
-prompt spaceship
-
-
-eval $(thefuck --alias)
-
-# opam configuration
-[[ ! -r /home/miguel/.opam/opam-init/init.zsh ]] || source /home/miguel/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
