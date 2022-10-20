@@ -13,7 +13,7 @@ alias cp='cp -i'
 alias df='df -h'
 alias ..='cd ..'
 alias ...='cd ../..'
-alias vim='nvim'
+# alias vim='nvim'
 alias diff='diff --color'
 alias e='emacsclient --tty'
 
@@ -50,6 +50,7 @@ alias doom='/home/miguel/.emacs.d/bin/doom'
 
 #git aliases
 alias gitc='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
+alias gitlog='git log --decorate --color=always --pretty=tformat:"%C(auto)%h %ce %s %d" --graph'
 
 #void linux
 alias xin='xbps-install'
@@ -79,3 +80,5 @@ alias yt='ytfzf'
 #check the weather in Coruna
 alias weather='curl wttr.in/Coruna'
 
+#java-labs
+alias jlabs='java -cp out/production/java-labs'
