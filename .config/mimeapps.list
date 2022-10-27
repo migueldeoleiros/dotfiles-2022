@@ -9,11 +9,21 @@ image/png=sxiv.desktop;feh.desktop;gimp.desktop;
 text/plain=nvim.desktop
 x-scheme-handler/etcher=balena-etcher-electron.desktop
 x-scheme-handler/tg=userapp-Telegram Desktop-UOVTW0.desktop
-x-scheme-handler/mailspring=Mailspring.desktop
-x-scheme-handler/http=org.qutebrowser.qutebrowser.desktop;librewolf.desktop;
-x-scheme-handler/https=org.qutebrowser.qutebrowser.desktop;librewolf.desktop;
-x-scheme-handler/ftp=librewolf.desktop;
+x-scheme-handler/http=org.qutebrowser.qutebrowser.desktop;firefox.desktop;
+x-scheme-handler/https=org.qutebrowser.qutebrowser.desktop;firefox.desktop;
+x-scheme-handler/ftp=firefox.desktop;
 x-scheme-handler/ferdi=ferdi.desktop
+x-scheme-handler/lbry=lbry.desktop
+x-scheme-handler/eclipse+command=_usr_lib_dbeaver_.desktop
+x-scheme-handler/mailto=userapp-Thunderbird-E9MOO1.desktop
+message/rfc822=userapp-Thunderbird-E9MOO1.desktop
+x-scheme-handler/mid=userapp-Thunderbird-E9MOO1.desktop
+x-scheme-handler/eclipse+mpc=_app_eclipse_.desktop
 
 [Added Associations]
 x-scheme-handler/tg=userapp-Telegram Desktop-UOVTW0.desktop;
+video/x-msvideo=vlc.desktop;
+x-scheme-handler/mailto=userapp-Thunderbird-NMURJ1.desktop;userapp-Thunderbird-E9MOO1.desktop;
+x-scheme-handler/mid=userapp-Thunderbird-NMURJ1.desktop;userapp-Thunderbird-E9MOO1.desktop;
+text/plain=emacs.desktop;
+application/x-yaml=emacs.desktop;
