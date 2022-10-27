@@ -6,7 +6,7 @@ bash ~/.scripts/speed.sh
 bash ~/.scripts/nvidiarun.sh
 
 #wallpaper
-feh --no-fehbg --bg-scale ~/wallpapers/cherry_wallpaper_desaturated.jpg
+feh --no-fehbg --bg-scale ~/wallpapers/wave.jpg
 
 #compositor
 picom --experimental-backend -bc
@@ -17,9 +17,9 @@ xset -dpms s off
 
 #keyboard
 xsetroot -cursor_name left_ptr
-kmonad ~/.config/kmonad/laptop_config.kbd
-kmonad ~/.config/kmonad/nt75_config.kbd
-sxhkd
+kmonad ~/.config/kmonad/laptop_config.kbd &
+kmonad ~/.config/kmonad/nt75_config.kbd &
+sxhkd &
 
 #dwm bar
 bash ~/.scripts/dwmBar.sh &
