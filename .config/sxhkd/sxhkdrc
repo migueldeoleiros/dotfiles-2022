@@ -34,6 +34,18 @@ Print
 alt+ctrl+shift+q
     xkill
 
+XF86MonBrightnessUp
+    ~/.scripts/brighten --up 500
+XF86MonBrightnessDown
+    ~/.scripts/brighten --down 500
+
+XF86AudioLowerVolume
+    exec amixer sset Master '5%-'
+XF86AudioRaiseVolume
+    exec amixer sset Master '5%+'
+XF86AudioMute
+    exec amixer set Master toggle
+
 super+ctrl+h
     xdotool mousemove_relative -- -10 0 
 super+ctrl+j
