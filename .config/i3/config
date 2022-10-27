@@ -280,7 +280,7 @@ exec_always --no-startup-id numlockx on
 # exec_always --no-startup-id nm-applet
 
 #set background
-exec_always feh --bg-scale ~/wallpapers/fuji-mono.jpg
+exec_always feh --no-fehbg --bg-scale ~/wallpapers/fuji-mono.jpg
 
 #set secondary display
 exec_always xrandr --output $secondMonitor --auto --right-of $firstMonitor

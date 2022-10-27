@@ -28,22 +28,25 @@
 ;;; Basic Settings
 (setf *mode-line-background-color* (car *colors*)
       *mode-line-foreground-color* (car (last *colors*))
-      *mode-line-border-width* 3 
+      *mode-line-border-width* 2 
       *mode-line-border-color* (car *colors*)
       *mode-line-timeout* 1)
 
-(set-msg-border-width 1)
+(set-msg-border-width 2)
 
 (setf *message-window-gravity* :center
       *input-window-gravity* :center
-      *window-border-style* :none
+      *window-border-style* :thin
       *message-window-padding* 6
       *message-window-y-padding* 6
-      *maxsize-border-width* 1 
-      *normal-border-width* 1
-      *transient-border-width* 1
+      *maxsize-border-width* 2 
+      *normal-border-width* 2
+      *transient-border-width* 2
       stumpwm::*float-window-border* 4
       stumpwm::*float-window-title-height* 4)
+
+(set-focus-color (car *colors*))
+(set-unfocus-color (car *colors*))
 
 ;; Focus Follow Mouse
 (setf *mouse-focus-policy* :click)
@@ -55,7 +58,7 @@
 
 (run-shell-command "xset -dpms s off")
 (run-shell-command "blueberry-tray")
-(run-shell-command "feh --bg-scale ~/wallpapers/cherry_wallpaper_desaturated.jpg")
+(run-shell-command "feh --no-fehbg --bg-scale ~/wallpapers/cherry_wallpaper_desaturated.jpg")
 (run-shell-command "picom --experimental-backend -bc")
 (run-shell-command "xrandr --output HDMI-2 --mode 1920x1080 --right-of eDP-1")
 (run-shell-command "xsetroot -cursor_name left_ptr")
@@ -252,6 +255,18 @@ do (dyn-blacklist-command i))
                          :subfamily "Regular"
                          :size 10
                          :antialias t))
+;;; Gaps
+;;(load-module "swm-gaps")
+;; Head gaps run along the 4 borders of the monitor(s)
+;; Inner gaps run along all the 4 borders of a window
+;; Outer gaps add more padding to the outermost borders of a window (touching
+;; the screen border)
+;; (setf swm-gaps:*inner-gaps-size* 10
+;;       swm-gaps:*outer-gaps-size* 5
+;;       swm-gaps:*head-gaps-size* 5)
+;; (when *initializing*
+;;   (swm-gaps:toggle-gaps))
+;; (define-key *groups-map* (kbd "g") "toggle-gaps")
 
 ;;; Undo And Redo Functionality
 (load-module "winner-mode")
