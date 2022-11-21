@@ -57,6 +57,7 @@
     :init (add-hook 'text-mode-hook #'guess-language-mode)
     :config
     (setq guess-language-langcodes '((en . ("en_US" "English"))
+                                     (pt . ("pt_PT" "Portuguese"))
                                      (es . ("es_ES" "Spanish")))
           guess-language-languages '(en es)
           guess-language-min-paragraph-length 45)
@@ -77,6 +78,7 @@
     (efs/leader-keys
       "n" '((lambda() (interactive)(find-file "~/notes/tasks.org")) :which-key "org file with tasks")
       "C-s" '((lambda() (interactive)(set-input-method "spanish-prefix")) :which-key "change input method to spanish")
+      "C-p" '((lambda() (interactive)(set-input-method "portuguese-prefix")) :which-key "change input method to portuguese")
       "C-j" '((lambda() (interactive)(set-input-method "japanese")) :which-key "change input method to japanese")
       "t" '(vterm :which-key "teminal")
       "a" '((lambda() (interactive)(org-agenda nil "n")) :which-key "org week agenda with todos")
@@ -437,12 +439,12 @@
 
 ** Erlang
 #+begin_src emacs-lisp
-  (setq load-path (cons "/lib/erlang/lib/tools-3.5.2/emacs"
-  load-path))
-  (setq erlang-root-dir "/lib/erlang")
-  (setq exec-path (cons "/lib/erlang/bin" exec-path))
-  (require 'erlang-start)
-  (require 'erlang-flymake)
+  ;;(setq load-path (cons "/lib/erlang/lib/tools-3.5.2/emacs"
+  ;;load-path))
+  ;;(setq erlang-root-dir "/lib/erlang")
+  ;;(setq exec-path (cons "/lib/erlang/bin" exec-path))
+  ;;(require 'erlang-start)
+  ;;(require 'erlang-flymake)
 #+end_src
 
 * Dired
