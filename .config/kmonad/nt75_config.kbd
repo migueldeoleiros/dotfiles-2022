@@ -33,6 +33,8 @@
     alt (tap-next-release alt (layer-toggle vi))
     lang (sticky-key 1000 (layer-toggle accents))
     slan (sticky-key 1000 (layer-toggle m-accents))
+    lan2 (sticky-key 1000 (layer-toggle accents2))
+    slan2 (sticky-key 1000 (layer-toggle m-accents2))
 )
 
 ;; VI-like-mode-aliases 
@@ -60,7 +62,7 @@
 
 (deflayer standard
   caps
-  grv  1    2    3    4    5    6    7    8    9    0    -    =   bspc
+  @lan2 1    2    3    4    5    6    7    8    9    0    -    =   bspc
   tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
   @cesc a    s    d    f    g    h    j    k    l    ;  @lang   ret
   lsft   z    x    c    v    b    n    m    ,    .    /    rsft
@@ -71,18 +73,36 @@
   caps
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
   tab  q    w    é    r    t    y    ú    í    ó    p    [    ]    \
-  @cesc á    ã    d    f    g    h    j    k    l    ;    '    ret
+  @cesc á    s    d    f    g    h    j    k    l    ;    '    ret
   @slan  z    x    ç    v    b    ñ    m    ,    .    ¿    rsft
-  lctl lalt met             spc              ralt  _  rctl
+  lctl -  met lalt           spc       ralt  rctl
 )
 
 (deflayer m-accents
   -
   grv  _    _    _    _    _    _    _    _    _    _    _    _    _
   _    Q    W    É    R    T    Y    Ú    Í    Ó    P    _    _    _
-  @cesc Á    Ã    D    F    G    H    J    K    L    _   "    _
+  @cesc Á    S    D    F    G    H    J    K    L    _   "    _
   @slan  Z    X    Ç    V    B    Ñ    M    _    _    ¿   _
-  _    _    _                 _                 _   _   _    
+  _    _    _    _              _              _    _    
+)
+
+(deflayer accents2
+  caps
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    é    r    t    y    ü    í    õ    p    [    ]    \
+  @cesc ã    s    d    f    g    h    j    k    l    ;    '    ret
+  @slan2  z    x    ç    v    b    ñ    m    ,    .    ¿    rsft
+  lctl -  met lalt           spc       ralt  rctl
+)
+
+(deflayer m-accents2
+  -
+  grv  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    Q    W    É    R    T    Y    Ü    Í    Õ    P    _    _    _
+  @cesc Ã    S    D    F    G    H    J    K    L    _   "    _
+  @slan2  Z    X    Ç    V    B    Ñ    M    _    _    ¿   _
+  _    _    _    _              _              _    _    
 )
 
 (deflayer vi
