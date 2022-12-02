@@ -9,7 +9,7 @@ bash ~/.scripts/nvidiarun.sh
 feh --no-fehbg --bg-scale ~/wallpapers/wave.jpg
 
 #compositor
-picom --experimental-backend -bc
+picom -bc
 
 #screen
 xrandr --output HDMI-2 --mode 1920x1080 --right-of eDP-1
